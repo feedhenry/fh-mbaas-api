@@ -1,0 +1,23 @@
+{
+  "name": "fh-api",
+  "version": "0.1.0",
+  "description": "FeedHenry Cloud APIs",
+  "main": "lib/apis.js",
+  "dependencies" : {
+    "async": "0.2.1",
+    "redis": "0.8.2",
+    "request": "2.12.0",
+    "fh-statsc": "*",
+    "fh-security": "*",
+    "winston" : "0.6.2",
+    "moment" : "2.0.0"
+  },
+  "devDependencies" : {
+    "consolelogger" : ""
+  },
+  "scripts": {
+    "test": "node test/tests.js"
+  },
+  "author": "",
+  "license": "BSD"
+}
