@@ -14,10 +14,11 @@
     "fh-webapp" : "*"
   },
   "devDependencies" : {
-    "express" : "3.3.4"
+    "express" : "3.3.4",
+    "fh-db" : "*"
   },
   "scripts": {
-    "test": "node test/tests.js"
+    "test": "hello=$(ls -1 test/test_*); bahaha=$(echo $hello | tr -d '\n'); whiskey --tests \"$bahaha\""
   },
   "author": "",
   "license": "BSD"
