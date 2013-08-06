@@ -1,4 +1,4 @@
-var webapp = require('../../node_modules/fh-webapp/lib/webapp.js');
+var webapp = require('fh-webapp');
 var express = require('express');
 var mainjs = require('./main.js');
 //$fh = require('fh-api'); // TODO: Write fh-api

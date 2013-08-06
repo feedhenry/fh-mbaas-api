@@ -15,10 +15,11 @@
   },
   "devDependencies" : {
     "express" : "3.3.4",
-    "fh-db" : "*"
+    "fh-db" : "*",
+    "proxyquire" : "0.4.1"
   },
   "scripts": {
-    "test": "hello=$(ls -1 test/test_*); bahaha=$(echo $hello | tr -d '\n'); whiskey --tests \"$bahaha\""
+    "test": "hello=$(ls -1 test/test_*); bahaha=$(echo $hello | tr -d '\n'); whiskey --tests \"$bahaha\" --global-setup-teardown \"test/setup.js\""
   },
   "author": "",
   "license": "BSD"

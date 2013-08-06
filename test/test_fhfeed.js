@@ -4,22 +4,11 @@ var util = require('util');
 var assert = require('assert');
 var request = require('request');
 
-var webapp = require('../node_modules/fh-webapp/lib/webapp.js');
-var express = require('express');
-var mainjs = require('./fixtures/main.js');
-//$fh = require('fh-api'); // TODO: Write fh-api
-
-var app = express();
-//app.use(express.bodyParser()); // this causes issues. Why?
-app.use('/sys', webapp.sys(mainjs));
-app.use('/mbass', webapp.mbaas);
-app.use('/cloud', webapp.cloud(mainjs));
-
 
 module.exports = {
   // BIG TODO - very brittle - refactor with test millicore or dynamically get ids, cookie, etc
 //  'test fh.feed() ': function(test, assert) {
-//    request.post('http://localhost:3000/cloud/getFeed/',{
+//    request.post(process.env.FH_TEST_HOSTNAME + '/cloud/getFeed/',{
 //      headers : {
 //        'Content-Type' : 'application/json'
 //      }
@@ -30,7 +19,7 @@ module.exports = {
 //      assert.equal(out.list.length, 10);
 //      test.finish();
 //    });
-//  }
+//  },
 //  'test fh.feed() bad args': function() {
 //    var gotException = false;
 //    try {

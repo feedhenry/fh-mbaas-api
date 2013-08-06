@@ -3,7 +3,6 @@
 var util = require('util');
 var async = require('async');
 var request = require('request');
-var app = require('./fixtures/application.js');
 var fhs = require("../lib/apis.js");
 var logger = { warn : function(){ console.log(arguments); }};
 var fhserver = new fhs.FHServer({ 'fhnodeapp' : { appname : '' },  logger : logger }, logger);
@@ -12,8 +11,7 @@ module.exports = {
 
   'test caching in fh': function(test, assert) {
     var d1, d2;
-
-    request.post('http://localhost:3000/cloud/getTime/', {
+    request.post(process.env.FH_TEST_HOSTNAME + '/cloud/getTime/', {
       method : 'POST',
       json : {},
       headers : {
@@ -25,7 +23,7 @@ module.exports = {
       assert.ok(res.statusCode === 200);
       console.log("data: " + util.inspect(d1));
       assert.ok(d1!==null);
-      request.post('http://localhost:3000/cloud/getTime/', {
+      request.post(process.env.FH_TEST_HOSTNAME + '/cloud/getTime/', {
         json : {},
         headers : {
           'Content-Type' : 'application/json'
@@ -36,7 +34,7 @@ module.exports = {
         assert.ok(res.statusCode === 200);
         assert.ok(data !== null);
         assert.equal(d1, d2);
-        request.post('http://localhost:3000/cloud/clearTime/', {
+        request.post(process.env.FH_TEST_HOSTNAME + '/cloud/clearTime/', {
           json : {},
           headers : {
             'Content-Type' : 'application/json'
