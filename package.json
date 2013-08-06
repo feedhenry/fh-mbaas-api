@@ -10,10 +10,11 @@
     "fh-statsc": "*",
     "fh-security": "*",
     "winston" : "0.6.2",
-    "moment" : "2.0.0"
+    "moment" : "2.0.0",
+    "fh-webapp" : "*"
   },
   "devDependencies" : {
-    "consolelogger" : ""
+    "express" : "3.3.4"
   },
   "scripts": {
     "test": "node test/tests.js"
