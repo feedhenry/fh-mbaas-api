@@ -16,7 +16,8 @@
   "devDependencies" : {
     "express" : "3.3.4",
     "fh-db" : "*",
-    "proxyquire" : "0.4.1"
+    "proxyquire" : "0.4.1",
+    "nock" : "0.22.1"
   },
   "scripts": {
     "test": "hello=$(ls -1 test/test_*); bahaha=$(echo $hello | tr -d '\n'); whiskey --tests \"$bahaha\" --global-setup-teardown \"test/setup.js\""

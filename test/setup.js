@@ -3,11 +3,8 @@ exec = require('child_process').exec,
 application, redis, mongod;
 
 exports.globalSetUp = function(test, assert){
-  console.log('upping')
   require('./fixtures/env.js');
-  application = proxyquire('./fixtures/application.js', {
-    'fh-webapp': require('../node_modules/fh-webapp/lib/webapp.js')
-  });
+  application = require('./fixtures/application.js');
 
   // Start redis & mongo , wait 'till finished then run tests!
   redis = exec("redis-server", function(){});
