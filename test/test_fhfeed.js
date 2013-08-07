@@ -13,7 +13,6 @@ module.exports = {
         'Content-Type' : 'application/json'
       }
     }, function(err, res, body){
-      console.log(arguments);
       assert.ok(!err);
       var out = JSON.parse(body);
       assert.equal(out.list.length, 10);
