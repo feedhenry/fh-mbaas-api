@@ -1,10 +1,10 @@
-var logger = { warn : function(){ console.log(arguments); }};
-var fh = require('../../lib/apis.js').FHServer({ 'fhnodeapp' : { appname : '' },  logger : logger }, logger);
+var logger = { warn : function(){ console.log(arguments); }, warning : function(){}};
+var fh = require('../../lib/apis.js').FHServer({ 'fhnodeapp' : { appname : '', millicore : 'localhost' },  logger : logger }, logger);
 
 exports.getFeed = function(params, callback) {
   var opts = { 'link': 'http://www.feedhenry.com/feed', 'list-max': 10};
   fh.feed(opts, function(err, feed) {
-    return callback(err, feed.body);
+    return callback(err, feed && feed.body);
 
   });
 };
