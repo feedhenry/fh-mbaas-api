@@ -34,7 +34,6 @@ module.exports = {
    });
 
    }, function(err){
-   console.log('done' + i);
    assert.isUndefined(err, "Unexpected err: " + util.inspect(err));
      test.finish();
      //fhStats.close();

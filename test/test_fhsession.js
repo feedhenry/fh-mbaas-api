@@ -61,7 +61,6 @@ module.exports = {
     try {
       fhserver.session.get("mybadparam");
     } catch (e) {
-      console.log(e);
       assert.equal("InvalidCallbackException", e.type);
       test.finish();
     }

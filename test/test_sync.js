@@ -9,7 +9,7 @@ var syncParams = {
 };
 var logParams = {
   "fn": "setLogLevel",
-  "logLevel" : "silly"
+  "logLevel" : "error"
 };
 var dataset_id = "myShoppingList";
 
@@ -31,9 +31,8 @@ module.exports = {
       $fh.sync.handleCollision(dataset_id, dataHandler.doCollision);
       $fh.sync.listCollisions(dataset_id, dataHandler.listCollisions);
       $fh.sync.removeCollision(dataset_id, dataHandler.removeCollision);
+      test.finish();
     });
-
-    test.finish();
   },
   'test sync start & stop' : function(test, assert) {
 
@@ -47,14 +46,11 @@ module.exports = {
 
   // TODO - Re-enable once tearDown is implemented in fh-db local
   'test sync' : function(test, assert) {
-
     $fh.sync.invoke('myShoppingList', syncParams, function(err, res){
       assert.ok(!err);
       assert.ok(res);
-      console.log(res);
       assert.ok(res.records);
       test.finish();
-
     });
   },
   'tearDown' : function(test, assert){

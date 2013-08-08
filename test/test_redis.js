@@ -21,7 +21,6 @@ module.exports = {
       d1 = data;
       assert.ok(!err);
       assert.ok(res.statusCode === 200);
-      console.log("data: " + util.inspect(d1));
       assert.ok(d1!==null);
       request.post(process.env.FH_TEST_HOSTNAME + '/cloud/getTime/', {
         json : {},
