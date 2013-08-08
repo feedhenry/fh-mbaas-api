@@ -12,3 +12,4 @@ def-debug.log
 .DS_Store
 ._.DS_Store
 .idea/
+dump.rdb
