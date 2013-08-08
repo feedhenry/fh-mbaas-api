@@ -38,7 +38,7 @@ module.exports = {
       test.finish();
     });
   },
-  'test fh.act() bad args': function(test, assert) {
+  'test $fh.act bad args': function(test, assert) {
     var gotException = false;
     try {
       $fh.act({});
@@ -47,6 +47,20 @@ module.exports = {
     }
     assert.equal(gotException, true);
     test.finish();
+  },
+  'test $fh.call sys info ping' : function(test, assert){
+    $fh.call('sys/info/ping', {}, function(err, res){
+      assert.ok(!err);
+      assert.ok(res.status === 200);
+      assert.ok(JSON.parse(res.body).ok === true);
+      test.finish();
+    });
+  },
+  'test $fh.call bad arguments url' : function(test, assert){
+    $fh.call('fefe', {}, function(err, res){
+      assert.ok(err);
+      test.finish();
+    });
   },
   tearDown : function(test, assert){
     actMock.done();

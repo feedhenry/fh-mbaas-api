@@ -4,11 +4,7 @@ $fh = new fhs.FHServer(fhsConfig.cfg, fhsConfig.logger),
 async = require('async');
 
 exports.getFeed = function(params, callback) {
-  var opts = { 'link': 'http://www.feedhenry.com/feed', 'list-max': 10};
-  $fh.feed(opts, function(err, feed) {
-    return callback(err, feed && feed.body);
 
-  });
 };
 
 exports.getTime = function(params, callback) {
