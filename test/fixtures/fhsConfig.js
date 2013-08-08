@@ -2,7 +2,7 @@ exports.logger = { warn : function(){ console.log(arguments); }, warning : funct
 exports.cfg = {
   "fhnodeapp" :
     {
-      'millicore' : 'apps.feedhenry.com',
+      'millicore' : 'localhost',
       'instance'  : 'c0TPJtvFbztuS2p7NhZN3oZz',
       'widget'    : 'c0TPJzF6ztq0WjezxwPEC5W8',
       'appname' : '123'

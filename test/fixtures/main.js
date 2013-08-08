@@ -1,22 +1,23 @@
-var logger = { warn : function(){ console.log(arguments); }, warning : function(){}},
-fh = require('../../lib/apis.js').FHServer({ 'fhnodeapp' : { appname : '', millicore : 'localhost' },  logger : logger }, logger),
+var fhs = require("../../lib/apis.js"),
+fhsConfig = require('./../fixtures/fhsConfig'),
+$fh = new fhs.FHServer(fhsConfig.cfg, fhsConfig.logger),
 async = require('async');
 
 exports.getFeed = function(params, callback) {
   var opts = { 'link': 'http://www.feedhenry.com/feed', 'list-max': 10};
-  fh.feed(opts, function(err, feed) {
+  $fh.feed(opts, function(err, feed) {
     return callback(err, feed && feed.body);
 
   });
 };
 
 exports.getTime = function(params, callback) {
-  fh.cache({act:'load', key: 'time'}, function (err, cachedTime) {
+  $fh.cache({act:'load', key: 'time'}, function (err, cachedTime) {
     if (err) return callback(err, null);
     var currentTime = Date.now();
 
     if (cachedTime == null || (parseInt(cachedTime) + 10000) < currentTime) {
-      fh.cache({act: 'save', key: 'time', value: JSON.stringify(currentTime)}, function (err) {
+      $fh.cache({act: 'save', key: 'time', value: JSON.stringify(currentTime)}, function (err) {
         return callback(err, new Date(currentTime));
       });
     }else
@@ -25,7 +26,7 @@ exports.getTime = function(params, callback) {
 };
 
 exports.clearTime = function(params, callback) {
-  fh.cache({act:'remove', key: 'time'}, function (err, data) {
+  $fh.cache({act:'remove', key: 'time'}, function (err, data) {
     return callback(err, data);
   });
 };
@@ -41,21 +42,21 @@ exports.doFhStat = function(params, callback) {
     async.parallel([
       function(pcb){
         // random counter inc
-        fh.stats.inc(counters[rand], function(err){
+        $fh.stats.inc(counters[rand], function(err){
           pcb(err);
         });
       },
       function(pcb){
         // random counter dec
         rand = Math.floor(Math.random() * counters.length);
-        fh.stats.dec(counters[rand], function(err){
+        $fh.stats.dec(counters[rand], function(err){
           pcb(err);
         });
       },
       function(pcb){
         // random timing
         rand = Math.floor(Math.random() * 101);
-        fh.stats.timing("task1", rand, function(err){
+        $fh.stats.timing("task1", rand, function(err){
           pcb(err);
         });
       }

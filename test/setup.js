@@ -1,7 +1,7 @@
 var proxyquire =  require('proxyquire').noCallThru(),
 exec = require('child_process').exec,
 application, redis, mongod,
-feedMock, statsMock;
+feedMock;
 
 exports.globalSetUp = function(test, assert){
   feedMock = require('./fixtures/feed'); // needs to go here, as application.js is what requires fh-apis
@@ -10,7 +10,6 @@ exports.globalSetUp = function(test, assert){
 
   // Start redis & mongo , wait 'till finished then run tests!
   redis = exec("redis-server", function(){});
-  mongod = exec("mongod", function(){});
   test.finish();
 };
 
@@ -18,6 +17,5 @@ exports.globalTearDown = function(test, assert){
   feedMock.done();
   application.close();
   redis.kill();
-  mongod.kill();
   test.finish();
 };

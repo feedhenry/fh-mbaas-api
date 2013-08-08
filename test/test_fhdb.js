@@ -3,7 +3,7 @@
 var util = require('util'),
 fhs = require('../lib/apis.js'),
 fhsConfig = require('./fixtures/fhsConfig'),
-ditchMock = require('./fixtures/dbReplies')
+ditchMock = require('./fixtures/db')
 
 
 
