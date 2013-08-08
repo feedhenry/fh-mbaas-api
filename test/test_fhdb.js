@@ -2,18 +2,7 @@
 // Copyright (c) FeedHenry 2011
 var util = require('util'),
 fhs = require('../lib/apis.js'),
-cfg = {
-  'fhnodeapp' : {
-    'millicore' : 'apps.feedhenry.com',
-    'instance'  : 'c0TPJtvFbztuS2p7NhZN3oZz',
-    'widget'    : 'c0TPJzF6ztq0WjezxwPEC5W8',
-    'appname' : '123'
-  },
-  "fhditch": {
-    "host" : "localhost",
-    "port" : 8802
-  }
-},
+fhsConfig = require('./fixtures/fhsConfig'),
 ditchMock = require('./fixtures/dbReplies')
 
 
@@ -22,9 +11,7 @@ module.exports = {
   // TODO: following tests are quite brittle as they rely on the VNV ditch server being up..
   // However, its the only way to really test it..
   'test fh.db': function(test, assert) {
-    var logger = { warn : function(){ /* ignore log output! */ }, warning: function(){}};
-    cfg.logger = logger;
-    var fhserver = new fhs.FHServer(cfg, logger);
+    var fhserver = new fhs.FHServer(fhsConfig.cfg, fhsConfig.logger);
     fhserver.db({
       "act" : "create",
       "type" : "myFirstEntity",

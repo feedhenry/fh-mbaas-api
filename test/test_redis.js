@@ -3,9 +3,9 @@
 var util = require('util');
 var async = require('async');
 var request = require('request');
-var fhs = require("../lib/apis.js");
-var logger = { warn : function(){ console.log(arguments); }};
-var fhserver = new fhs.FHServer({ 'fhnodeapp' : { appname : '' },  logger : logger }, logger);
+var fhs = require("../lib/apis.js"),
+fhsConfig = require('./fixtures/fhsConfig'),
+fhserver = new fhs.FHServer(fhsConfig.cfg, fhsConfig.logger);
 
 module.exports = {
 

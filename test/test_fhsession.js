@@ -1,10 +1,10 @@
 //tests for fh.session
-var util = require('util');
-var fhs = require("../lib/apis.js");
-var logger = { warn : function(){ console.log(arguments); }};
-var fhserver = new fhs.FHServer({ 'fhnodeapp' : { appname : '' },  logger : logger }, logger);
-var async = require('async');
-var session = JSON.stringify({
+var util = require('util'),
+fhs = require("../lib/apis.js"),
+fhsConfig = require('./fixtures/fhsConfig'),
+fhserver = new fhs.FHServer(fhsConfig.cfg, fhsConfig.logger),
+async = require('async'),
+session = JSON.stringify({
   "sessionId":"mysession"
 });
 module.exports = {
