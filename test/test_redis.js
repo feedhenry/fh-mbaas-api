@@ -2,7 +2,6 @@
 
 var util = require('util');
 var async = require('async');
-var request = require('request');
 var $fh = require("../lib/apis.js");
 
 module.exports = {

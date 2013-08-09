@@ -1,6 +1,5 @@
 // Copyright (c) FeedHenry 2011
 var util = require('util'),
-request = require('request'),
 async = require("async"),
 $fh;
 
@@ -39,18 +38,5 @@ module.exports = {
    });
 
 
-   },
-
-  'test fh.stats() from script' : function(test, assert) {
-    request.post(process.env.FH_TEST_HOSTNAME + '/cloud/doFhStat/',{
-      json : {},
-      headers : {
-        'Content-Type' : 'application/json'
-      }
-    }, function(err, res, body){
-      assert.equal(200, res.statusCode, "Unexpected response from doFhStat: " + util.inspect(res.body));
-      assert.ok(body.result === 'ok');
-      test.finish();
-    });
-  }
+   }
 };
