@@ -7,8 +7,6 @@ $fh;
 
 
 module.exports = {
-  // TODO: following tests are quite brittle as they rely on the VNV ditch server being up..
-  // However, its the only way to really test it..
   'test fh.db': function(test, assert) {
     $fh = require("../lib/apis.js");
     $fh.db({

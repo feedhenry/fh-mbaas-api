@@ -42,7 +42,6 @@ module.exports = {
     });
   },
 
-  // TODO - Re-enable once tearDown is implemented in fh-db local
   'test sync' : function(test, assert) {
     $fh.sync.invoke('myShoppingList', syncParams, function(err, res){
       assert.ok(!err);
