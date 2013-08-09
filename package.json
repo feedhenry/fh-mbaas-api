@@ -24,6 +24,6 @@
   "scripts": {
     "test": "hello=$(ls -1 test/test_*); bahaha=$(echo $hello | tr -d '\n'); whiskey --tests \"$bahaha\" --global-setup-teardown \"test/setup.js\""
   },
-  "author": "",
+  "author": "FeedHenry",
   "license": "BSD"
 }
