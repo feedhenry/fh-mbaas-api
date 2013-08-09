@@ -13,14 +13,12 @@ var logParams = {
 };
 var dataset_id = "myShoppingList";
 
-var fhs, fhsConfig, $fh, ditchMock;
+var $fh, ditchMock;
 
 module.exports = {
   setUp : function(test, assert){
     ditchMock = require('./fixtures/db');
-    fhs = require("../lib/apis.js");
-    fhsConfig = require('./fixtures/fhsConfig');
-    $fh = new fhs.FHServer(fhsConfig.cfg, fhsConfig.logger);
+    $fh = require("../lib/apis.js");
 
     $fh.sync.init(dataset_id, {}, function() {
       $fh.sync.handleList(dataset_id, dataHandler.doList);

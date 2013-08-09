@@ -1,8 +1,5 @@
-var fhs = require("../../lib/apis.js"),
-fhsConfig = require('./../fixtures/fhsConfig'),
-$fh = new fhs.FHServer(fhsConfig.cfg, fhsConfig.logger),
+var $fh = require("../../lib/apis.js"),
 async = require('async');
-
 exports.getFeed = function(params, callback) {
 
 };

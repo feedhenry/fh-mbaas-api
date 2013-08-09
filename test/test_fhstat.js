@@ -1,24 +1,23 @@
 // Copyright (c) FeedHenry 2011
 var util = require('util'),
-fhs = require('../lib/apis.js'),
 request = require('request'),
-fhsConfig = require('./fixtures/fhsConfig'),
-async = require("async");
+async = require("async"),
+$fh;
 
 module.exports = {
 
-   'test fh.stats()' : function(test, assert) {
-   var $fh = new fhs.FHServer(fhsConfig.cfg, fhsConfig.logger);
-   //var fhStats = fhs.stats({enabled:true});
-   var i = 0;
-   var counters = ['foo', 'bar', 'bob', 'alice', 'jack'];
+  'test fh.stats()' : function(test, assert) {
+    $fh = require("../lib/apis.js");
+    //var fhStats = fhs.stats({enabled:true});
+    var i = 0;
+    var counters = ['foo', 'bar', 'bob', 'alice', 'jack'];
 
-   async.whilst(function() { return i<100;}, function(cb){
-   var rand = Math.floor(Math.random() * counters.length);
-   i++;
+    async.whilst(function() { return i<100;}, function(cb){
+    var rand = Math.floor(Math.random() * counters.length);
+    i++;
 
-   // random counter inc
-   $fh.stats.inc(counters[rand], function(err, bytes){
+    // random counter inc
+    $fh.stats.inc(counters[rand], function(err, bytes){
     assert.ok(!err);
      // random counter dec
      rand = Math.floor(Math.random() * counters.length);
@@ -31,7 +30,7 @@ module.exports = {
          cb();
        });
      });
-   });
+    });
 
    }, function(err){
    assert.isUndefined(err, "Unexpected err: " + util.inspect(err));

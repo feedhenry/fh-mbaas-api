@@ -1,12 +1,11 @@
 // Copyright (c) FeedHenry 2011
 var util = require('util'),
-fhs = require("../lib/apis.js"),
-fhsConfig = require('./fixtures/fhsConfig'),
-sDeviceToken = "FE66489F304DC75B8D6E8200DFF8A456E8DAEACEC428B427E9518741C92C6660";
+sDeviceToken = "FE66489F304DC75B8D6E8200DFF8A456E8DAEACEC428B427E9518741C92C6660",
+$fh;
 
 module.exports = {
   'test fh.push': function(test, assert) {
-    var $fh = new fhs.FHServer(fhsConfig.cfg, fhsConfig.logger);
+    $fh = require("../lib/apis.js");
     $fh.push({
       act : "register",
       type: "dev",

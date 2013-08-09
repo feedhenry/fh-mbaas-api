@@ -3,9 +3,7 @@
 var util = require('util');
 var async = require('async');
 var request = require('request');
-var fhs = require("../lib/apis.js"),
-fhsConfig = require('./fixtures/fhsConfig'),
-fhserver = new fhs.FHServer(fhsConfig.cfg, fhsConfig.logger);
+var $fh = require("../lib/apis.js");
 
 module.exports = {
 

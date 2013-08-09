@@ -1,14 +1,12 @@
 // Copyright (c) FeedHenry 2011
 
 var util = require('util'),
-fhs, fhsConfig, $fh, feedMock;
+feedMock, $fh;
 
 module.exports = {
   'setUp' : function(test, assert){
     feedMock = require('./fixtures/feed'); // needs to go here, as application.js is what requires fh-apis
-    fhs = require("../lib/apis.js");
-    fhsConfig = require('./fixtures/fhsConfig');
-    $fh = new fhs.FHServer(fhsConfig.cfg, fhsConfig.logger);
+    $fh = require("../lib/apis.js");
     test.finish();
   },
   'test fh.feed() ': function(test, assert) {

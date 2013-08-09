@@ -1,9 +1,8 @@
 
 // Copyright (c) FeedHenry 2011
 var util = require('util'),
-fhs = require('../lib/apis.js'),
-fhsConfig = require('./fixtures/fhsConfig'),
-ditchMock = require('./fixtures/db');
+ditchMock = require('./fixtures/db'),
+$fh;
 
 
 
@@ -11,8 +10,8 @@ module.exports = {
   // TODO: following tests are quite brittle as they rely on the VNV ditch server being up..
   // However, its the only way to really test it..
   'test fh.db': function(test, assert) {
-    var fhserver = new fhs.FHServer(fhsConfig.cfg, fhsConfig.logger);
-    fhserver.db({
+    $fh = require("../lib/apis.js");
+    $fh.db({
       "act" : "create",
       "type" : "myFirstEntity",
       "fields" : {
@@ -25,7 +24,7 @@ module.exports = {
       }
     }, function(err, res){
       assert.equal(err, null, "Err not null: " + util.inspect(err));
-      fhserver.db({
+      $fh.db({
         "act": "list",
         "type": "myFirstEntity"
       }, function(err, res){
@@ -33,13 +32,13 @@ module.exports = {
         assert.ok(res.list[0]);
         assert.ok(res.list[0].guid);
         var guid = res.list[0].guid;
-        fhserver.db({
+        $fh.db({
           "act" : "read",
           "type" : "myFirstEntity",
           "guid" : guid
         }, function(err, res){
           assert.equal(err, null, "Err not null: " + util.inspect(err));
-          fhserver.db({
+          $fh.db({
             "act" : "update",
             "type" : "myFirstEntity",
             "guid" : res.guid,
@@ -47,7 +46,7 @@ module.exports = {
               "fistName": "Jane",
             }}, function(err, res) {
             assert.equal(err, null, "Err not null: " + util.inspect(err));
-            fhserver.db({
+            $fh.db({
               "act" : "delete",
               "type" : "myFirstEntity",
               "guid" : res.guid
