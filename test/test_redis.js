@@ -29,16 +29,16 @@ module.exports = {
     var stringToExpire = "123";
     $fh.cache({act : 'save', key : 'expires', value : stringToExpire, expire : 1}, function(err, res){
       assert.ok(!err);
-      $fh.cache({act : 'load', key : 'expires'}, function(err, res){
+      $fh.cache({act : 'load', key : 'expires'}, function(err, unexpiredres){
         assert.ok(!err);
-        assert.ok(res === stringToExpire);
+        assert.ok(unexpiredres === stringToExpire);
         setTimeout(function(){
-          $fh.cache({act : 'load', key : 'expires'}, function(err, res){
-            assert.ok(!err);
-            assert.ok(!res);
+          $fh.cache({act : 'load', key : 'expires'}, function(err, expiredred){
+            assert.ok(!err, 'Error: ' + err);
+            assert.ok(!expiredred, 'Expected no res, res is: ' + expiredred);
             test.finish();
           });
-        }, 1000);
+        }, 4000); // this has to be quite high on linux - no idea why, but takes some time to expire..
       });
     });
   }
