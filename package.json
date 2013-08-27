@@ -22,7 +22,7 @@
     "nock" : "0.22.1"
   },
   "scripts": {
-    "test": "hello=$(ls -1 test/test_*); bahaha=$(echo $hello | tr -d '\n'); whiskey --tests \"$bahaha\" --global-setup-teardown \"test/setup.js\""
+    "test": "listing=$(ls -1 test/test_*); teststorun=$(echo $listing | tr -d '\n'); whiskey --tests \"$teststorun\" --global-setup-teardown \"test/setup.js\""
   },
   "author": "FeedHenry",
   "license": "BSD"
