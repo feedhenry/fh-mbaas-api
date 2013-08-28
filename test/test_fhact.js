@@ -56,7 +56,11 @@ module.exports = {
   },
   'test $fh.call bad arguments url' : function(test, assert){
     $fh.call('fefe', {}, function(err, res){
-      assert.ok(err, 'Err was not populated - err is ' + JSON.stringify(err) + ' and res is ' + JSON.stringify(res));
+      if (res){
+        assert.ok(res.stats === 503 && res.body.indexOf('Service Temporarily Unavailable')>-1);
+      }else{
+        assert.ok(err, 'Err was not populated - err is ' + JSON.stringify(err) + ' and res is ' + JSON.stringify(res));
+      }
       test.finish();
     });
   },
