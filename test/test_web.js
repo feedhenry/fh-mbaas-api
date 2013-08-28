@@ -1,5 +1,5 @@
 var fhhelpers = require("../lib/web-helpers.js"),
-$fh = require("../lib/apis.js");
+$fh = require("../lib/api.js");
 
 module.exports = {
 

@@ -6,7 +6,7 @@ actMock, fhs, fhsConfig, $fh;
 module.exports = {
   setUp : function(test, assert){
     actMock = require('./fixtures/act');
-    $fh = require("../lib/apis.js");
+    $fh = require("../lib/api.js");
     test.finish();
   },
   'test dev $fh.act': function(test, assert) {

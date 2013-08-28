@@ -6,7 +6,7 @@ feedMock, $fh;
 module.exports = {
   'setUp' : function(test, assert){
     feedMock = require('./fixtures/feed'); // needs to go here, as application.js is what requires fh-apis
-    $fh = require("../lib/apis.js");
+    $fh = require("../lib/api.js");
     test.finish();
   },
   'test fh.feed() ': function(test, assert) {

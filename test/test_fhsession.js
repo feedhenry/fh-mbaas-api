@@ -1,6 +1,6 @@
 //tests for fh.session
 var util = require('util'),
-$fh = require("../lib/apis.js"),
+$fh = require("../lib/api.js"),
 async = require('async'),
 session = JSON.stringify({
   "sessionId":"mysession"

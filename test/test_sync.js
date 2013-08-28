@@ -18,7 +18,7 @@ var $fh, ditchMock;
 module.exports = {
   setUp : function(test, assert){
     ditchMock = require('./fixtures/db');
-    $fh = require("../lib/apis.js");
+    $fh = require("../lib/api.js");
 
     $fh.sync.init(dataset_id, {}, function() {
       $fh.sync.handleList(dataset_id, dataHandler.doList);

@@ -6,7 +6,7 @@ $fh;
 module.exports = {
 
   'test fh.stats()' : function(test, assert) {
-    $fh = require("../lib/apis.js");
+    $fh = require("../lib/api.js");
     //var fhStats = fhs.stats({enabled:true});
     var i = 0;
     var counters = ['foo', 'bar', 'bob', 'alice', 'jack'];

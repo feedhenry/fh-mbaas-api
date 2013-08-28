@@ -2,7 +2,7 @@
   "name": "fh-api",
   "version": "0.1.0",
   "description": "FeedHenry Cloud APIs",
-  "main": "lib/apis.js",
+  "main": "lib/api.js",
   "dependencies" : {
     "underscore" : "1.5.1",
     "async": "0.2.1",
