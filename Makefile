@@ -32,7 +32,6 @@ npm_deps:
 dist: npm_deps
 	rm -rf $(DIST_DIR) $(OUTPUT_DIR)
 	rm -rf $(MODULES)/whiskey
-	rm -rf $(MODULES)/ronn
 	mkdir -p $(DIST_DIR) $(OUTPUT_DIR)/$(RELEASE_DIR)
 	cp -r ./lib $(OUTPUT_DIR)/$(RELEASE_DIR)
 	cp ./package.json $(OUTPUT_DIR)/$(RELEASE_DIR)
