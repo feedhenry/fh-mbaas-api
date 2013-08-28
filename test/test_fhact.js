@@ -17,7 +17,7 @@ module.exports = {
         somekey: "someval"
       }
     }, function(err, data) {
-      assert.ok(!err);
+      assert.ok(!err, 'Error: ' + err);
       assert.ok(data);
       test.finish();
     });
@@ -31,7 +31,7 @@ module.exports = {
       },
       live : true
     }, function(err, data) {
-      assert.ok(!err);
+      assert.ok(!err, 'Error: ' + err);
       assert.ok(data);
       test.finish();
     });
@@ -48,7 +48,7 @@ module.exports = {
   },
   'test $fh.call sys info ping' : function(test, assert){
     $fh.call('sys/info/ping', {}, function(err, res){
-      assert.ok(!err);
+      assert.ok(!err, 'Error: ' + err);
       assert.ok(res.status === 200);
       assert.ok(JSON.parse(res.body).ok === true);
       test.finish();

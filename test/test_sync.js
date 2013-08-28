@@ -35,7 +35,7 @@ module.exports = {
   'test sync start & stop' : function(test, assert) {
 
     $fh.sync.invoke('myShoppingList', logParams, function(err, res){
-      assert.ok(!err);
+      assert.ok(!err, 'Error: ' + err);
       assert.ok(res.status);
       assert.equal("ok", res.status, "Unexpected response: " + util.inspect(res));
       test.finish();
@@ -44,7 +44,7 @@ module.exports = {
 
   'test sync' : function(test, assert) {
     $fh.sync.invoke('myShoppingList', syncParams, function(err, res){
-      assert.ok(!err);
+      assert.ok(!err, 'Error: ' + err);
       assert.ok(res);
       assert.ok(res.records);
       test.finish();
@@ -52,7 +52,7 @@ module.exports = {
   },
   'tearDown' : function(test, assert){
     $fh.sync.stopAll(function(err, res){
-      assert.ok(!err);
+      assert.ok(!err, 'Error: ' + err);
       assert.ok(res);
       test.finish();
       ditchMock.done();

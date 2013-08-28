@@ -13,7 +13,7 @@ module.exports = {
 
     var opts = { 'link': 'http://www.feedhenry.com/feed', 'list-max': 10};
     $fh.feed(opts, function(err, feed) {
-      assert.ok(!err);
+      assert.ok(!err, 'Error: ' + err);
       assert.ok(feed.status);
       feed = JSON.parse(feed.body);
       assert.equal(feed.list.length, 10);

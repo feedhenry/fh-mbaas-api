@@ -17,15 +17,15 @@ module.exports = {
 
     // random counter inc
     $fh.stats.inc(counters[rand], function(err, bytes){
-    assert.ok(!err);
+    assert.ok(!err, 'Error: ' + err);
      // random counter dec
      rand = Math.floor(Math.random() * counters.length);
      $fh.stats.dec(counters[rand], function(err, bytes){
-       assert.ok(!err);
+       assert.ok(!err, 'Error: ' + err);
        // random timing
        rand = Math.floor(Math.random() * 101);
        $fh.stats.timing("task1", rand, function(err, bytes){
-         assert.ok(!err);
+         assert.ok(!err, 'Error: ' + err);
          cb();
        });
      });

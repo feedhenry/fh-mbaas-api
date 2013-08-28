@@ -10,15 +10,15 @@ module.exports = {
     var d1, d2;
     getTime({}, function(err, data){
       d1 = data;
-      assert.ok(!err);
+      assert.ok(!err, 'Error: ' + err);
       assert.ok(d1!==null);
       getTime({}, function(err, data){
         d2 = data;
-        assert.ok(!err);
+        assert.ok(!err, 'Error: ' + err);
         assert.ok(data !== null);
         assert.equal(d1, d2);
         clearTime({}, function(err, data){
-          assert.ok(!err);
+          assert.ok(!err, 'Error: ' + err);
           assert.notEqual(data, null);
           test.finish();
         });
@@ -28,9 +28,9 @@ module.exports = {
   'test $fh.cache with expire' : function(test, assert){
     var stringToExpire = "123";
     $fh.cache({act : 'save', key : 'expires', value : stringToExpire, expire : 1}, function(err, res){
-      assert.ok(!err);
+      assert.ok(!err, 'Error: ' + err);
       $fh.cache({act : 'load', key : 'expires'}, function(err, unexpiredres){
-        assert.ok(!err);
+        assert.ok(!err, 'Error: ' + err);
         assert.ok(unexpiredres === stringToExpire);
         setTimeout(function(){
           $fh.cache({act : 'load', key : 'expires'}, function(err, expiredred){
