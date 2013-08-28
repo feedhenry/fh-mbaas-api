@@ -56,7 +56,7 @@ module.exports = {
   },
   'test $fh.call bad arguments url' : function(test, assert){
     $fh.call('fefe', {}, function(err, res){
-      assert.ok(err);
+      assert.ok(err, 'Err was not populated - err is ' + err + ' and res is ' + res);
       test.finish();
     });
   },
