@@ -7,7 +7,7 @@ $fh;
 
 
 module.exports = {
-  'test fh.db': function(test, assert) {
+  'test ditch fh.db': function(test, assert) {
     $fh = require("../lib/apis.js");
     $fh.db({
       "act" : "create",
@@ -58,4 +58,5 @@ module.exports = {
       }); // end list
     }); // end create
   }
+
 };
