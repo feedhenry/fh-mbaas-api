@@ -2,7 +2,7 @@
   "name": "fh-api",
   "version": "0.1.0",
   "description": "FeedHenry Cloud APIs",
-  "main": "lib/apis.js",
+  "main": "lib/api.js",
   "dependencies" : {
     "underscore" : "1.5.1",
     "async": "0.2.1",
@@ -13,7 +13,7 @@
     "winston" : "0.6.2",
     "moment" : "2.0.0",
     "fh-webapp" : "*",
-    "fh-db" : "*"
+    "fh-db-test" : "*"
   },
   "devDependencies" : {
     "express" : "3.3.4",
@@ -22,7 +22,7 @@
     "nock" : "0.22.1"
   },
   "scripts": {
-    "test": "npm install -d; cd node_modules/fh-security; npm install ursa; cd -; listing=$(ls -1 test/test_*); teststorun=$(echo $listing | tr -d '\n'); whiskey --tests \"$teststorun\" --global-setup-teardown \"test/setup.js\""
+    "test": "cd node_modules/fh-security; npm install ursa; cd -; listing=$(ls -1 test/test_*); teststorun=$(echo $listing | tr -d '\n'); whiskey --tests \"$teststorun\" --global-setup-teardown \"test/setup.js\""
   },
   "author": "FeedHenry",
   "license": "BSD"
