@@ -13,7 +13,7 @@
     "winston" : "0.6.2",
     "moment" : "2.0.0",
     "fh-webapp" : "*",
-    "fh-db-test" : "*"
+    "fh-db" : "*"
   },
   "devDependencies" : {
     "express" : "3.3.4",
