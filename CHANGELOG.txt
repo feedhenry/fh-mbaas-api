@@ -1,6 +1,9 @@
 ----------------------------------------------------------------------
 Component: fh-api
 ----------------------------------------------------------------------
+Release 0.1.2 (IR210)
+CHANGES
+ * pass db per app when app is using its own db
 Release 0.1.1 (IR210)
 CHANGES
  * add fh-db as dependency bump vers
