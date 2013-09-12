@@ -41,7 +41,7 @@ module.exports = {
             "type" : "myFirstEntity",
             "guid" : res.guid,
             "fields": {
-              "fistName": "Jane",
+              "fistName": "Jane"
             }}, function(err, res) {
             assert.equal(err, null, "Err not null: " + util.inspect(err));
             $fh.db({
@@ -57,6 +57,42 @@ module.exports = {
         }); // end read
       }); // end list
     }); // end create
-  }
+  },
 
+  'test dbperapp fh.db': function(test, assert) {
+
+    //When the dbperapp environment variable is set, The same tests should now return an error message
+    process.env['FH_DB_PERAPP'] = true;
+
+    (function(test, assert) {
+      $fh = require("../lib/apis.js");
+      $fh.db({
+        "act" : "create",
+        "type" : "myFirstEntity",
+        "fields" : {
+          "firstName" : "Joe",
+          "lastName" : "Bloggs",
+          "address1" : "22 Blogger Lane",
+          "address2" : "Bloggsville",
+          "country" : "Bloggland",
+          "phone" : "555-123456"
+        }
+      }, function(err, res){
+        assert.ok(!res);
+        assert.ok(err && err.message === "Data storage not enabled for this app. Please use the Data Browser window to enable data storage.");
+
+        $fh.db({
+          "act": "list",
+          "type": "myFirstEntity"
+        }, function(err, res){
+          assert.ok(!res);
+          assert.ok(err && err.message === "Data storage not enabled for this app. Please use the Data Browser window to enable data storage.");
+
+          ditchMock.done();
+          test.finish();
+
+        }); // end list
+      }); // end create
+    })(test, assert);
+  }
 };

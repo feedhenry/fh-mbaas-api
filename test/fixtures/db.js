@@ -1,5 +1,4 @@
 var nock = require('nock');
-
 var dbReplies = {
   create : function(path, body){
     return { type: 'myFirstEntity',
