@@ -65,7 +65,7 @@ module.exports = {
     process.env['FH_DB_PERAPP'] = true;
 
     (function(test, assert) {
-      $fh = require("../lib/apis.js");
+      $fh = require("../lib/api.js");
       $fh.db({
         "act" : "create",
         "type" : "myFirstEntity",
