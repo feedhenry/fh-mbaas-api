@@ -5,7 +5,7 @@ $fh;
 
 module.exports = {
   'test fh.push': function(test, assert) {
-    $fh = require("../lib/apis.js");
+    $fh = require("../lib/api.js");
     $fh.push({
       act : "register",
       type: "dev",

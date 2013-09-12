@@ -1,5 +1,5 @@
 var util = require('util');
-var $fh = require("../lib/apis.js");
+var $fh = require("../lib/api.js");
 var text = 'This is test text';
 
 module.exports = {
