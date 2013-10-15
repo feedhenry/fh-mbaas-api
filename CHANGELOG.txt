@@ -1,15 +1,19 @@
 ----------------------------------------------------------------------
 Component: fh-api
 ----------------------------------------------------------------------
+Release 0.1.4 (IR212)
+CHANGES
+ * Initialise logger earlier in cache.js
+
 Release 0.1.2 (IR210)
 CHANGES
  * pass db per app when app is using its own db
+
 Release 0.1.1 (IR210)
 CHANGES
  * add fh-db as dependency bump vers
 
 Release 0.1.0 (IR209)
-
 CHANGES
  * Ticket 4470 Split fh-nodeapp into fh-webapp and fh-apis
  
