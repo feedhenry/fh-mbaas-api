@@ -1,6 +1,6 @@
 {
-  "name": "fh-api",
-  "version": "0.1.4",
+  "name": "fh-api-test",
+  "version": "0.1.5",
   "description": "FeedHenry Cloud APIs",
   "main": "lib/api.js",
   "dependencies" : {
@@ -13,7 +13,8 @@
     "winston" : "0.6.2",
     "moment" : "2.0.0",
     "fh-webapp" : "*",
-    "fh-db" : "*"
+    "fh-db" : "*",
+    "fh-forms" : "*"
   },
   "devDependencies" : {
     "express" : "3.3.4",
