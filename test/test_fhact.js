@@ -57,7 +57,7 @@ module.exports = {
   'test $fh.call bad arguments url' : function(test, assert){
     $fh.call('fefe', {}, function(err, res){
       if (res){
-        assert.ok(res.status === 503);
+        assert.ok(res.status === 400);
         assert.ok(res.body.indexOf('Service Temporarily Unavailable')>-1);
       }else{
         assert.ok(err, 'Err was not populated - err is ' + JSON.stringify(err) + ' and res is ' + JSON.stringify(res));
