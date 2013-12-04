@@ -1,6 +1,11 @@
 ----------------------------------------------------------------------
 Component: fh-api
 ----------------------------------------------------------------------
+
+Release 0.1.5 (IR216)
+CHANGES
+* 5258 - Resolving an issue with defaulting to the wrong port if none specified
+
 Release 0.1.4 (IR212)
 CHANGES
  * Initialise logger earlier in cache.js
