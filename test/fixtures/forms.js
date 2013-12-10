@@ -32,7 +32,7 @@ module.exports = {
     assert.ok(options.uri);
     cb(undefined, {"status" : "ok"});
   },
-  "completeSubmission" : function(options, cb){
+  "completeFormSubmission" : function(options, cb){
     assert.ok(options);
     assert.ok(options.uri);
     cb(undefined, {"status" : "complete"});
