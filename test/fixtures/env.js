@@ -8,7 +8,7 @@ module.exports = (function(){
   process.env.FH_WIDGET = 'c0TPJzF6ztq0WjezxwPEC5W8';
   process.env.FH_DITCH_HOST = 'localhost';
   process.env.FH_DITCH_PORT = 8802;
-  process.env.FH_DOMAIN_DB_CONN_URL = "mongodb://127.0.0.1:27017/testdb";
+  process.env.FH_DOMAIN_DATABASE = "mongodb://127.0.0.1:27017/testdb";
   process.env.FH_ENV = "dev";
   process.env.FH_URBAN_AIRSHIP = JSON.stringify({
     "ua_push_enabled" : true,
