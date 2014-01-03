@@ -1,6 +1,11 @@
 ----------------------------------------------------------------------
 Component: fh-api
 ----------------------------------------------------------------------
+
+Release 0.1.5 - 03-01-2014 IR218 - John Frizelle
+-----------------------------------------------
+* 5455 - Explicitly set character encoding to utf-8
+
 Release 0.1.4 (IR212)
 CHANGES
  * Initialise logger earlier in cache.js
