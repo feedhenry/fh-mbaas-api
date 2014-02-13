@@ -1,26 +1,26 @@
 {
-  "name": "fh-api-test",
-  "version": "0.1.5",
+  "name": "fh-api",
+  "version": "0.1.6",
   "description": "FeedHenry Cloud APIs",
   "main": "lib/api.js",
-  "dependencies" : {
-    "underscore" : "1.5.1",
+  "dependencies": {
+    "underscore": "1.5.1",
     "async": "0.2.1",
     "redis": "0.8.2",
     "request": "2.12.0",
     "fh-statsc": "*",
     "fh-security": "*",
-    "winston" : "0.6.2",
-    "moment" : "2.0.0",
-    "fh-webapp" : "*",
-    "fh-db" : "*",
-    "fh-forms" : "*"
+    "winston": "0.6.2",
+    "moment": "2.0.0",
+    "fh-webapp": "*",
+    "fh-db": "*",
+    "fh-forms": "*"
   },
-  "devDependencies" : {
-    "express" : "3.3.4",
+  "devDependencies": {
+    "express": "3.3.4",
+    "proxyquire": "0.4.1",
     "whiskey" : "git://github.com/cloudkick/whiskey.git#58fc2944ac",
-    "proxyquire" : "0.4.1",
-    "nock" : "0.22.1"
+    "nock": "0.22.1"
   },
   "scripts": {
     "test": "cd node_modules/fh-security; npm install ursa; cd -; listing=$(ls -1 test/test_*); teststorun=$(echo $listing | tr -d '\n'); whiskey --tests \"$teststorun\" --global-setup-teardown \"test/setup.js\""
