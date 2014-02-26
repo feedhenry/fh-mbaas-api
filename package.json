@@ -1,5 +1,5 @@
 {
-  "name": "fh-api",
+  "name": "fh-api-test",
   "version": "0.2.2",
   "description": "FeedHenry Cloud APIs",
   "main": "lib/api.js",
