@@ -2,13 +2,9 @@
 Component: fh-api
 ----------------------------------------------------------------------
 
-Release 0.2.3 - 2014-02-26 IR222 - Jason Madigan
+Release 0.2.4, 0.2.3 & 0.2.2 - 2014-02-26 IR222 - Jason Madigan
 ---------------------------------------------------
-* 6059 - Send Project ID with $fh.service() calls
-
-Release 0.2.2 - 2014-02-26 IR222 - Jason Madigan
----------------------------------------------------
-* Was 6059 - NPM publish failed.
+* 6059 - Send Project ID with $fh.service() calls. Thanks NPM.
 
 Release 0.2.1 - 2014-02-12 IR221 - Damian Beresford
 ---------------------------------------------------
