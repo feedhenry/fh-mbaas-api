@@ -1,6 +1,10 @@
 ----------------------------------------------------------------------
 Component: fh-api
 ----------------------------------------------------------------------
+Release 0.1.7 (IR223)
+CHANGES
+ * 6393 - Refactored forms to use FH_WIDGET as appId.
+
 Release 0.1.4 (IR212)
 CHANGES
  * Initialise logger earlier in cache.js

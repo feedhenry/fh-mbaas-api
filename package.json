@@ -1,6 +1,6 @@
 {
   "name": "fh-api",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "FeedHenry Cloud APIs",
   "main": "lib/api.js",
   "dependencies": {
