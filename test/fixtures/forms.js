@@ -50,5 +50,18 @@ module.exports = {
     assert.ok(options.appId, "Expected appId but got nothing");
     assert.ok(options.appId === "c0TPJzF6ztq0W12345PEC5W8", "Expected appId to be the FH_WIDGET value: c0TPJzF6ztq0W12345PEC5W8 but was " + options.appId);//ENSURING THE APPID IS NOW THE FH_WIDGET ID
     cb(undefined, {config: {}});
+  },
+  "getPopulatedFormList": function (options, cb){
+    assert.ok(options, "Expected options but got nothing");
+    assert.ok(options.uri, "Expected options.uri but got nothing");
+    assert.ok(options.formids, "Expected appId but got nothing");
+    cb(undefined, {"forms":[]});
+  },
+  "getSubmissions": function (options, cb){
+    assert.ok(options, "Expected options but got nothing");
+    assert.ok(options.uri, "Expected options.uri but got nothing");
+    assert.ok(options.subids, "Expected subids but got nothing");
+    cb(undefined, {"submissions":[]});
   }
-}
+
+};
