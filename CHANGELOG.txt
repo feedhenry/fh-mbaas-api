@@ -1,6 +1,10 @@
 ----------------------------------------------------------------------
 Component: fh-api
 ----------------------------------------------------------------------
+Release 0.1.8 (IR224) cbrookes 31-03-2014
+------------------------------------
+* 6516 expose getPopulatedFormList
+
 Release 0.1.7 (IR223)
 CHANGES
  * 6393 - Refactored forms to use FH_WIDGET as appId.
