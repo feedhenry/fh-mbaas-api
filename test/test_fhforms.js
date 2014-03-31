@@ -65,5 +65,13 @@ module.exports = {
       assert.ok(res);
       test.finish();
     });
+  },
+  "test getFullyPopulatedForms ": function (test, assert){
+    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    $fh.forms.getPopulatedFormList({"formids":[]}, function(err, res){
+      assert.ok(!err);
+      assert.ok(res);
+      test.finish();
+    });
   }
-}
+};
