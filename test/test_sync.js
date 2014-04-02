@@ -17,7 +17,7 @@ var $fh, ditchMock;
 
 module.exports = {
   setUp : function(test, assert){
-    ditchMock = require('./fixtures/db');
+    ditchMock = require('./fixtures/sync_db');
     $fh = require("../lib/api.js");
 
     $fh.sync.init(dataset_id, {}, function() {
@@ -32,6 +32,7 @@ module.exports = {
       test.finish();
     });
   },
+
   'test sync start & stop' : function(test, assert) {
 
     $fh.sync.invoke('myShoppingList', logParams, function(err, res){
@@ -44,18 +45,22 @@ module.exports = {
 
   'test sync' : function(test, assert) {
     $fh.sync.invoke('myShoppingList', syncParams, function(err, res){
+      console.log("sync res", err, res);
       assert.ok(!err, 'Error: ' + err);
       assert.ok(res);
       assert.ok(res.records);
       test.finish();
     });
   },
+
   'tearDown' : function(test, assert){
     $fh.sync.stopAll(function(err, res){
+      console.log("stopAll returned", err, res);
       assert.ok(!err, 'Error: ' + err);
       assert.ok(res);
-      test.finish();
       ditchMock.done();
+      test.finish();
     });
+   
   }
 };
