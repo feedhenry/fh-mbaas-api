@@ -13,6 +13,10 @@ Release 0.2.6 (IR223) Niall Donnelly
 ---------------------------------------------------
 * 6393 - Refactored forms to use FH_WIDGET as appId.
 
+Release 0.3.0
+---------------------------------------------------
+* 6263 - Complete refactor of $fh.sync
+
 Release 0.2.5, 0.2.4, 0.2.3 & 0.2.2 - 2014-02-26 IR222 - Jason Madigan
 ---------------------------------------------------
 * 6059 - Send Project ID with $fh.service() calls. Thanks NPM.
