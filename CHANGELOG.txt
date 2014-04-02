@@ -1,6 +1,17 @@
 ----------------------------------------------------------------------
 Component: fh-api
 ----------------------------------------------------------------------
+Release 0.2.8 (IR224) cbrookes 31-03-2014
+---------------------------------------
+* 6515 expose submissions api
+
+Release 0.2.7 (IR224) cbrookes 31-03-2014
+------------------------------------
+* 6516 expose getPopulatedFormList
+
+Release 0.2.6 (IR223) Niall Donnelly
+---------------------------------------------------
+* 6393 - Refactored forms to use FH_WIDGET as appId.
 
 Release 0.3.0
 ---------------------------------------------------
@@ -17,6 +28,10 @@ Release 0.2.1 - 2014-02-12 IR221 - Damian Beresford
 Release 0.2.0 - 03-01-2014 IR218 - John Frizelle
 -----------------------------------------------
 * 5455 - Explicitly set character encoding to utf-8
+
+Release 0.1.5 (IR216)
+CHANGES
+ * 6393 - Refactored forms to use FH_WIDGET as appId.
 
 Release 0.1.5 (IR216)
 CHANGES
