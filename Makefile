@@ -1,4 +1,4 @@
-PACKAGE = fh-api
+PACKAGE = fh-mbaas-api
 #
 # Note: Get the Major/Release/Hotfix numbers from package.json.
 # TODO: should really try use a JSON command line tool to do this,

@@ -1,6 +1,18 @@
 ----------------------------------------------------------------------
-Component: fh-api
+Component: fh-mbaas-api
 ----------------------------------------------------------------------
+
+Release 3.0.0 - 7-04-2014 - IR225 - Damian Beresford
+----------------------------------------------------
+
+* 6679 - Renaming and versioning for fh-webapp & fh-api
+
+NOTES:
+
+* 6679:
+
+fh-webapp is now called fh-mbaas-express. fh-api is now called fh-mbaas-api. Both have been changed to v3.0.0
+
 Release 0.3.0
 ---------------------------------------------------
 * 6263 - Complete refactor of $fh.sync

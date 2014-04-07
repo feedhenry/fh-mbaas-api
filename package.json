@@ -1,20 +1,19 @@
 {
-  "name": "fh-api",
-  "version": "0.3.0",
-  "description": "FeedHenry Cloud APIs",
+  "name": "fh-mbaas-api",
+  "version": "3.0.0-beta1",
+  "description": "FeedHenry MBAAS Cloud APIs",
   "main": "lib/api.js",
   "dependencies": {
     "underscore": "1.5.1",
     "async": "0.2.1",
     "redis": "0.8.2",
     "request": "2.12.0",
-    "fh-statsc": "*",
-    "fh-security": "*",
+    "fh-statsc": "0.2.1",
+    "fh-security": "0.1.2",
     "winston": "0.6.2",
     "moment": "2.0.0",
-    "fh-webapp": "*",
-    "fh-db": "*",
-    "fh-forms": "*"
+    "fh-db": "0.4.11",
+    "fh-forms": "0.5.2"
   },
   "devDependencies": {
     "express": "3.3.4",
