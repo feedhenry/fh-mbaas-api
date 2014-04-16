@@ -62,6 +62,16 @@ module.exports = {
     assert.ok(options.uri, "Expected options.uri but got nothing");
     assert.ok(options.subids, "Expected subids but got nothing");
     cb(undefined, {"submissions":[]});
+  },
+  "getSubmissionFile": function (options, params, cb){
+    assert.ok(options, "Expected options but got nothing");
+    assert.ok(options.uri, "Expected options.uri but got nothing");
+    assert.ok(params._id, "Expected filegroupId but got nothing");
+    cb(undefined,{
+      stream: "fileStream",
+      type: "contentType",
+      length: 122
+    });
   }
 
 };

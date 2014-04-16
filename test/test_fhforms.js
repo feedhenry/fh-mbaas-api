@@ -81,5 +81,13 @@ module.exports = {
       assert.ok(res);
       test.finish();
     });
+  },
+  "test getSubmissionFile ": function (test, assert){
+    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    $fh.forms.getSubmissionFile({"_id": "testSubFileGroupId"}, function(err, res){
+      assert.ok(!err);
+      assert.ok(res);
+      test.finish();
+    });
   }
 };
