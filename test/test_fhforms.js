@@ -82,6 +82,22 @@ module.exports = {
       test.finish();
     });
   },
+  "test getSubmission ": function (test, assert){
+    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    $fh.forms.getSubmission({"submissionId": "submission1234"}, function(err, res){
+      assert.ok(!err);
+      assert.ok(res);
+      test.finish();
+    });
+  },
+  "test getSubmissions with files": function (test, assert){
+    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    $fh.forms.getSubmissions({"subids":["submissionId1", "submissionId2"]}, function(err, res){
+      assert.ok(!err);
+      assert.ok(res);
+      test.finish();
+    });
+  },
   "test getSubmissionFile ": function (test, assert){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
     $fh.forms.getSubmissionFile({"_id": "testSubFileGroupId"}, function(err, res){
