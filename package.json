@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "3.0.0-beta7",
+  "version": "3.0.0-beta8",
   "description": "FeedHenry MBAAS Cloud APIs",
   "main": "lib/api.js",
   "dependencies": {
@@ -12,7 +12,7 @@
     "moment": "2.0.0",
     "winston": "0.6.2",
     "fh-forms": "0.5.10",
-    "fh-db": "0.4.11-264",
+    "fh-db": "~0.4.12",
     "fh-security": "0.1.2-3"
   },
   "devDependencies": {

@@ -2,6 +2,11 @@
 Component: fh-mbaas-api
 ----------------------------------------------------------------------
 
+Release 3.0.0-beta7 - 2014-05-09 IR127 - Damian Beresford
+----------------------------------------------------------
+* #7122 - 'grunt accept' not exiting cleanly if fh.db() is used
+* bump fh-db 0.4.12
+
 Release 3.0.0-beta7 - 01-05-2014 - IR226 - Cbrookes
 ------------------------------------------------------
 bump forms 0.5.10
@@ -79,9 +84,8 @@ CHANGES
 Release 0.1.0 (IR209)
 CHANGES
  * Ticket 4470 Split fh-nodeapp into fh-webapp and fh-apis
- 
-NOTES 
+
+NOTES
  * <none>
 
 ---
-
