@@ -46,6 +46,9 @@ var dbReplies = {
     return { type: 'myFirstEntity',
       guid: '52026a57891b400e59000005',
       fields: { fistName: 'Jane' } };
+  },
+  import : function(path, body){
+    return body;
   }
 };
 
@@ -62,4 +65,8 @@ module.exports = nock('https://localhost:8802')
 .post('/data/update', '*')
 .reply(200, dbReplies.update)
 .post('/data/delete', '*')
-.reply(200, dbReplies.delete);
+.reply(200, dbReplies.delete)
+.post('/data/import', '*')
+.reply(200, dbReplies.import)
+.post('/data/export', '*')
+.replyWithFile(200, __dirname + '/dbexport.zip');
