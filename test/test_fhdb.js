@@ -49,6 +49,7 @@ module.exports = {
             }, function(err, res){
               assert.equal(err, null);
               assert.ok(res);
+              assert.ok(res.stream);
               $fh.db({
                 "act" : "import",
                 "files" : {
