@@ -12,7 +12,7 @@
     "moment": "2.0.0",
     "winston": "0.6.2",
     "fh-forms": "0.5.10",
-    "fh-db": "~0.4.12",
+    "fh-db": "~0.5.1",
     "fh-security": "0.1.2-3"
   },
   "devDependencies": {
