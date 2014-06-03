@@ -2,6 +2,10 @@
 Component: fh-mbaas-api
 ----------------------------------------------------------------------
 
+Release 3.0.0-beta12 - 2014-06-03 IR229 - John Frizelle
+----------------------------------------------------------
+* #7363 - Sync should do global Init automatically
+
 Release 3.0.0-beta10 - 2014-05-21 IR228 - Cian Clarke
 ----------------------------------------------------------
 * #7256 - Fix app API key getting sent on outbound requests to ditch
