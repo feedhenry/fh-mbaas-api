@@ -45,14 +45,30 @@ module.exports = {
             }}, function(err, res) {
             assert.equal(err, null, "Err not null: " + util.inspect(err));
             $fh.db({
-              "act" : "delete",
-              "type" : "myFirstEntity",
-              "guid" : res.guid
+              "act" : "export"
             }, function(err, res){
-              assert.equal(err, null, "Err not null: " + util.inspect(err));
-              ditchMock.done();
-              test.finish();
-            }); // end delete
+              assert.equal(err, null);
+              assert.ok(res);
+              assert.ok(res.stream);
+              $fh.db({
+                "act" : "import",
+                "files" : {
+                  "toimport" : {
+                    "path" : __dirname + '/fixtures/dbexport.zip'
+                  }
+                }
+              }, function(err, res){
+                $fh.db({
+                  "act" : "delete",
+                  "type" : "myFirstEntity",
+                  "guid" : res.guid
+                }, function(err, res){
+                  assert.equal(err, null, "Err not null: " + util.inspect(err));
+                  ditchMock.done();
+                  test.finish();
+                }); // end delete
+              });
+            });// end export
           }); // end update
         }); // end read
       }); // end list
