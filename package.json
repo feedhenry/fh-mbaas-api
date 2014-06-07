@@ -11,8 +11,8 @@
     "fh-statsc": "0.2.1",
     "moment": "2.0.0",
     "winston": "0.6.2",
-    "fh-forms": "0.5.19",
-    "fh-db": "~0.4.12",
+    "fh-forms": "0.5.20",
+    "fh-db": "~0.5.1",
     "fh-security": "0.1.2-3",
     "fh-mbaas-express" : "~3.1.0"
   },

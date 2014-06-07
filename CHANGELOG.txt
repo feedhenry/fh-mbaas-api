@@ -6,9 +6,17 @@ Release 3.1.0 - 2014-06-03 IR229 - John Frizelle
 ----------------------------------------------------------
 * #7364 - Make fh-mbaas-express a dependency of this module.
 
-Release 3.0.0-beta10 - 2014-05-21 IR228 - Cian Clarke
+Release 3.0.0-beta15 - 2014-06-05 IR229 - Cian Clarke
+----------------------------------------------------------
+* Bump fh-db version
+
+Release 3.0.0-beta14 - 2014-06-05 IR229 - Cian Clarke
 ----------------------------------------------------------
 * #7256 - Fix app API key getting sent on outbound requests to ditch
+
+Release 3.0.0-beta10->beta13 - various
+----------------------------------------------------------
+* Various IR228 form version bumps
 
 Release 3.0.0-beta9 - IR226 - niall donnelly
 ------------------------------------------------------
