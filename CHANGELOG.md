@@ -1,50 +1,50 @@
-#Component: fh-mbaas-api
+ #Component: fh-mbaas-api
 
 
-##Release 3.1.1 - 2014-06-03 IR229 - John Frizelle
+## 3.1.1 - 2014-06-03 IR229 - John Frizelle
 
 * 7363 - Sync should do global Init automatically
 
-##Release 3.1.0 - 2014-06-03 IR229 - John Frizelle
+## 3.1.0 - 2014-06-03 IR229 - John Frizelle
 
 * 7364 - Make fh-mbaas-express a dependency of this module.
 
-##Release 3.0.0-beta15 - 2014-06-05 IR229 - Cian Clarke
+## 3.0.0-beta15 - 2014-06-05 IR229 - Cian Clarke
 
 * Bump fh-db version
 
-##Release 3.0.0-beta14 - 2014-06-05 IR229 - Cian Clarke
+## 3.0.0-beta14 - 2014-06-05 IR229 - Cian Clarke
 
 * 7256 - Fix app API key getting sent on outbound requests to ditch
 
-##Release 3.0.0-beta10->beta13 - various
+## 3.0.0-beta10->beta13 - various
 
 * Various IR228 form version bumps
 
-##Release 3.0.0-beta9 - IR226 - niall donnelly
+## 3.0.0-beta9 - IR226 - niall donnelly
 
 - bump forms 0.5.16
 
-##Release 3.0.0-beta8 - 2014-05-09 IR227 - Damian Beresford
+## 3.0.0-beta8 - 2014-05-09 IR227 - Damian Beresford
 
 * 7122 - 'grunt accept' not exiting cleanly if fh.db() is used
 * bump fh-db 0.4.12
 
-##Release 3.0.0-beta7 - 01-05-2014 - IR226 - Cbrookes
+## 3.0.0-beta7 - 01-05-2014 - IR226 - Cbrookes
 
 - bump forms 0.5.16
 
-##Release 3.0.0-beta6 - 29-04-2014 - IR226 - Cbrookes
+## 3.0.0-beta6 - 29-04-2014 - IR226 - Cbrookes
 
 
 - bump forms 0.5.9
 
-##Release 3.0.0-beta4 - 17-04-2014 - IR225 - Niall Donnelly
+## 3.0.0-beta4 - 17-04-2014 - IR225 - Niall Donnelly
 
 
 * 6706 - Add get submission to client api
 
-##Release 3.0.0 - 7-04-2014 - IR225 - Damian Beresford
+## 3.0.0 - 7-04-2014 - IR225 - Damian Beresford
 
 
 * 6679 - Renaming and versioning for fh-webapp & fh-api
@@ -55,56 +55,56 @@
 
 fh-webapp is now called fh-mbaas-express. fh-api is now called fh-mbaas-api. Both have been changed to v3.0.0
 
-##Release 0.3.0
+## 0.3.0
 
 * 6263 - Complete refactor of $fh.sync
 
-##Release 0.2.8 (IR224) cbrookes 31-03-2014
+## 0.2.8 (IR224) cbrookes 31-03-2014
 
 * 6515 expose submissions api
 
-##Release 0.2.7 (IR224) cbrookes 31-03-2014
+## 0.2.7 (IR224) cbrookes 31-03-2014
 
 * 6516 expose getPopulatedFormList
 
-##Release 0.2.6 (IR223) Niall Donnelly
+## 0.2.6 (IR223) Niall Donnelly
 
 * 6393 - Refactored forms to use FH_WIDGET as appId.
 
 
-##Release 0.2.5, 0.2.4, 0.2.3 & 0.2.2 - 2014-02-26 IR222 - Jason Madigan
+## 0.2.5, 0.2.4, 0.2.3 & 0.2.2 - 2014-02-26 IR222 - Jason Madigan
 
 * 6059 - Send Project ID with $fh.service() calls. Thanks NPM.
 
-##Release 0.2.1 - 2014-02-12 IR221 - Damian Beresford
+## 0.2.1 - 2014-02-12 IR221 - Damian Beresford
 
 * 6018 - Add $fh.service() call to fh-api
 
-##Release 0.2.0 - 03-01-2014 IR218 - John Frizelle
+## 0.2.0 - 03-01-2014 IR218 - John Frizelle
 
 * 5455 - Explicitly set character encoding to utf-8
 
-##Release 0.1.5 (IR216)
+## 0.1.5 (IR216)
 CHANGES
  * 6393 - Refactored forms to use FH_WIDGET as appId.
 
-##Release 0.1.5 (IR216)
+## 0.1.5 (IR216)
 CHANGES
 * 5258 - Resolving an issue with defaulting to the wrong port if none specified
 
-##Release 0.1.4 (IR212)
+## 0.1.4 (IR212)
 CHANGES
  * Initialise logger earlier in cache.js
 
-##Release 0.1.2 (IR210)
+## 0.1.2 (IR210)
 CHANGES
  * pass db per app when app is using its own db
 
-##Release 0.1.1 (IR210)
+## 0.1.1 (IR210)
 CHANGES
  * add fh-db as dependency bump vers
 
-##Release 0.1.0 (IR209)
+## 0.1.0 (IR209)
 CHANGES
  * Ticket 4470 Split fh-nodeapp into fh-webapp and fh-apis
 
