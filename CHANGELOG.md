@@ -1,16 +1,12 @@
- #Component: fh-mbaas-api
+ # Component: fh-mbaas-api
 
-
-## 3.1.1 - 2014-06-03 IR229 - John Frizelle
-
+## 4.0.1 - 2014-06-03 IR229 - John Frizelle
 * 7363 - Sync should do global Init automatically
 
-## 3.1.0 - 2014-06-03 IR229 - John Frizelle
-
+## 4.0.0 - 2014-06-03 IR229 - John Frizelle
 * 7364 - Make fh-mbaas-express a dependency of this module.
 
-## 3.0.0-beta15 - 2014-06-05 IR229 - Cian Clarke
-
+## 3.0.1 & 3.0.0-beta15 - 2014-06-05 IR229 - Cian Clarke
 * Bump fh-db version
 
 ## 3.0.0-beta14 - 2014-06-05 IR229 - Cian Clarke
