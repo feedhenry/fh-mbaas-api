@@ -1,5 +1,9 @@
  # Component: fh-mbaas-api
- 
+
+## 4.0.4 - 2014-06-13 IR229 - Niall Donnelly
+
+* Use cuid from updates instead of the request when listing acknowledgements
+
 ## 4.0.3 - 2014-06-20 IR230 - Wei Li
 * 7470 - Small change around how to list the sync data
 
