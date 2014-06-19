@@ -1,5 +1,8 @@
  # Component: fh-mbaas-api
 
+## 4.0.2 - 2014-06-19 IR230 - Wei Li
+* 7470 - Fix an bug in sync framework which could cause client data lost
+
 ## 4.0.1 - 2014-06-03 IR229 - John Frizelle
 * 7363 - Sync should do global Init automatically
 
