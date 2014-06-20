@@ -1,4 +1,7 @@
  # Component: fh-mbaas-api
+ 
+## 3.0.4 - 2014-06-20 IR230 - Wei Li
+* 7470 - Small change around how to list the sync data
 
 ## 3.0.3 - 2014-06-19 IR230 - Wei Li
 * 7470 - Fix an bug in sync framework which could cause client data lost
