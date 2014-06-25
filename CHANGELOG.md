@@ -1,5 +1,9 @@
  # Component: fh-mbaas-api
 
+## 4.0.5 - 2014-06-25 IR230 - Wei Li
+
+* Make sure the same data format will be used when sync records endpoint is called
+
 ## 4.0.4 - 2014-06-13 IR229 - Niall Donnelly
 
 * Use cuid from updates instead of the request when listing acknowledgements
