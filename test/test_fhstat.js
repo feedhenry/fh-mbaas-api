@@ -2,10 +2,11 @@
 var util = require('util'),
 async = require("async"),
 $fh;
+var assert = require('assert');
 
 module.exports = {
 
-  'test fh.stats()' : function(test, assert) {
+  'test fh.stats()' : function(finish) {
     $fh = require("../lib/api.js");
     //var fhStats = fhs.stats({enabled:true});
     var i = 0;
@@ -32,8 +33,8 @@ module.exports = {
     });
 
    }, function(err){
-   assert.isUndefined(err, "Unexpected err: " + util.inspect(err));
-     test.finish();
+   assert.ok(!err, "Unexpected err: " + util.inspect(err));
+     finish();
      //fhStats.close();
    });
 
