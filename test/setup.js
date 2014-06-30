@@ -2,15 +2,15 @@ var proxyquire =  require('proxyquire').noCallThru(),
 exec = require('child_process').exec,
 redis;
 
-exports.globalSetUp = function(test, assert){
+exports.setUp = function(finish){
   require('./fixtures/env.js');
 
   // Start redis & mongo , wait 'till finished then run tests!
   redis = exec("redis-server", function(){});
-  test.finish();
+  finish();
 };
 
-exports.globalTearDown = function(test, assert){
+exports.tearDown = function(finish){
   redis.kill();
-  test.finish();
+  finish();
 };

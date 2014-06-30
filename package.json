@@ -19,7 +19,7 @@
   "devDependencies": {
     "express": "3.3.4",
     "proxyquire": "0.4.1",
-    "whiskey": "git://github.com/cloudkick/whiskey.git#58fc2944ac",
+    "turbo-test-runner": "~0.3",
     "nock": "0.22.1"
   },
   "scripts": {
