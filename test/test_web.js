@@ -1,9 +1,10 @@
 var fhhelpers = require("../lib/web-helpers.js"),
 $fh = require("../lib/api.js");
+var assert = require('assert');
 
 module.exports = {
 
-  'test option conversion': function(test, assert) {
+  'test option conversion': function(finish) {
     var fhOptions = {
       url: 'http://foo.bar:8888/one/two',
       method: 'POST',
@@ -30,14 +31,14 @@ module.exports = {
       gotException = true;
     }
     assert.equal(gotException, true);
-    test.finish();
+    finish();
   },
 
   // TODO: following tests are quite brittle as they rely on an external service
   // being available. Given that it's one of our own requests to the AskMoby domain
   // though, we'd hope it would be available 24/7.
 
-  'test fh.web() asynchronously': function(test, assert) {
+  'test fh.web() asynchronously': function(finish) {
     var fhOptions = {
       'url': 'http://www.google.ie',
       'method': "GET"
@@ -50,7 +51,7 @@ module.exports = {
       $fh.web(fhOptions, function(err, fhResp) {
         //assert.notEqual(fhResp.body.count, 0);
         assert.equal(fhResp.status, 404);
-        test.finish();
+        finish();
       });
     });
 
@@ -58,7 +59,7 @@ module.exports = {
     // http://docs.feedhenry.com/wiki/Web_Requests
   },
 
-  'test issue 3096 - illegal access': function(test, assert){
+  'test issue 3096 - illegal access': function(finish){
     var fhOptions = {
       'url': 'http://www.google.ie',
       'method': "GET",
@@ -72,7 +73,7 @@ module.exports = {
       $fh.web(fhOptions, function(err, fhResp) {
         //assert.notEqual(fhResp.body.count, 0);
         assert.equal(fhResp.status, 404);
-        test.finish();
+        finish();
       });
     });
 
