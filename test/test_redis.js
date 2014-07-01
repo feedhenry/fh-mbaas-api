@@ -3,10 +3,11 @@
 var util = require('util');
 var async = require('async');
 var $fh = require("../lib/api.js");
+var assert = require('assert');
 
 module.exports = {
 
-  'test caching in fh': function(test, assert) {
+  'test caching in fh': function(finish) {
     var d1, d2;
     getTime({}, function(err, data){
       d1 = data;
@@ -20,12 +21,12 @@ module.exports = {
         clearTime({}, function(err, data){
           assert.ok(!err, 'Error: ' + err);
           assert.notEqual(data, null);
-          test.finish();
+          finish();
         });
       });
     });
   },
-  'test $fh.cache with expire' : function(test, assert){
+  'test $fh.cache with expire' : function(finish){
     var stringToExpire = "123";
     $fh.cache({act : 'save', key : 'expires', value : stringToExpire, expire : 1}, function(err, res){
       assert.ok(!err, 'Error: ' + err);
@@ -36,7 +37,7 @@ module.exports = {
           $fh.cache({act : 'load', key : 'expires'}, function(err, expiredred){
             assert.ok(!err, 'Error: ' + err);
             assert.ok(!expiredred, 'Expected no res, res is: ' + expiredred);
-            test.finish();
+            finish();
           });
         }, 4000); // this has to be quite high on linux - no idea why, but takes some time to expire..
       });

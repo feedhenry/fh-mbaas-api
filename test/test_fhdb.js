@@ -3,11 +3,11 @@
 var util = require('util'),
 ditchMock = require('./fixtures/db'),
 $fh;
-
+var assert = require('assert');
 
 
 module.exports = {
-  'test ditch fh.db': function(test, assert) {
+  'test ditch fh.db': function(finish) {
     $fh = require("../lib/api.js");
     $fh.db({
       "act" : "create",
@@ -65,7 +65,7 @@ module.exports = {
                 }, function(err, res){
                   assert.equal(err, null, "Err not null: " + util.inspect(err));
                   ditchMock.done();
-                  test.finish();
+                  finish();
                 }); // end delete
               });
             });// end export
@@ -75,12 +75,12 @@ module.exports = {
     }); // end create
   },
 
-  'test dbperapp fh.db': function(test, assert) {
+  'test dbperapp fh.db': function(finish) {
 
     //When the dbperapp environment variable is set, The same tests should now return an error message
     process.env['FH_DB_PERAPP'] = true;
 
-    (function(test, assert) {
+    (function(finish) {
       $fh = require("../lib/api.js");
       $fh.db({
         "act" : "create",
@@ -105,10 +105,10 @@ module.exports = {
           assert.ok(err && err.message === "Data storage not enabled for this app. Please use the Data Browser window to enable data storage.");
 
           ditchMock.done();
-          test.finish();
+          finish();
 
         }); // end list
       }); // end create
-    })(test, assert);
+    })(finish);
   }
 };

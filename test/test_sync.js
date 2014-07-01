@@ -15,8 +15,10 @@ var dataset_id = "myShoppingList";
 
 var $fh, ditchMock;
 
+var assert = require('assert');
+
 module.exports = {
-  setUp : function(test, assert){
+  setUp : function(finish){
     ditchMock = require('./fixtures/sync_db');
     $fh = require("../lib/api.js");
 
@@ -29,37 +31,37 @@ module.exports = {
       $fh.sync.handleCollision(dataset_id, dataHandler.doCollision);
       $fh.sync.listCollisions(dataset_id, dataHandler.listCollisions);
       $fh.sync.removeCollision(dataset_id, dataHandler.removeCollision);
-      test.finish();
+      finish();
     });
   },
 
-  'test sync start & stop' : function(test, assert) {
+  'test sync start & stop' : function(finish) {
 
     $fh.sync.invoke('myShoppingList', logParams, function(err, res){
       assert.ok(!err, 'Error: ' + err);
       assert.ok(res.status);
       assert.equal("ok", res.status, "Unexpected response: " + util.inspect(res));
-      test.finish();
+      finish();
     });
   },
 
-  'test sync' : function(test, assert) {
+  'test sync' : function(finish) {
     $fh.sync.invoke('myShoppingList', syncParams, function(err, res){
       console.log("sync res", err, res);
       assert.ok(!err, 'Error: ' + err);
       assert.ok(res);
       assert.ok(res.records);
-      test.finish();
+      finish();
     });
   },
 
-  'tearDown' : function(test, assert){
+  'tearDown' : function(finish){
     $fh.sync.stopAll(function(err, res){
       console.log("stopAll returned", err, res);
       assert.ok(!err, 'Error: ' + err);
       assert.ok(res);
       ditchMock.done();
-      test.finish();
+      finish();
     });
    
   }

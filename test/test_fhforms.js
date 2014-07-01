@@ -1,109 +1,110 @@
 var proxyquire = require('proxyquire').noCallThru();
 var mockForms = require('./fixtures/forms.js');
+var assert = require('assert');
 
 module.exports = {
-  'test getForms' : function(test, assert){
+  'test getForms' : function(finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
     $fh.forms.getForms({appClientId:'1234'}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
-      test.finish();
+      finish();
     });
   },
-  'test getForm' : function(test, assert){
+  'test getForm' : function(finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
     $fh.forms.getForm({appClientId:'1234', "_id": "formId1234"}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
-      test.finish();
+      finish();
     });
   },
-  'test getTheme' : function(test, assert){
+  'test getTheme' : function(finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
     $fh.forms.getTheme({appClientId:'1234'}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
-      test.finish();
+      finish();
     });
   },
-  'test submitFormData' : function(test, assert){
+  'test submitFormData' : function(finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
     $fh.forms.submitFormData({appClientId:'1234'}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
-      test.finish();
+      finish();
     });
   },
-  'test submitFormFile' : function(test, assert){
+  'test submitFormFile' : function(finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
     $fh.forms.submitFormFile({appClientId:'1234'}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
-      test.finish();
+      finish();
     });
   },
-  'test getSubmissionStatus' : function(test, assert){
+  'test getSubmissionStatus' : function(finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
     $fh.forms.getSubmissionStatus({appClientId:'1234'}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
-      test.finish();
+      finish();
     });
   },
-  'test completeSubmission' : function(test, assert){
+  'test completeSubmission' : function(finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
     $fh.forms.completeSubmission({appClientId:'1234'}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
-      test.finish();
+      finish();
     });
   },
-  'test getAppClientConfig' : function(test, assert){
+  'test getAppClientConfig' : function(finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
     $fh.forms.getAppClientConfig({appClientId:'1234'}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
-      test.finish();
+      finish();
     });
   },
-  "test getFullyPopulatedForms ": function (test, assert){
+  "test getFullyPopulatedForms ": function (finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
     $fh.forms.getPopulatedFormList({"formids":[]}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
-      test.finish();
+      finish();
     });
   },
-  "test getSubmissions ": function (test, assert){
+  "test getSubmissions ": function (finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
     $fh.forms.getSubmissions({"subids":[]}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
-      test.finish();
+      finish();
     });
   },
-  "test getSubmission ": function (test, assert){
+  "test getSubmission ": function (finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
     $fh.forms.getSubmission({"submissionId": "submission1234"}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
-      test.finish();
+      finish();
     });
   },
-  "test getSubmissions with files": function (test, assert){
+  "test getSubmissions with files": function (finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
     $fh.forms.getSubmissions({"subids":["submissionId1", "submissionId2"]}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
-      test.finish();
+      finish();
     });
   },
-  "test getSubmissionFile ": function (test, assert){
+  "test getSubmissionFile ": function (finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
     $fh.forms.getSubmissionFile({"_id": "testSubFileGroupId"}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
-      test.finish();
+      finish();
     });
   }
 };
