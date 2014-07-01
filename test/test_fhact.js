@@ -2,14 +2,15 @@
 
 var util = require('util'),
 actMock, fhs, fhsConfig, $fh;
+var assert = require('assert');
 
 module.exports = {
-  setUp : function(test, assert){
+  setUp : function(finish){
     actMock = require('./fixtures/act');
     $fh = require("../lib/api.js");
-    test.finish();
+    finish();
   },
-  'test dev $fh.act': function(test, assert) {
+  'test dev $fh.act': function(finish) {
     $fh.act({
       guid: "123456789erghjtrudkirejr",
       endpoint: "doSomething",
@@ -19,10 +20,10 @@ module.exports = {
     }, function(err, data) {
       assert.ok(!err, 'Error: ' + err);
       assert.ok(data);
-      test.finish();
+      finish();
     });
   },
-  'test live $fh.act': function(test, assert) {
+  'test live $fh.act': function(finish) {
     $fh.act({
       guid: "123456789erghjtrudkirejr",
       endpoint: "doSomething",
@@ -33,10 +34,10 @@ module.exports = {
     }, function(err, data) {
       assert.ok(!err, 'Error: ' + err);
       assert.ok(data);
-      test.finish();
+      finish();
     });
   },
-  'test $fh.act bad args': function(test, assert) {
+  'test $fh.act bad args': function(finish) {
     var gotException = false;
     try {
       $fh.act({});
@@ -44,14 +45,14 @@ module.exports = {
       gotException = true;
     }
     assert.equal(gotException, true);
-    test.finish();
+    finish();
   },
-  'test $fh.call sys info ping' : function(test, assert){
+  'test $fh.call sys info ping' : function(finish){
     $fh.call('sys/info/ping', {}, function(err, res){
       assert.ok(!err, 'Error: ' + err);
       assert.ok(res.status === 200);
       assert.ok(JSON.parse(res.body).ok === true);
-      test.finish();
+      finish();
     });
   },
 //  'test $fh.call bad arguments url' : function(test, assert){
@@ -66,8 +67,8 @@ module.exports = {
 //      test.finish();
 //    });
 //  },
-  tearDown : function(test, assert){
+  tearDown : function(finish){
     actMock.done();
-    test.finish();
+    finish();
   }
 };
