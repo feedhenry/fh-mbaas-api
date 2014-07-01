@@ -12,5 +12,8 @@ exports.setUp = function(finish){
 
 exports.tearDown = function(finish){
   redis.kill();
-  finish();
+  var fh = require("../lib/api.js");
+  fh.sync.stopAll(function(err) {
+    return finish();
+  });
 };
