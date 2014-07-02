@@ -35,46 +35,25 @@ test: npm_deps
 	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_sync.js
 	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_web.js
 
-coverage: test_fhact test_fhforms test_fhsec test_fhsession test_redis test_fhstat test_fhfeed test_web test_sync
+test_cov: npm_deps
+	#env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/
+	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhact.js
+	#env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhdb.js
+	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhfeed.js
+	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhforms.js
+	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhsec.js
+	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhsession.js
+	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhstat.js
+	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_redis.js
+	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_sync.js
+	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_web.js
+
+
+coverage: test_cov
 	rm -rf coverage
 	./node_modules/.bin/istanbul report
 	./node_modules/.bin/istanbul report --report cobertura
-
-test_fhact:
-	npm_deps
-	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhact.js
-
-test_fhforms:
-	npm_deps
-	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhforms.js
-
-test_fhsec:
-	npm_deps
-	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhsec.js
-
-test_fhsession:
-	npm_deps
-	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhsession.js
-
-test_redis:
-	npm_deps
-	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_redis.js
-
-test_fhstat:
-	npm_deps
-	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhstat.js
-
-test_fhfeed:
-	npm_deps
-	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhfeed.js
-
-test_web:
-	npm_deps
-	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_web.js
-
-#test_sync: npm_deps
-#	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_sync.js
-
+	@echo "See html coverage at: `pwd`/coverage/lcov-report/index.html"
 
 
 npm_deps:

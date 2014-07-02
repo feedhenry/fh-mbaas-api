@@ -13,3 +13,4 @@ def-debug.log
 ._.DS_Store
 .idea/
 dump.rdb
+cov-test/
