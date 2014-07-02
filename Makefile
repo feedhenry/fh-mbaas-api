@@ -59,11 +59,6 @@ coverage: test_cov
 npm_deps:
 	npm install .
 
-#test_sync:
-#	npm_deps
-#	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_sync.js
-
-
 # Note we create two distributions, one with Mongo, one without.
 # This is due to Mongo driver being 1.5G in size
 dist: npm_deps
