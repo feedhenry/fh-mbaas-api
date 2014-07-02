@@ -18,6 +18,7 @@ MODULES = ./node_modules
 COV_DIR = ./lib-cov
 RELEASE_FILE = $(PACKAGE)-$(VERSION)-$(BUILD_NUMBER).tar.gz
 RELEASE_DIR = $(PACKAGE)-$(VERSION)-$(BUILD_NUMBER)
+COVERAGE = ./coverage
 
 all: clean npm_deps test
 
@@ -34,12 +35,47 @@ test: npm_deps
 	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_sync.js
 	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_web.js
 
-coverage: test_sync
+coverage: test_sync test_fhact test_fhforms test_fhsec test_fhsession test_redis test_fhstat test_fhfeed test_web
 	rm -rf coverage
-	$(ISTANBUL) report --report cobertura
+	./node_modules/.bin/istanbul report
+	./node_modules/.bin/istanbul report --report cobertura
+
+test_fhact:
+	npm_deps
+	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhact.js
+
+test_fhforms:
+	npm_deps
+	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhforms.js
+
+test_fhsec:
+	npm_deps
+	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhsec.js
+
+test_fhsession:
+	npm_deps
+	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhsession.js
+
+test_redis:
+	npm_deps
+	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_redis.js
+
+test_fhstat:
+	npm_deps
+	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhstat.js
+
+test_fhfeed:
+	npm_deps
+	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhfeed.js
+
+test_web:
+	npm_deps
+	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_web.js
 
 test_sync: npm_deps
 	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_sync.js
+
+
 
 npm_deps:
 	npm install .
