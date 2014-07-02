@@ -35,7 +35,7 @@ test: npm_deps
 	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_sync.js
 	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_web.js
 
-coverage: test_sync test_fhact test_fhforms test_fhsec test_fhsession test_redis test_fhstat test_fhfeed test_web
+coverage: test_fhact test_fhforms test_fhsec test_fhsession test_redis test_fhstat test_fhfeed test_web test_sync
 	rm -rf coverage
 	./node_modules/.bin/istanbul report
 	./node_modules/.bin/istanbul report --report cobertura
@@ -72,8 +72,8 @@ test_web:
 	npm_deps
 	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_web.js
 
-test_sync: npm_deps
-	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_sync.js
+#test_sync: npm_deps
+#	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_sync.js
 
 
 
