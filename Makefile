@@ -22,15 +22,21 @@ RELEASE_DIR = $(PACKAGE)-$(VERSION)-$(BUILD_NUMBER)
 all: clean npm_deps test
 
 test: npm_deps
-	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhdb.js
-    env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/
+	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_sync.js
+    
 
+coverage: test_sync
+	rm -rf coverage
+	$(ISTANBUL) report --report cobertura
 
 npm_deps:
 	npm install .
 
-coverage:
-	$(ISTANBUL) report --report cobertura
+
+test_sync:
+	npm_deps
+	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_sync.js
+
 
 # Note we create two distributions, one with Mongo, one without.
 # This is due to Mongo driver being 1.5G in size
