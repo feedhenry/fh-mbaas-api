@@ -38,17 +38,15 @@ coverage: test_sync
 	rm -rf coverage
 	$(ISTANBUL) report --report cobertura
 
-test_sync:
-	npm_deps
+test_sync: npm_deps
 	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_sync.js
 
 npm_deps:
 	npm install .
 
-
-test_sync:
-	npm_deps
-	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_sync.js
+#test_sync:
+#	npm_deps
+#	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_sync.js
 
 
 # Note we create two distributions, one with Mongo, one without.
