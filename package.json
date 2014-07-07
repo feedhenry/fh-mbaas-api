@@ -27,5 +27,5 @@
     "test": "cd node_modules/fh-security; npm install ursa; cd -; listing=$(ls -1 test/test_*); teststorun=$(echo $listing | tr -d '\n'); whiskey --tests \"$teststorun\" --global-setup-teardown \"test/setup.js\""
   },
   "author": "FeedHenry",
-  "license": "BSD"
+  "license": "Copyright (c) 2014 FeedHenry Ltd, All Rights Reserved."
 }
