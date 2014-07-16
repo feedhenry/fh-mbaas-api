@@ -53,7 +53,7 @@ jshint:
 
 plato:
 	./node_modules/.bin/plato -r -d plato -l .jshintrc lib
- 	@echo Open the Plato report in `pwd`/plato/index.html 
+	@echo Open the Plato report in `pwd`/plato/index.html 
 
 coverage: test_cov
 	rm -rf coverage
