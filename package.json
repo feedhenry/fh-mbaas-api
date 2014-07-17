@@ -21,7 +21,9 @@
     "proxyquire": "0.4.1",
     "turbo-test-runner": "~0.3",
     "nock": "0.22.1",
-    "istanbul": "0.2.14"
+    "istanbul": "0.2.14",
+    "plato" : "^1.0.1",
+    "jshint" : "^2.5.2"
   },
   "scripts": {
     "test": "cd node_modules/fh-security; npm install ursa; cd -; listing=$(ls -1 test/test_*); teststorun=$(echo $listing | tr -d '\n'); whiskey --tests \"$teststorun\" --global-setup-teardown \"test/setup.js\""

@@ -4,6 +4,7 @@ lib-cov/
 dist/
 output/
 man/
+plato/
 node_modules/
 *~
 npm*.log
