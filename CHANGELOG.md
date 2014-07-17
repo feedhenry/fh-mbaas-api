@@ -1,5 +1,9 @@
  # Component: fh-mbaas-api
 
+ ## 4.0.6 - 2014-06-25 IR232 - Niall Donnelly
+
+ * 7637 - Updated fh-forms version related to ticket 7637
+
 ## 4.0.5 - 2014-06-25 IR230 - Wei Li
 
 * Make sure the same data format will be used when sync records endpoint is called
