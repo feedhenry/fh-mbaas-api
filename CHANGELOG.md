@@ -1,6 +1,10 @@
  # Component: fh-mbaas-api
 
- ## 4.0.6 - 2014-06-25 IR232 - Niall Donnelly
+## 4.0.7 - 2014-08-06 IR233 - John Frizelle
+
+ * 7744 - Expose a shutdown API to allow fh-mbaas-api to cleanly exit
+
+## 4.0.6 - 2014-06-25 IR232 - Niall Donnelly
 
  * 7637 - Updated fh-forms version related to ticket 7637
 

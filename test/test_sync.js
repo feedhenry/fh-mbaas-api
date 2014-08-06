@@ -56,7 +56,7 @@ module.exports = {
   },
 
   'tearDown' : function(finish){
-    $fh.sync.stopAll(function(err, res){
+    $fh.shutdown(function(err, res){
       console.log("stopAll returned", err, res);
       assert.ok(!err, 'Error: ' + err);
       assert.ok(res);
