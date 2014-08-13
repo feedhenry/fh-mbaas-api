@@ -1,5 +1,9 @@
  # Component: fh-mbaas-api
 
+## 4.1.0 - 2014-08-13 - Niall Donnelly
+
+* 7414 Bumped forms version related to adding new bootstrap forms template app.
+
 ## 4.0.7 - 2014-08-06 IR233 - John Frizelle
 
  * 7744 - Expose a shutdown API to allow fh-mbaas-api to cleanly exit
