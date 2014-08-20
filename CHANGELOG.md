@@ -1,6 +1,10 @@
  # Component: fh-mbaas-api
 
-## 4.1.0 - 2014-08-13 - Niall Donnelly
+## 4.2.0 - 2014-08-20 IR234 - Niall Donnelly
+
+* 7821 Bumped forms version to allow multiple rule targets.
+
+## 4.1.0 - 2014-08-13 IR233 - Niall Donnelly
 
 * 7414 Bumped forms version related to adding new bootstrap forms template app.
 
