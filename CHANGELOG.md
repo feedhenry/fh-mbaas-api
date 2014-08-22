@@ -1,5 +1,8 @@
  # Component: fh-mbaas-api
 
+## 3.1.0 - 2014-08-22 IR234 - Niall Donnelly
+* 7821 Bumped forms version to allow multiple rule targets.
+
 ## 3.0.6 - 2014-07-17 IR232 - Niall Donnelly
 * 7637 - Update forms version related to 7637
 
