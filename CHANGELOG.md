@@ -1,5 +1,9 @@
  # Component: fh-mbaas-api
 
+## 4.3.0 - 2014-08-28 IR235 - Niall Donnelly
+
+* 7822 - Added admin fields to forms. Bumped forms version.
+
 ## 4.2.0 - 2014-08-20 IR234 - Niall Donnelly
 
 * 7821 Bumped forms version to allow multiple rule targets.
