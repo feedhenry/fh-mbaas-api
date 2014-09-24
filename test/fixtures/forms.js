@@ -11,7 +11,25 @@ module.exports = {
     assert.ok(options.uri, "Expected options.uri but got nothing");
     assert.ok(options.appId === "c0TPJzF6ztq0W12345PEC5W8", "Expected appId to be the FH_WIDGET value: c0TPJzF6ztq0W12345PEC5W8 but was " + options.appId);//ENSURING THE APPID IS NOW THE FH_WIDGET ID
     assert.ok(options._id, "Expected form id but got nothing");
-    cb(undefined, {"_id": "someformId"});
+    cb(undefined, {"_id": "someformId", pages:
+      [
+        {
+          fields:
+          [
+            {
+              _id: "fieldText",
+              fieldCode: "fieldTextCode",
+              type: "text"
+            },
+            {
+              _id: "fieldPhoto",
+              fieldCode: "fieldPhotoCode",
+              type: "photo"
+            }
+          ]
+        }
+      ]
+    });
   },
   "getTheme": function (options, cb) {
     assert.ok(options, "Expected options but got nothing");
@@ -32,6 +50,8 @@ module.exports = {
   "submitFormFile": function (options, cb) {
     assert.ok(options, "Expected options but got nothing");
     assert.ok(options.uri, "Expected options.uri but got nothing");
+    assert.ok(options.submission, "Expected a submission object but got nothing");
+    assert.ok(options.submission.fileStream, "Expected a file stream but got nothing");
     cb(undefined, {"status": "ok"});
   },
   "completeFormSubmission": function (options, cb) {
