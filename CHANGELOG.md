@@ -1,5 +1,8 @@
  # Component: fh-mbaas-api
 
+## 4.4.0 - 2014-09-24 IR237 - Niall Donnelly
+* 7986 - Bump forms version for field codes.
+
 ## 4.3.1 - 2014-09-19 IR236 - Wei Li
 * 7992 - Fix error when handling sync collison
 
