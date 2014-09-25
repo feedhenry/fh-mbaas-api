@@ -27,7 +27,7 @@ test: npm_deps
 	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhact.js
 	#env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhdb.js
 	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhfeed.js
-	#env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhforms.js
+	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhforms.js
 	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhsec.js
 	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhsession.js
 	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhstat.js
@@ -40,7 +40,7 @@ test_cov: npm_deps
 	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhact.js
 	#env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhdb.js
 	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhfeed.js
-	#env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhforms.js
+	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhforms.js
 	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhsec.js
 	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhsession.js
 	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-test ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/test_fhstat.js

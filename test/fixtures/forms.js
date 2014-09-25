@@ -45,13 +45,17 @@ module.exports = {
     assert.ok(options.submission.appClientId, "Expected options.submission.appClientId but got nothing");
     assert.ok(options.submission.appCloudName, "Expected options.submission.appCloudName but got nothing");
     assert.ok(options.submission.appEnvironment, "Expected options.submission.appEnvironment but got nothing");
-    cb(undefined, {"submssionId": "submissionId123456"});
+    cb(undefined, {"submissionId": "submissionId123456"});
   },
   "submitFormFile": function (options, cb) {
     assert.ok(options, "Expected options but got nothing");
     assert.ok(options.uri, "Expected options.uri but got nothing");
     assert.ok(options.submission, "Expected a submission object but got nothing");
+    console.log(JSON.stringify(options));
     assert.ok(options.submission.fileStream, "Expected a file stream but got nothing");
+    assert.ok(options.submission.fileId, "Expected a file Id but got nothing");
+    assert.ok(options.submission.fieldId, "Expected a file field Id but got nothing");
+    assert.ok(options.submission.submissionId, "Expected a file submission ID but got nothing");
     cb(undefined, {"status": "ok"});
   },
   "completeFormSubmission": function (options, cb) {
