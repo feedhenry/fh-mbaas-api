@@ -95,7 +95,7 @@ module.exports = {
         assert.ok(!err, "Unexpected error " + err);
 
         //Testing fieldId field selector
-        var err = submission.addFieldInput({fieldId: "fieldPhoto", value: {fileName: "someFileName", fileSize: 123, fileType: "image/jpeg"}, localURI: __dirname + '/fixtures/testimg1.jpg'});
+        var err = submission.addFieldInput({fieldId: "fieldPhoto", value: {fileName: "someFileName", fileSize: 123, fileType: "image/jpeg", fileStream: __dirname + '/fixtures/testimg1.jpg'}});
         assert.ok(!err, "Unexpected error " + err);
 
         assert.ok(submission.fieldValues["fieldPhoto"].length === 1, "Expected file input length to be 1 but was " + submission.fieldValues["fieldPhoto"].length);
@@ -103,10 +103,11 @@ module.exports = {
         assert.ok(submission.fieldValues["fieldPhoto"][0].fileName === "someFileName", "Expected fileName to be someFileName but was " + submission.fieldValues["fieldPhoto"][0].fileName);
         assert.ok(submission.fieldValues["fieldPhoto"][0].fileSize === 123, "Expected fileSize to be 123 but was " + submission.fieldValues["fieldPhoto"][0].fileSize);
         assert.ok(submission.fieldValues["fieldPhoto"][0].fileType === "image/jpeg", "Expected fileSize to be image/jpeg but was " + submission.fieldValues["fieldPhoto"][0].fileType);
+        assert.ok(!submission.fieldValues["fieldPhoto"][0].fileStream, "Unexpected fileStream parameter in submission data.");
         assert.ok(submission.fieldValues["fieldPhoto"][0].fileUpdateTime, "Expected fileUpdateTime but was undefined");
         assert.ok(submission.fieldValues["fieldPhoto"][0].hashName, "Expected hashName but was undefined");
 
-        err = submission.addFieldInput({fieldCode: "fieldPhotoCode", value: {fileName: "someFileName2", fileSize: 312, fileType: "image/png"}, index: 1, localURI: __dirname + '/fixtures/testimg2.png'});
+        err = submission.addFieldInput({fieldCode: "fieldPhotoCode", value: {fileName: "someFileName2", fileSize: 312, fileType: "image/png", fileStream: __dirname + '/fixtures/testimg2.png'}, index: 1});
         assert.ok(!err, "Unexpected error " + err);
 
         assert.ok(submission.fieldValues["fieldPhoto"].length === 2, "Expected file input length to be 2 but was " + submission.fieldValues["fieldPhoto"].length);
@@ -115,6 +116,7 @@ module.exports = {
         assert.ok(submission.fieldValues["fieldPhoto"][0].fileName === "someFileName", "Expected fileName to be someFileName but was " + submission.fieldValues["fieldPhoto"][0].fileName);
         assert.ok(submission.fieldValues["fieldPhoto"][0].fileSize === 123, "Expected fileSize to be 123 but was " + submission.fieldValues["fieldPhoto"][0].fileSize);
         assert.ok(submission.fieldValues["fieldPhoto"][0].fileType === "image/jpeg", "Expected fileSize to be image/jpeg but was " + submission.fieldValues["fieldPhoto"][0].fileType);
+        assert.ok(!submission.fieldValues["fieldPhoto"][0].fileStream, "Unexpected fileStream parameter in submission data.");
         assert.ok(submission.fieldValues["fieldPhoto"][0].fileUpdateTime, "Expected fileUpdateTime but was undefined");
         assert.ok(submission.fieldValues["fieldPhoto"][0].hashName, "Expected hashName but was undefined");
 
@@ -122,6 +124,7 @@ module.exports = {
         assert.ok(submission.fieldValues["fieldPhoto"][1].fileName === "someFileName2", "Expected fileName to be someFileName but was " + submission.fieldValues["fieldPhoto"][1].fileName);
         assert.ok(submission.fieldValues["fieldPhoto"][1].fileSize === 312, "Expected fileSize to be 123 but was " + submission.fieldValues["fieldPhoto"][1].fileSize);
         assert.ok(submission.fieldValues["fieldPhoto"][1].fileType === "image/png", "Expected fileSize to be image/jpeg but was " + submission.fieldValues["fieldPhoto"][1].fileType);
+        assert.ok(!submission.fieldValues["fieldPhoto"][1].fileStream, "Unexpected fileStream parameter in submission data.");
         assert.ok(submission.fieldValues["fieldPhoto"][1].fileUpdateTime, "Expected fileUpdateTime but was undefined");
         assert.ok(submission.fieldValues["fieldPhoto"][1].hashName, "Expected hashName but was undefined");
 
@@ -141,7 +144,7 @@ module.exports = {
 
         //Testing fieldId field selector
 
-        var err = submission.addFieldInput({fieldId: "fieldPhoto", value: {fileName: "someFileName", fileSize: 123, fileType: "image/jpeg"}, localURI: __dirname + '/fixtures/testimg1.jpg'});
+        var err = submission.addFieldInput({fieldId: "fieldPhoto", value: {fileName: "someFileName", fileSize: 123, fileType: "image/jpeg", fileStream: __dirname + '/fixtures/testimg1.jpg'}});
         assert.ok(!err, "Unexpected error " + err);
 
         assert.ok(submission.fieldValues["fieldPhoto"].length === 1, "Expected file input length to be 1 but was " + submission.fieldValues["fieldPhoto"].length);
@@ -149,6 +152,7 @@ module.exports = {
         assert.ok(submission.fieldValues["fieldPhoto"][0].fileName === "someFileName", "Expected fileName to be someFileName but was " + submission.fieldValues["fieldPhoto"][0].fileName);
         assert.ok(submission.fieldValues["fieldPhoto"][0].fileSize === 123, "Expected fileSize to be 123 but was " + submission.fieldValues["fieldPhoto"][0].fileSize);
         assert.ok(submission.fieldValues["fieldPhoto"][0].fileType === "image/jpeg", "Expected fileSize to be image/jpeg but was " + submission.fieldValues["fieldPhoto"][0].fileType);
+        assert.ok(!submission.fieldValues["fieldPhoto"][0].fileStream, "Unexpected fileStream parameter in submission data.");
         assert.ok(submission.fieldValues["fieldPhoto"][0].fileUpdateTime, "Expected fileUpdateTime but was undefined");
         assert.ok(submission.fieldValues["fieldPhoto"][0].hashName, "Expected hashName but was undefined");
 
