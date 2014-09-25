@@ -1,7 +1,10 @@
- # Component: fh-mbaas-api
+# Component: fh-mbaas-api
 
 ## 4.5.0 - 2014-09-25 IR237 - Niall Donnelly
 * 8018 - Added additional cloud functionality.
+
+## 4.4.1 - 2014-09-25 IR237 - Eoin Crosbie, Wei Li
+* Fix an issue with the sync framework
 
 ## 4.4.0 - 2014-09-24 IR237 - Niall Donnelly
 * 7986 - Bump forms version for field codes.
