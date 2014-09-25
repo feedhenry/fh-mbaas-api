@@ -95,7 +95,7 @@ module.exports = {
         assert.ok(!err, "Unexpected error " + err);
 
         //Testing fieldId field selector
-        var err = submission.addFieldInput({fieldId: "fieldPhoto", value: {fileName: "someFileName", fileSize: 123, fileType: "image/jpeg"}, stream: fs.createReadStream(__dirname + '/fixtures/testimg1.jpg')});
+        var err = submission.addFieldInput({fieldId: "fieldPhoto", value: {fileName: "someFileName", fileSize: 123, fileType: "image/jpeg"}, localURI: __dirname + '/fixtures/testimg1.jpg'});
         assert.ok(!err, "Unexpected error " + err);
 
         assert.ok(submission.fieldValues["fieldPhoto"].length === 1, "Expected file input length to be 1 but was " + submission.fieldValues["fieldPhoto"].length);
@@ -106,7 +106,7 @@ module.exports = {
         assert.ok(submission.fieldValues["fieldPhoto"][0].fileUpdateTime, "Expected fileUpdateTime but was undefined");
         assert.ok(submission.fieldValues["fieldPhoto"][0].hashName, "Expected hashName but was undefined");
 
-        err = submission.addFieldInput({fieldCode: "fieldPhotoCode", value: {fileName: "someFileName2", fileSize: 312, fileType: "image/png"}, index: 1, stream: fs.createReadStream(__dirname + '/fixtures/testimg2.png')});
+        err = submission.addFieldInput({fieldCode: "fieldPhotoCode", value: {fileName: "someFileName2", fileSize: 312, fileType: "image/png"}, index: 1, localURI: __dirname + '/fixtures/testimg2.png'});
         assert.ok(!err, "Unexpected error " + err);
 
         assert.ok(submission.fieldValues["fieldPhoto"].length === 2, "Expected file input length to be 2 but was " + submission.fieldValues["fieldPhoto"].length);
@@ -136,12 +136,12 @@ module.exports = {
 
     $fh.forms.getForm({appClientId:'1234', "_id": "formId1234"}, function(err, form){
       assert.ok(!err, "Unexpected error " + err);
-      $fh.forms.createSubmissionModel({form: form}, function(err, submission){
+      $fh.forms.createSubmissionModel({form: form, keepFiles: true}, function(err, submission){
         assert.ok(!err, "Unexpected error " + err);
 
         //Testing fieldId field selector
 
-        var err = submission.addFieldInput({fieldId: "fieldPhoto", value: {fileName: "someFileName", fileSize: 123, fileType: "image/jpeg"}, stream: fs.createReadStream(__dirname + '/fixtures/testimg1.jpg')});
+        var err = submission.addFieldInput({fieldId: "fieldPhoto", value: {fileName: "someFileName", fileSize: 123, fileType: "image/jpeg"}, localURI: __dirname + '/fixtures/testimg1.jpg'});
         assert.ok(!err, "Unexpected error " + err);
 
         assert.ok(submission.fieldValues["fieldPhoto"].length === 1, "Expected file input length to be 1 but was " + submission.fieldValues["fieldPhoto"].length);
