@@ -185,7 +185,7 @@ module.exports = {
   },
   'test completeSubmission' : function(finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
-    $fh.forms.completeSubmission({appClientId:'1234'}, function(err, res){
+    $fh.forms.completeSubmission({appClientId:'1234', submission: {submissionId: "submission1234"}}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
       finish();

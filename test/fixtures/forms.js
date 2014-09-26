@@ -61,6 +61,8 @@ module.exports = {
   "completeFormSubmission": function (options, cb) {
     assert.ok(options, "Expected options but got nothing");
     assert.ok(options.uri, "Expected options.uri but got nothing");
+    assert.ok(options.submission, "Expected a submission object");
+    assert.ok(options.submission.submissionId, "Expected a submission Id");
     cb(undefined, {"status": "complete"});
   },
   "getSubmissionStatus": function (options, cb) {
