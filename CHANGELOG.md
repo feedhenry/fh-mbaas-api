@@ -1,5 +1,8 @@
 # Component: fh-mbaas-api
 
+## 4.5.1 - 2014-10-30 IR239 - Wei Li
+* 8212 - Update fh-forms and fh-mbaas-express version
+
 ## 4.5.0 - 2014-09-25 IR237 - Niall Donnelly
 * 8018 - Added additional cloud functionality.
 
