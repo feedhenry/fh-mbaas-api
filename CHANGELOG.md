@@ -1,5 +1,8 @@
 # Component: fh-mbaas-api
 
+## 4.6.0 - 2014-11-03 IR240 - Niall Donnelly
+* 7890 - Bumped forms version related to adding a barcode scanner field.
+
 ## 4.5.1 - 2014-10-30 IR239 - Wei Li
 * 8212 - Update fh-forms and fh-mbaas-express version
 
