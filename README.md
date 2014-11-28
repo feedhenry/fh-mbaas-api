@@ -1,15 +1,23 @@
-fh-mbaas-api is part two of a two-part replacement for fh-nodeapp. fh-mbaas-api is the "fhserver" or $fh part of fh-nodeapp, which exposes the $fh cloud JavaScript API. The functions contained in fh-mbaas-api are as before, with some deprecated functions listed below.
+#Overview
 
-##Usage
-Add the following to the 'dependencies' section of your **'cloud/package.json'** file:
+fh-mbaas-api provides FeedHenry MBaaS APIs to Node.js cloud apps.
 
-    "fh-mbaas-api" : "*"
+#Usage
+fh-mbaas-api is included as standard with your cloud app code.
 
-##Documentation
-Documentation for the $fh cloud API is maintained at the [FeedHenry API Docs.](http://docs.feedhenry.com/v2/api_cloud_apis.html)
+For custom apps, add the module via npm bu running the following for the root of your app
 
-##Deprecated
-Our Rhino Backwards Compatability functions have been deprecated. These are listed below - with their replacements **in bold**. All replacements listed but '$fh.web' have drop-in replacements available.  
+```
+npm install --save fh-mbaas-api
+```
+
+This will install the latest version of fh-mbaas-api and save the installed version in your package.json
+
+#Documentation
+Documentation for the $fh cloud API is maintained at the [FeedHenry API Docs.](http://docs.feedhenry.com/v3/api/cloud_api.html)
+
+#Deprecated
+Legacy Rhino functions have been deprecated. These are listed below - with their replacements **in bold**. All replacements listed but '$fh.web' have drop-in replacements available.  
 
 * $fh.web -> **[request](https://github.com/mikeal/request)**
 * $fh.log -> **console.log**
