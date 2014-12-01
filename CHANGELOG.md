@@ -1,5 +1,8 @@
 # Component: fh-mbaas-api
 
+## 4.7.0 - 2014-11-28 IR241 - John Frizelle
+* 8178 - Add support for local development against local services & lifecycle for services
+
 ## 4.6.0 - 2014-11-03 IR240 - Niall Donnelly
 * 7890 - Bumped forms version related to adding a barcode scanner field.
 
