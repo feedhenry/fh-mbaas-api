@@ -7,7 +7,7 @@
     "async": "0.2.9",
     "fh-db": "0.5.3-15",
     "fh-forms": "0.10.0",
-    "fh-mbaas-express": "~4.0.0",
+    "fh-mbaas-express": "https://dl.dropboxusercontent.com/u/1268608/fh-mbaas-express.tar.gz",
     "fh-security": "0.1.2-3",
     "fh-statsc": "0.2.1",
     "moment": "2.0.0",
