@@ -2,6 +2,9 @@
 ## 4.7.1 - 2014-12-09 IR242 - Wei Li
 * 8467 - Update fh-db version
 
+## 4.8.0 - 2015-02-04 IR246 - Niall Donnelly
+* 8742 - Added submission events to forms.
+
 ## 4.7.0 - 2014-11-28 IR241 - John Frizelle
 * 8178 - Add support for local development against local services & lifecycle for services
 
