@@ -1,4 +1,7 @@
 # Component: fh-mbaas-api
+## 4.8.1 - 2015-02-17 IR247 - Wei Li
+* 8748 - Update fh-form dependency version
+
 ## 4.8.0 - 2015-02-04 IR246 - Niall Donnelly
 * 8742 - Added submission events to forms.
 
