@@ -9,7 +9,7 @@
     "fh-forms": "0.10.0",
     "fh-mbaas-express": "~4.0.7",
     "fh-security": "0.1.2-3",
-    "fh-statsc": "0.2.1",
+    "fh-statsc": "0.2.2",
     "moment": "2.0.0",
     "optval": "1.0.1",
     "redis": "0.8.2",
