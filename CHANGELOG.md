@@ -1,5 +1,5 @@
 # Component: fh-mbaas-api
-## 4.8.1 - 2015-02-25 IR247 - Cian Clarke
+## 4.9.0 - 2015-02-25 IR247 - Cian Clarke
 * 8668 - Add OpenShift stats support
 * 8612 - Add OpenShift DB & Cache support
 
