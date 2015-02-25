@@ -1,4 +1,10 @@
 var assert = require('assert');
+var events = require('events');
+var _ = require('underscore');
+
+
+var formEventListeners = [];
+
 module.exports = {
   "getForms": function (options, cb) {
     assert.ok(options, "Expected options but got nothing");
@@ -45,13 +51,21 @@ module.exports = {
     assert.ok(options.submission.appClientId, "Expected options.submission.appClientId but got nothing");
     assert.ok(options.submission.appCloudName, "Expected options.submission.appCloudName but got nothing");
     assert.ok(options.submission.appEnvironment, "Expected options.submission.appEnvironment but got nothing");
+
+    //Emitting fake submissionStarted Events
+    _.each(formEventListeners, function(formEventListener){
+      formEventListener.emit('submissionStarted', {
+        submissionId: "submissionId123456",
+        submissionStartedTimestamp: new Date().getTime()
+      });
+    });
+
     cb(undefined, {"submissionId": "submissionId123456"});
   },
   "submitFormFile": function (options, cb) {
     assert.ok(options, "Expected options but got nothing");
     assert.ok(options.uri, "Expected options.uri but got nothing");
     assert.ok(options.submission, "Expected a submission object but got nothing");
-    console.log(JSON.stringify(options));
     assert.ok(options.submission.fileStream, "Expected a file stream but got nothing");
     assert.ok(options.submission.fileId, "Expected a file Id but got nothing");
     assert.ok(options.submission.fieldId, "Expected a file field Id but got nothing");
@@ -63,6 +77,15 @@ module.exports = {
     assert.ok(options.uri, "Expected options.uri but got nothing");
     assert.ok(options.submission, "Expected a submission object");
     assert.ok(options.submission.submissionId, "Expected a submission Id");
+
+    //Emitting fake submissionComplete Events
+    _.each(formEventListeners, function(formEventListener){
+      formEventListener.emit('submissionComplete', {
+        submissionId: options.submission.submissionId,
+        submissionCompletedTimestamp: new Date().getTime()
+      });
+    });
+
     cb(undefined, {"status": "complete"});
   },
   "getSubmissionStatus": function (options, cb) {
@@ -104,6 +127,14 @@ module.exports = {
       type: "contentType",
       length: 122
     });
+  },
+  "registerListener": function(listener, cb){
+    //Don't want duplicate versions of an event object to be present. Prevents accidently calling the event twice.
+    formEventListeners.push(listener);
+    formEventListeners = _.uniq(formEventListeners);
+    return cb();
+  },
+  "deregisterListener": function(listener){
+    formEventListeners = _.without(formEventListeners, listener);
   }
-
 };
