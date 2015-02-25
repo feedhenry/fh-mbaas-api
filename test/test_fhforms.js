@@ -2,6 +2,7 @@ var proxyquire = require('proxyquire').noCallThru();
 var mockForms = require('./fixtures/forms.js');
 var fs = require('fs');
 var assert = require('assert');
+var events = require('events');
 
 module.exports = {
   'test getForms' : function(finish){
@@ -34,6 +35,48 @@ module.exports = {
       assert.ok(!err);
       assert.ok(res);
       finish();
+    });
+  },
+
+  'test submitFormData with events' : function(finish){
+    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var submissionStartedEventCalled = false;
+    var submissionCompleteEventCalled = false;
+
+    var submissionEventListener = new events.EventEmitter();
+
+    $fh.forms.registerListener(submissionEventListener, function(err){
+      assert.ok(!err, "Expected no error when adding a submission event listener.");
+
+      //Listening to submissionStarted events
+      submissionEventListener.on('submissionStarted', function(submissionParams){
+        assert.ok(!submissionStartedEventCalled, "Submission started event called twice");
+        assert.ok(submissionParams, "Expected submission params to be passed to the submissionStarted evnet.");
+        submissionStartedEventCalled=true;
+      });
+
+      //Listening to submissionComplete events
+      submissionEventListener.on('submissionComplete', function(submissionParams){
+        assert.ok(!submissionCompleteEventCalled, "Submission Complete event called twice");
+        assert.ok(submissionParams, "Expected submission params to be passed to the submissionStarted evnet.");
+        submissionCompleteEventCalled=true;
+      });
+
+      $fh.forms.submitFormData({appClientId:'1234'}, function(err, res){
+        assert.ok(!err);
+        assert.ok(res);
+
+        assert.ok(submissionStartedEventCalled, "Expected the submission started event to have been called.");
+
+        $fh.forms.completeSubmission({appClientId:'1234', submission: {submissionId: "submission1234"}}, function(err, res){
+          assert.ok(!err);
+          assert.ok(res);
+
+          assert.ok(submissionCompleteEventCalled, "Expected the submission complete event to have been called");
+
+          finish();
+        });
+      });
     });
   },
   //Testing that a submission model requires a form.
