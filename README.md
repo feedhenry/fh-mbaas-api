@@ -5,7 +5,7 @@ fh-mbaas-api provides FeedHenry MBaaS APIs to Node.js cloud apps.
 #Usage
 fh-mbaas-api is included as standard with your cloud app code.
 
-For custom apps, add the module via npm bu running the following for the root of your app
+For custom apps, add the module via npm by running the following for the root of your app
 
 ```
 npm install --save fh-mbaas-api
