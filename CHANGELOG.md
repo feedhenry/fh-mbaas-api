@@ -1,6 +1,11 @@
 # Component: fh-mbaas-api
-## 4.8.2 - 2015-02-25 IR248 - Martin Murphy
+
+## 4.9.1 - 2015-02-26 IR248 - Martin Murphy
 * FHCLOUDSDK-4 - add response object to $fh.service callback
+
+## 4.9.0 - 2015-02-25 IR247 - Cian Clarke
+* 8668 - Add OpenShift stats support
+* 8612 - Add OpenShift DB & Cache support
 
 ## 4.8.1 - 2015-02-17 IR247 - Wei Li
 * 8748 - Update fh-form dependency version
