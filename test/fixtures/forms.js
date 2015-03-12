@@ -106,10 +106,10 @@ module.exports = {
     assert.ok(options.formids, "Expected appId but got nothing");
     cb(undefined, {"forms": []});
   },
-  "getSubmissions": function (options, cb) {
+  "getSubmissions": function (options, params, cb) {
     assert.ok(options, "Expected options but got nothing");
     assert.ok(options.uri, "Expected options.uri but got nothing");
-    assert.ok(options.subids, "Expected subids but got nothing");
+    assert.ok(params.subid, "Expected subids but got nothing");
     cb(undefined, {});
   },
   "getSubmission": function (options, params, cb) {

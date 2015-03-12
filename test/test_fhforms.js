@@ -252,7 +252,7 @@ module.exports = {
   },
   "test getSubmissions ": function (finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
-    $fh.forms.getSubmissions({"subids":[]}, function(err, res){
+    $fh.forms.getSubmissions({"subid":[]}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
       finish();
@@ -268,7 +268,7 @@ module.exports = {
   },
   "test getSubmissions with files": function (finish){
     var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
-    $fh.forms.getSubmissions({"subids":["submissionId1", "submissionId2"]}, function(err, res){
+    $fh.forms.getSubmissions({"subid":["submissionId1", "submissionId2"]}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
       finish();

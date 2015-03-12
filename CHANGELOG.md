@@ -1,5 +1,9 @@
 # Component: fh-mbaas-api
 
+## 4.9.2 - 2015-03-12 IR249 - Niall Donnelly
+
+* Fixed Incorrect Forms Get Submission Parameters
+
 ## 4.9.1 - 2015-02-26 IR248 - Martin Murphy
 * FHCLOUDSDK-4 - add response object to $fh.service callback
 
