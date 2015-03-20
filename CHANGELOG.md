@@ -1,5 +1,9 @@
 # Component: fh-mbaas-api
 
+## 4.9.3 - 2015-03-20 IR249 - Martin Murphy
+
+* FHCLOUDSDK-6 - Updated to fh-security@0.1.3-10 for AES 256 keygen
+
 ## 4.9.2 - 2015-03-12 IR249 - Niall Donnelly
 
 * Fixed Incorrect Forms Get Submission Parameters
