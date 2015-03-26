@@ -1,5 +1,8 @@
 # Component: fh-mbaas-api
 
+## 4.9.4 - 2015-04-26 - Wei Li
+* FHMOBSDK-56 - Fix an issue with the sync framework
+
 ## 4.9.3 - 2015-03-20 IR249 - Martin Murphy
 
 * FHCLOUDSDK-6 - Updated to fh-security@0.1.3-10 for AES 256 keygen
