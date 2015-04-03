@@ -1,6 +1,9 @@
 # Component: fh-mbaas-api
 
-## 4.9.4 - 2015-04-26 - Wei Li
+## 4.9.5 - 2015-04-03 - Wei Li
+* FHCLOUDSDK-7 - New API for auth token verification
+
+## 4.9.4 - 2015-03-26 - Wei Li
 * FHMOBSDK-56 - Fix an issue with the sync framework
 
 ## 4.9.3 - 2015-03-20 IR249 - Martin Murphy

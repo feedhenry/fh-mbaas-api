@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "4.9.4",
+  "version": "4.9.5",
   "description": "FeedHenry MBAAS Cloud APIs",
   "main": "lib/api.js",
   "dependencies": {
