@@ -1,6 +1,6 @@
 # Component: fh-mbaas-api
 
-## 4.9.5 - 2015-04-03 - Wei Li
+## 4.10.0 - 2015-04-03 - Wei Li
 * FHCLOUDSDK-7 - New API for auth token verification
 
 ## 4.9.4 - 2015-03-26 - Wei Li
