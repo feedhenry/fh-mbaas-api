@@ -1,5 +1,8 @@
 # Component: fh-mbaas-api
 
+## 4.10.1 - 2015-04-14 - Gerard Ryan
+* Add a shrinkwrap file for npm
+
 ## 4.10.0 - 2015-04-03 - Wei Li
 * FHCLOUDSDK-7 - New API for auth token verification
 
