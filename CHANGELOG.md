@@ -1,4 +1,6 @@
 # Component: fh-mbaas-api
+## 4.11.0 - 2015-05-05 - Wei Li
+* FHCLOUDSDK-10 - Bump fh-mbaas-express version
 
 ## 4.10.1 - 2015-04-14 - Gerard Ryan
 * Add a shrinkwrap file for npm
