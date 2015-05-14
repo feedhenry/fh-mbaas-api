@@ -1,78 +1,4 @@
-/*
- Copyright (c) FeedHenry 2011
- fh-api - the node.js implementation of $fh, feedhenry serverside APIs
- */
-var sec = require('fh-security'),
-  consolelogger = require('./consolelogger.js'),
-  util = require('util');
-var url = require('url');
-
-var mbaasClient = require('fh-mbaas-client');
-
-//IMPORTANT: This will force node to ignore cert errors for https requests
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-
-//
-// Main FHapi constructor function..
-//
-function FHapi(cfg, logr) {
-  var config = cfg;
-
-  if (cfg) {
-    cfg.logger = logr;
-  }
-
-  var ditch_host, ditch_port;
-
-  var api = {
-    cache: require('./cache')(cfg),
-    feed: require('./feed')(cfg),
-    db: require('./db')(cfg),
-    forms: require('./forms')(cfg),
-    log: false,
-    stringify: false,
-    parse: false,
-    push: require('./push')(cfg),
-    call: require('./call')(cfg),
-    util: false,
-    redisPort: cfg.redis.port || '6379',
-    redisHost: cfg.redis.host || 'localhost',
-    session: require('./session')(cfg),
-    stats: require('./stats')(cfg),
-    sync: require('./sync-srv')(cfg),
-    act: require('./act')(cfg),
-    service: require('./act')(cfg),
-    sec: sec.security,
-    auth: require('./auth')(cfg),
-    hash: function(opts, callback) {
-      var p = {
-        act: 'hash',
-        params: opts
-      };
-      sec.security(p, callback);
-    },
-    web: require('./web')(cfg)
-  };
-
-  api.mbaasExpress = function(opts){
-    opts = opts || {};
-    opts.api = api;
-    return require('fh-mbaas-express')(opts);
-  };
-
-  api.shutdown = function(cb) {
-    // Sync service has a setInterval loop running which will prevent fh-mbaas-api from exiting cleanly.
-    // Call stopAll to ensure Sync exits clenaly.
-    api.sync.stopAll(cb);
-  };
-  
-  return api;
-}
-
-/*
- Initilisation returns the $fh object to clients
- */
-module.exports = (function() {
+module.exports = function() {
   // First setup the required config params from  env variables
   var millicore = process.env.FH_MILLICORE || 'NO-MILLICORE-DEFINED';
   var domain = process.env.FH_DOMAIN || 'NO-DOMAIN-DEFINED';
@@ -107,9 +33,6 @@ module.exports = (function() {
   //MBAAS Host And Environment Access Key.
   var mbaas_host = process.env.FH_MBAAS_HOST || 'localhost';
   var mbaas_access_key = process.env.FH_MBAAS_ENV_ACCESS_KEY || '';
-  var mbaas_protocol = process.env.FH_MBAAS_PROTOCOL || "https";
-
-  var mbaas_url = url.parse(mbaas_protocol + "://" + mbaas_host);
 
   try {
     ua = JSON.parse(ua);
@@ -120,7 +43,7 @@ module.exports = (function() {
 
   // Now build a config object to init the fh server APIs with
 
-  var cfg = {
+  return {
     fhapi: {
       appname: appname,
       millicore: millicore,
@@ -139,7 +62,7 @@ module.exports = (function() {
       environment: environment,
       domain: domain,
       mbaasConf: {
-        url: url.format(mbaas_url),
+        url: mbaas_host,
         accessKey: mbaas_access_key,
         project: widget,
         app: instance,
@@ -175,10 +98,4 @@ module.exports = (function() {
     socketTimeout: 60000,
     APP_API_KEY_HEADER: 'X-FH-AUTH-APP'
   };
-
-  //Initialising MbaasConfig To Make Forms Calls To FH-Mbaas
-  mbaasClient.initEnvironment(cfg.fhmbaas.environment, cfg.fhmbaas.mbaasConf);
-
-  var logger = new consolelogger.ConsoleLogger(3);
-  return new FHapi(cfg, logger);
-})();
+}

@@ -1,6 +1,11 @@
 module.exports = (function(){
   process.env.FH_TEST_HOSTNAME = "http://localhost:3000";
 
+  process.env.FH_MBAAS_HOST = "mbaas.mbaas1.feedhenry.com";
+  process.env.FH_MBAAS_PROTOCOL = "https";
+  process.env.FH_MBAAS_ENV_ACCESS_KEY = "keytoaccessmbaasenv";
+  process.env.FH_APP_API_KEY = "someappapikey";
+
   process.env.FH_MILLICORE = 'localhost';
   process.env.FH_DOMAIN = 'NO-DOMAIN-DEFINED';
   process.env.FH_INSTANCE = 'c0TPJzF6ztq0WjezxwPEC5W8';

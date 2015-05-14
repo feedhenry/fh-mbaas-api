@@ -12,6 +12,10 @@
 ## 4.11.0 - 2015-05-05 - Wei Li
 * FHCLOUDSDK-10 - Bump fh-mbaas-express version
 
+## 5.0.0 - 2015-04-30 - Niall Donnelly
+
+* FH-42 - Appforms Lifecycle Management Changes. Replaced fh-forms with fh-mbaas-client. Apps no longer access the domain database directly.
+
 ## 4.10.1 - 2015-04-14 - Gerard Ryan
 * Add a shrinkwrap file for npm
 
