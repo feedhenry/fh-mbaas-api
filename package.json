@@ -8,7 +8,7 @@
     "fh-db": "0.5.4",
     "fh-mbaas-express": "~4.2.0",
     "fh-security": "0.1.3-10",
-    "fh-mbaas-client": "http://robert:scottishminister1790@bob.feedhenry.net:8080/job/fh-mbaas-client_pullrequests/16/artifact/dist/fh-mbaas-client-0.2.0.tar.gz",
+    "fh-mbaas-client": "0.3.5",
     "fh-statsc": "0.2.2",
     "moment": "2.0.0",
     "optval": "1.0.1",
