@@ -1,4 +1,7 @@
 # Component: fh-mbaas-api
+## 4.11.1 - 2015-06-20 - John Frizelle
+* FHCLOUDSDK-13 - $fh.service params only being sent for GET and POST
+
 ## 4.11.0 - 2015-05-05 - Wei Li
 * FHCLOUDSDK-10 - Bump fh-mbaas-express version
 
