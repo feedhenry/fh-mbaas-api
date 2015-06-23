@@ -1,4 +1,7 @@
 # Component: fh-mbaas-api
+## 4.11.2 - 2015-06-23 - Gerard Ryan
+* FH-164 - Build using Grunt instead of Make
+
 ## 4.11.1 - 2015-06-20 - John Frizelle
 * FHCLOUDSDK-13 - $fh.service params only being sent for GET and POST
 
