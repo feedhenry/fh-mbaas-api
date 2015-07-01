@@ -15,3 +15,5 @@ def-debug.log
 .idea/
 dump.rdb
 cov-test/
+cov-unit/
+coverage/
