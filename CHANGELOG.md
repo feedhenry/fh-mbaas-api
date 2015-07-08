@@ -1,4 +1,8 @@
 # Component: fh-mbaas-api
+
+## 4.12.0 - 2015-07-08 - Jason Madigan
+* FHMAP-605 - Call core periodically to validate App API Keys (bumps fh-mbaas-express)
+
 ## 4.11.2 - 2015-06-23 - Gerard Ryan
 * FH-164 - Build using Grunt instead of Make
 
