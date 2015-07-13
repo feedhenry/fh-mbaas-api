@@ -64,8 +64,6 @@ module.exports = {
         assert.ok(options.fieldId);
         assert.ok(options.fileId);
         assert.ok(options.fileDetails.stream);
-        assert.ok(options.fileDetails.type);
-        assert.ok(options.fileDetails.size);
         cb(undefined, {"status": "ok"});
       },
       complete: function(options, cb){
