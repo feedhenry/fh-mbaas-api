@@ -1,5 +1,9 @@
 # Component: fh-mbaas-api
 
+## 5.0.0 - 2015-04-30 - Niall Donnelly
+
+* FH-42 - Appforms Lifecycle Management Changes. Replaced fh-forms with fh-mbaas-client. Apps no longer access the domain database directly.
+
 ## 4.12.0 - 2015-07-08 - Jason Madigan
 * FHMAP-605 - Call core periodically to validate App API Keys (bumps fh-mbaas-express)
 

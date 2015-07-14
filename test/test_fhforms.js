@@ -1,12 +1,17 @@
 var proxyquire = require('proxyquire').noCallThru();
-var mockForms = require('./fixtures/forms.js');
-var fs = require('fs');
+var mockMbaasClient = require('./fixtures/forms.js');
 var assert = require('assert');
 var events = require('events');
 
+var testSubmission = {
+  _id: "somesubmissionid",
+  formId: "someFormId",
+  formFields: []
+};
+
 module.exports = {
   'test getForms' : function(finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.getForms({appClientId:'1234'}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
@@ -14,7 +19,7 @@ module.exports = {
     });
   },
   'test getForm' : function(finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.getForm({appClientId:'1234', "_id": "formId1234"}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
@@ -22,7 +27,7 @@ module.exports = {
     });
   },
   'test getTheme' : function(finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.getTheme({appClientId:'1234'}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
@@ -30,16 +35,15 @@ module.exports = {
     });
   },
   'test submitFormData' : function(finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
-    $fh.forms.submitFormData({appClientId:'1234'}, function(err, res){
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
+    $fh.forms.submitFormData({appClientId:'1234', submission: testSubmission}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
       finish();
     });
   },
-
   'test submitFormData with events' : function(finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     var submissionStartedEventCalled = false;
     var submissionCompleteEventCalled = false;
 
@@ -62,7 +66,7 @@ module.exports = {
         submissionCompleteEventCalled=true;
       });
 
-      $fh.forms.submitFormData({appClientId:'1234'}, function(err, res){
+      $fh.forms.submitFormData({appClientId:'1234', submission: testSubmission}, function(err, res){
         assert.ok(!err);
         assert.ok(res);
 
@@ -74,14 +78,14 @@ module.exports = {
 
           assert.ok(submissionCompleteEventCalled, "Expected the submission complete event to have been called");
 
-          finish();
+          $fh.forms.deregisterListener(submissionEventListener, finish);
         });
       });
     });
   },
   //Testing that a submission model requires a form.
   'test Submission Model' : function(finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.createSubmissionModel({}, function(err, submission){
       assert.ok(err, "Expected err but got nothing");
       assert.ok(err.toLowerCase().indexOf("no form") > -1, "Expected a no form error");
@@ -89,7 +93,7 @@ module.exports = {
     });
   },
   'test Create Submission Model' : function(finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
 
     $fh.forms.getForm({appClientId:'1234', "_id": "someformId"}, function(err, form){
       assert.ok(!err, "Unexpected error " + err);
@@ -104,7 +108,7 @@ module.exports = {
     });
   },
   'test Add Input Value' : function(finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
 
     $fh.forms.getForm({appClientId:'1234', "_id": "formId1234"}, function(err, form){
       assert.ok(!err, "Unexpected error " + err);
@@ -130,7 +134,7 @@ module.exports = {
     });
   },
   'test Add File Input Value' : function(finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
 
     $fh.forms.getForm({appClientId:'1234', "_id": "formId1234"}, function(err, form){
       assert.ok(!err, "Unexpected error " + err);
@@ -178,7 +182,7 @@ module.exports = {
     });
   },
   'test Submit Submission With File' : function(finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
 
     $fh.forms.getForm({appClientId:'1234', "_id": "formId1234"}, function(err, form){
       assert.ok(!err, "Unexpected error " + err);
@@ -211,23 +215,33 @@ module.exports = {
     });
   },
   'test submitFormFile' : function(finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
-    $fh.forms.submitFormFile({appClientId:'1234', submission: {fileStream: "Some Readable File Stream", fileId: "SomeFileID", submissionId: "ASubmissionId", fieldId: "fileFieldId"}}, function(err, res){
+    console.log("submitFormFile");
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
+    $fh.forms.submitFormFile({appClientId:'1234', submission: {fileStream: "./test/fixtures/testimg1.jpg", fileId: "SomeFileID", submissionId: "ASubmissionId", fieldId: "fileFieldId"}}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
       finish();
     });
   },
+  'test submitFormFile file does not exist' : function(finish){
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
+    $fh.forms.submitFormFile({appClientId:'1234', submission: {fileStream: "./test/fixtures/idontexist.jpg", fileId: "SomeFileID", submissionId: "ASubmissionId", fieldId: "fileFieldId"}}, function(err, res){
+      assert.ok(err, "Expected An Error When Submitting A file that does not exist");
+      assert.ok(err.message.indexOf("exist") > -1, "Expected Error Message To Contain 'exists'")
+      assert.ok(!res, "Expected no result");
+      finish();
+    });
+  },
   'test getSubmissionStatus' : function(finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
-    $fh.forms.getSubmissionStatus({appClientId:'1234'}, function(err, res){
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
+    $fh.forms.getSubmissionStatus({appClientId:'1234', submission: {submissionId: "submission1234"}}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
       finish();
     });
   },
   'test completeSubmission' : function(finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.completeSubmission({appClientId:'1234', submission: {submissionId: "submission1234"}}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
@@ -235,15 +249,15 @@ module.exports = {
     });
   },
   'test getAppClientConfig' : function(finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
-    $fh.forms.getAppClientConfig({appClientId:'1234'}, function(err, res){
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
+    $fh.forms.getAppClientConfig({appClientId:'1234', deviceId: "deviceId1234"}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
       finish();
     });
   },
   "test getFullyPopulatedForms ": function (finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.getPopulatedFormList({"formids":[]}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
@@ -251,7 +265,7 @@ module.exports = {
     });
   },
   "test getSubmissions ": function (finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.getSubmissions({"subid":[]}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
@@ -259,7 +273,7 @@ module.exports = {
     });
   },
   "test getSubmission ": function (finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.getSubmission({"submissionId": "submission1234"}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
@@ -267,7 +281,7 @@ module.exports = {
     });
   },
   "test getSubmissions with files": function (finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.getSubmissions({"subid":["submissionId1", "submissionId2"]}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
@@ -275,7 +289,7 @@ module.exports = {
     });
   },
   "test getSubmissionFile ": function (finish){
-    var $fh = proxyquire('../lib/api.js', {'fh-forms' : mockForms});
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.getSubmissionFile({"_id": "testSubFileGroupId"}, function(err, res){
       assert.ok(!err);
       assert.ok(res);
