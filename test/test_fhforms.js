@@ -223,6 +223,15 @@ module.exports = {
       finish();
     });
   },
+  'test submitFormFile file does not exist' : function(finish){
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
+    $fh.forms.submitFormFile({appClientId:'1234', submission: {fileStream: "./test/fixtures/idontexist.jpg", fileId: "SomeFileID", submissionId: "ASubmissionId", fieldId: "fileFieldId"}}, function(err, res){
+      assert.ok(err, "Expected An Error When Submitting A file that does not exist");
+      assert.ok(err.message.indexOf("exist") > -1, "Expected Error Message To Contain 'exists'")
+      assert.ok(!res, "Expected no result");
+      finish();
+    });
+  },
   'test getSubmissionStatus' : function(finish){
     var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.getSubmissionStatus({appClientId:'1234', submission: {submissionId: "submission1234"}}, function(err, res){
