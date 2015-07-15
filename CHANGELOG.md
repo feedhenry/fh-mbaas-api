@@ -1,5 +1,9 @@
 # Component: fh-mbaas-api
 
+## 5.0.1 - 2015-07-14 - Niall Donnelly
+
+* FHCLOUDSDK-14 - Fixed File Parameters For MbaaS File Upload.
+
 ## 5.0.0 - 2015-04-30 - Niall Donnelly
 
 * FH-42 - Appforms Lifecycle Management Changes. Replaced fh-forms with fh-mbaas-client. Apps no longer access the domain database directly.
