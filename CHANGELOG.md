@@ -1,5 +1,9 @@
 # Component: fh-mbaas-api
 
+## 5.0.2 - 2015-07-22 - Niall Donnelly
+
+* FH-1435 - Bump fh-mbaas-client version
+
 ## 5.0.1 - 2015-07-14 - Niall Donnelly
 
 * FHCLOUDSDK-14 - Fixed File Parameters For MbaaS File Upload.

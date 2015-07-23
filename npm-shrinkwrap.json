@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "dependencies": {
     "async": {
       "version": "0.2.9",
@@ -52,9 +52,9 @@
       }
     },
     "fh-mbaas-client": {
-      "version": "0.3.8",
-      "from": "fh-mbaas-client@0.3.8",
-      "resolved": "https://registry.npmjs.org/fh-mbaas-client/-/fh-mbaas-client-0.3.8.tgz",
+      "version": "0.3.9",
+      "from": "fh-mbaas-client@0.3.9",
+      "resolved": "https://registry.npmjs.org/fh-mbaas-client/-/fh-mbaas-client-0.3.9.tgz",
       "dependencies": {
         "request": {
           "version": "2.58.0",
