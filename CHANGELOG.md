@@ -1,18 +1,18 @@
 # Component: fh-mbaas-api
 
+## 5.1.0 - 2015-07-28 - Cian Clarke
+* FH-250 - Add support for MongoDB from within OpenShift 3 applications
+
 ## 5.0.3 - 2015-07-28 - Martin Murphy
 * FH-748 - fix $fh.cache to work with non-default port
 
 ## 5.0.2 - 2015-07-22 - Niall Donnelly
-
 * FH-1435 - Bump fh-mbaas-client version
 
 ## 5.0.1 - 2015-07-14 - Niall Donnelly
-
 * FHCLOUDSDK-14 - Fixed File Parameters For MbaaS File Upload.
 
 ## 5.0.0 - 2015-04-30 - Niall Donnelly
-
 * FH-42 - Appforms Lifecycle Management Changes. Replaced fh-forms with fh-mbaas-client. Apps no longer access the domain database directly.
 
 ## 4.12.0 - 2015-07-08 - Jason Madigan
