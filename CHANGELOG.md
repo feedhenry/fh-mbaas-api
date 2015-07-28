@@ -1,5 +1,8 @@
 # Component: fh-mbaas-api
 
+## 5.0.3 - 2015-07-28 - Martin Murphy
+* FH-748 - fix $fh.cache to work with non-default port
+
 ## 5.0.2 - 2015-07-22 - Niall Donnelly
 
 * FH-1435 - Bump fh-mbaas-client version
