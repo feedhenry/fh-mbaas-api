@@ -23,6 +23,7 @@ module.exports = function(grunt) {
     './test/test_fhsec.js',
     './test/test_fhsession.js',
     './test/test_fhstat.js',
+    './test/test_cache.js',
     './test/test_redis.js',
     './test/test_sync.js',
     /*'./test/test_web.js',*/
