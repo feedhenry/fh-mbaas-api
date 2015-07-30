@@ -6,11 +6,12 @@
   "dependencies": {
     "async": "0.2.9",
     "fh-db": "0.5.4",
+    "fh-mbaas-client": "0.3.9",
     "fh-mbaas-express": "^5.0.0",
     "fh-security": "0.1.3-10",
-    "fh-mbaas-client": "0.3.9",
     "fh-statsc": "0.2.2",
     "moment": "2.0.0",
+    "mongodb-uri": "^0.9.7",
     "optval": "1.0.1",
     "redis": "0.8.2",
     "request": "2.12.0",

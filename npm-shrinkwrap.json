@@ -996,6 +996,11 @@
       "from": "moment@2.0.0",
       "resolved": "https://registry.npmjs.org/moment/-/moment-2.0.0.tgz"
     },
+    "mongodb-uri": {
+      "version": "0.9.7",
+      "from": "mongodb-uri@",
+      "resolved": "http://registry.npmjs.org/mongodb-uri/-/mongodb-uri-0.9.7.tgz"
+    },
     "optval": {
       "version": "1.0.1",
       "from": "optval@1.0.1",
