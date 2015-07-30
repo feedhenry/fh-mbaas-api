@@ -1,5 +1,8 @@
 # Component: fh-mbaas-api
 
+## 5.2.0 - 2015-07-28 - Cian Clarke
+* FH-1517 - Add support for Redis from within OpenShift 3 applications
+
 ## 5.1.0 - 2015-07-28 - Cian Clarke
 * FH-250 - Add support for MongoDB from within OpenShift 3 applications
 
