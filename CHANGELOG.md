@@ -1,5 +1,8 @@
 # Component: fh-mbaas-api
 
+## 5.3.0 - 2015-08-19 - Jason Madigan
+* FH-1760 - Adding $fh.host API for Cloud Apps to fetch their own host
+
 ## 5.2.0 - 2015-07-28 - Cian Clarke
 * FH-1517 - Add support for Redis from within OpenShift 3 applications
 
