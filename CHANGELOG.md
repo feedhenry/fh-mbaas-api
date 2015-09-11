@@ -1,5 +1,8 @@
 # Component: fh-mbaas-api
 
+## 5.3.1 - 2015-09-11 - Gerard Ryan
+* Bump version of grunt-fh-build, so that archive with dependencies will get built
+
 ## 5.3.0 - 2015-08-19 - Jason Madigan
 * FH-1760 - Adding $fh.host API for Cloud Apps to fetch their own host
 
