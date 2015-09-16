@@ -28,7 +28,8 @@
     "nock": "0.22.1",
     "plato": "^1.0.1",
     "proxyquire": "0.4.1",
-    "turbo-test-runner": "0.4.1"
+    "turbo-test-runner": "0.4.1",
+    "whiskey": "^0.8.4"
   },
   "scripts": {
     "test": "cd node_modules/fh-security; npm install ursa; cd -; listing=$(ls -1 test/test_*); teststorun=$(echo $listing | tr -d '\n'); whiskey --tests \"$teststorun\" --global-setup-teardown \"test/setup.js\""
