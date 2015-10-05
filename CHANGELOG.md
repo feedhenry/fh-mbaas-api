@@ -1,5 +1,8 @@
 # Component: fh-mbaas-api
 
+## 5.3.2 - 2015-10-05 - Evan Shortiss
+* Fix $fh.service URL formatting issue
+
 ## 5.3.1 - 2015-09-11 - Gerard Ryan
 * Bump version of grunt-fh-build, so that archive with dependencies will get built
 
