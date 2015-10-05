@@ -10,6 +10,37 @@ module.exports = {
     $fh = require("../lib/api.js");
     finish();
   },
+  'test act $fh.act url formatting must add leading slash': function (finish) {
+    var act = require('proxyquire')('../lib/act.js', {
+      'request': function (opts, callback) {
+        assert.equal(opts.url, 'https://test.feedhenry.com/user/feedhenry');
+        callback(null, {}, 'ok');
+      },
+      './call': function () {
+        return function (url, opts, callback) {
+          callback(null, {
+            status: 200,
+            body: JSON.stringify({
+              hosts: {
+                url: 'https://test.feedhenry.com'
+              }
+            })
+          });
+        };
+      }
+    })({
+      fhapi: {}
+    });
+
+    act({
+      guid: '123456789erghjtrudkirejr',
+      path: 'user/feedhenry'
+    }, function (err, body, res) {
+      assert.equal(err, null);
+      assert.equal(body, 'ok');
+      finish();
+    });
+  },
   'test dev $fh.act': function(finish) {
     $fh.act({
       guid: "123456789erghjtrudkirejr",
