@@ -1,5 +1,8 @@
 # Component: fh-mbaas-api
 
+## 5.3.3 - 2015-09-24 - Shannon Poole
+* FH-2103 - Stop sync on error
+
 ## 5.3.2 - 2015-10-05 - Evan Shortiss
 * Fix $fh.service URL formatting issue
 
