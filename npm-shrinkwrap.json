@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "5.3.5-pre",
+  "version": "5.4.0-pre6",
   "dependencies": {
     "async": {
       "version": "0.2.9",
@@ -52,9 +52,9 @@
       }
     },
     "fh-mbaas-client": {
-      "version": "0.3.9",
-      "from": "https://registry.npmjs.org/fh-mbaas-client/-/fh-mbaas-client-0.3.9.tgz",
-      "resolved": "https://registry.npmjs.org/fh-mbaas-client/-/fh-mbaas-client-0.3.9.tgz",
+      "version": "0.5.1-pre2",
+      "from": "https://registry.npmjs.org/fh-mbaas-client/-/fh-mbaas-client-0.5.1-pre2.tgz",
+      "resolved": "https://registry.npmjs.org/fh-mbaas-client/-/fh-mbaas-client-0.5.1-pre2.tgz",
       "dependencies": {
         "request": {
           "version": "2.58.0",
@@ -383,9 +383,9 @@
       }
     },
     "fh-mbaas-express": {
-      "version": "5.0.0",
-      "from": "https://registry.npmjs.org/fh-mbaas-express/-/fh-mbaas-express-5.0.0.tgz",
-      "resolved": "https://registry.npmjs.org/fh-mbaas-express/-/fh-mbaas-express-5.0.0.tgz",
+      "version": "5.1.0-pre5",
+      "from": "https://registry.npmjs.org/fh-mbaas-express/-/fh-mbaas-express-5.1.0-pre5.tgz",
+      "resolved": "https://registry.npmjs.org/fh-mbaas-express/-/fh-mbaas-express-5.1.0-pre5.tgz",
       "dependencies": {
         "underscore": {
           "version": "1.5.1",
