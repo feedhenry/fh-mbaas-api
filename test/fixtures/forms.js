@@ -72,7 +72,7 @@ module.exports = {
       complete: function(options, cb){
         assert.ok(options.id);
 
-        cb(undefined, {"status": "complete"});
+        cb(undefined, {formSubmission: {_id: "submissionid1234", submissionCompletedTimestamp: 12345}, "status": "complete"});
       },
       status: function(options, cb){
         assert.ok(options.id);

@@ -63,6 +63,9 @@ module.exports = {
       submissionEventListener.on('submissionComplete', function(submissionParams){
         assert.ok(!submissionCompleteEventCalled, "Submission Complete event called twice");
         assert.ok(submissionParams, "Expected submission params to be passed to the submissionStarted evnet.");
+        assert.ok(submissionParams.submissionId, "Expected A Submission Id");
+        assert.ok(submissionParams.submissionCompletedTimestamp, "Expected A Submission Completed Timestamp");
+        assert.ok(submissionParams.submission, "Expected A Submission");
         submissionCompleteEventCalled=true;
       });
 

@@ -1,5 +1,9 @@
 # Component: fh-mbaas-api
 
+## 5.3.4 - 2015-09-29 - Niall Donnelly
+
+* FH-2213 - Fixed Incorrect Params For Submission Complete Event
+
 ## 5.3.3 - 2015-09-24 - Shannon Poole
 * FH-2103 - Stop sync on error
 
