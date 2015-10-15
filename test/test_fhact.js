@@ -3,35 +3,59 @@
 var util = require('util'),
 actMock, fhs, fhsConfig, $fh;
 var assert = require('assert');
+var validUrl = require('valid-url');
+var nock = require('nock');
+var sinon = require('sinon');
+
+
+var request = function (opts,callback){
+  assert.ok(validUrl.isUri(opts.url),"expected a valid url");
+  callback(null, {}, 'ok');
+};
+
+var cache = function (cfg){
+  return function (opts,cb){
+    return cb();  
+  };
+};
+
+var call = function () {
+  return function (url, opts, callback) {
+    callback(null, {
+      status: 200,
+      body: JSON.stringify({
+        hosts: {
+          url: 'https://test.feedhenry.com'
+        }
+      })
+    });
+  };
+};
+
+var act = require('proxyquire')('../lib/act.js', {
+  'request': request,
+  './cache': cache,
+  './call': call
+})({
+  fhapi: {}
+});
+
 
 module.exports = {
   setUp : function(finish){
-    actMock = require('./fixtures/act');
+    
+    actMock = nock('https://localhost:443')
+      .filteringRequestBody(function(path) {
+        return '*';
+      }).post('/box/srv/1.1/sys/info/ping', '*')
+      .reply(200, {ok:true});
+    
+    
     $fh = require("../lib/api.js");
     finish();
   },
   'test act $fh.act url formatting must add leading slash': function (finish) {
-    var act = require('proxyquire')('../lib/act.js', {
-      'request': function (opts, callback) {
-        assert.equal(opts.url, 'https://test.feedhenry.com/user/feedhenry');
-        callback(null, {}, 'ok');
-      },
-      './call': function () {
-        return function (url, opts, callback) {
-          callback(null, {
-            status: 200,
-            body: JSON.stringify({
-              hosts: {
-                url: 'https://test.feedhenry.com'
-              }
-            })
-          });
-        };
-      }
-    })({
-      fhapi: {}
-    });
-
+    
     act({
       guid: '123456789erghjtrudkirejr',
       path: 'user/feedhenry'
@@ -42,7 +66,8 @@ module.exports = {
     });
   },
   'test dev $fh.act': function(finish) {
-    $fh.act({
+    
+    act({
       guid: "123456789erghjtrudkirejr",
       endpoint: "doSomething",
       params: {
@@ -55,7 +80,7 @@ module.exports = {
     });
   },
   'test live $fh.act': function(finish) {
-    $fh.act({
+    act({
       guid: "123456789erghjtrudkirejr",
       endpoint: "doSomething",
       params: {
@@ -86,18 +111,36 @@ module.exports = {
       finish();
     });
   },
-//  'test $fh.call bad arguments url' : function(test, assert){
-//    $fh.call('fefe', {}, function(err, res){
-//      if (res){
-//        assert.ok(res.status === 400);
-//        console.log(res.body);
-//        assert.ok(res.body.indexOf('Service Temporarily Unavailable')>-1);
-//      }else{
-//        assert.ok(err, 'Err was not populated - err is ' + JSON.stringify(err) + ' and res is ' + JSON.stringify(res));
-//      }
-//      test.finish();
-//    });
-//  },
+  'test $fh.act sets and gets cache': function (finish){
+    var cacheStub = sinon.stub();
+    var mocks = {
+      'request': request,
+      './cache': function (opts){
+        return cacheStub;
+      },
+      './call':call
+    };
+    var act = require('proxyquire')('../lib/act.js',mocks)({
+      fhapi: {}
+    });
+    //call the stub callback
+    cacheStub.callsArgWith(1);
+    act({
+      guid: "123456789erghjtrudkirejr",
+      endpoint: "doSomething",
+      params: {
+        somekey: "someval"
+      }
+    }, function(err, data) {
+      assert.ok(!err, 'Error: ' + err);
+      assert.ok(data);
+      assert.ok(cacheStub.calledTwice,"expected cache to be called twice. Once for get and once for set");
+      sinon.assert.calledWith(cacheStub, {"act":"load","key":"123456789erghjtrudkirejr-dev"});
+      sinon.assert.calledWith(cacheStub, {"act":"save","key":"123456789erghjtrudkirejr-dev","value":"https://test.feedhenry.com","expire":300});
+      finish();
+    });
+    
+  },
   tearDown : function(finish){
     actMock.done();
     finish();

@@ -1,5 +1,9 @@
 # Component: fh-mbaas-api
 
+## 5.3.5 - 2015-10-15 - Craig Brookes
+
+* RHMAP-796 service url caching
+
 ## 5.3.4 - 2015-09-29 - Niall Donnelly
 
 * FH-2213 - Fixed Incorrect Params For Submission Complete Event

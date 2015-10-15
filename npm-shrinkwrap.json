@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "5.3.4",
+  "version": "5.3.5-pre",
   "dependencies": {
     "async": {
       "version": "0.2.9",
@@ -365,7 +365,7 @@
         },
         "bunyan": {
           "version": "0.22.0",
-          "from": "bunyan@0.22.0",
+          "from": "https://registry.npmjs.org/bunyan/-/bunyan-0.22.0.tgz",
           "resolved": "https://registry.npmjs.org/bunyan/-/bunyan-0.22.0.tgz",
           "dependencies": {
             "mv": {
@@ -926,7 +926,7 @@
             },
             "mkdirp": {
               "version": "0.3.5",
-              "from": "mkdirp@0.3.5",
+              "from": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.3.5.tgz",
               "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.3.5.tgz"
             },
             "qs": {
@@ -993,12 +993,12 @@
     },
     "lodash-contrib": {
       "version": "393.0.1",
-      "from": "lodash-contrib@393.0.1",
+      "from": "https://registry.npmjs.org/lodash-contrib/-/lodash-contrib-393.0.1.tgz",
       "resolved": "https://registry.npmjs.org/lodash-contrib/-/lodash-contrib-393.0.1.tgz",
       "dependencies": {
         "lodash": {
           "version": "3.9.3",
-          "from": "lodash@3.9.3",
+          "from": "https://registry.npmjs.org/lodash/-/lodash-3.9.3.tgz",
           "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.9.3.tgz"
         }
       }
@@ -1061,12 +1061,12 @@
     },
     "unifiedpush-node-sender": {
       "version": "0.9.0",
-      "from": "unifiedpush-node-sender@0.9.0",
+      "from": "https://registry.npmjs.org/unifiedpush-node-sender/-/unifiedpush-node-sender-0.9.0.tgz",
       "resolved": "https://registry.npmjs.org/unifiedpush-node-sender/-/unifiedpush-node-sender-0.9.0.tgz",
       "dependencies": {
         "lodash": {
           "version": "3.10.1",
-          "from": "lodash@3.10.1",
+          "from": "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz",
           "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz"
         }
       }
