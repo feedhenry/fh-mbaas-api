@@ -1,5 +1,4 @@
 # Component: fh-mbaas-api
-
 ## 5.3.5 - 2015-10-15 - Craig Brookes
 
 * RHMAP-796 service url caching
