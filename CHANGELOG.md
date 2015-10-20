@@ -1,8 +1,8 @@
 # Component: fh-mbaas-api
 
-## 5.3.5 - 2015-10-15 - Craig Brookes
-
+## 5.3.5 - 2015-10-18 - Craig Brookes, Wei Li
 * RHMAP-796 service url caching
+* Force sync list when syncRecords is invoked
 
 ## 5.3.4 - 2015-09-29 - Niall Donnelly
 
