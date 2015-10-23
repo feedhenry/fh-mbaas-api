@@ -1,11 +1,13 @@
 # Component: fh-mbaas-api
 
+## 5.4.0 - 2015-10-07 - Graham Hillis
+* FH-1067 - Disconnect MBaaS and Core
+
 ## 5.3.5 - 2015-10-18 - Craig Brookes, Wei Li
 * RHMAP-796 service url caching
 * Force sync list when syncRecords is invoked
 
 ## 5.3.4 - 2015-09-29 - Niall Donnelly
-
 * FH-2213 - Fixed Incorrect Params For Submission Complete Event
 
 ## 5.3.3 - 2015-09-24 - Shannon Poole
