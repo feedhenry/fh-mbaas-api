@@ -1,5 +1,9 @@
 # Component: fh-mbaas-api
 
+## 5.5.0 - 2015-11-02 - Wei Li
+* RHMAP-2693 - Update fh-mbaas-express to v5.2.0
+* Added check for list property of fhdb response in doList function
+
 ## 5.4.0 - 2015-10-07 - Graham Hillis
 * FH-1067 - Disconnect MBaaS and Core
 
