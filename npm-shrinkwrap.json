@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "5.5.0",
+  "version": "5.6.0",
   "dependencies": {
     "async": {
       "version": "0.2.9",
@@ -36,7 +36,7 @@
         },
         "adm-zip": {
           "version": "0.4.7",
-          "from": "adm-zip@~0.4.4",
+          "from": "adm-zip@>=0.4.4 <0.5.0",
           "resolved": "https://registry.npmjs.org/adm-zip/-/adm-zip-0.4.7.tgz"
         },
         "csvtojson": {
@@ -699,7 +699,7 @@
             },
             "lodash": {
               "version": "2.4.1",
-              "from": "lodash@2.4.1",
+              "from": "https://registry.npmjs.org/lodash/-/lodash-2.4.1.tgz",
               "resolved": "https://registry.npmjs.org/lodash/-/lodash-2.4.1.tgz"
             },
             "rc": {
@@ -1003,12 +1003,12 @@
           "dependencies": {
             "bindings": {
               "version": "1.2.1",
-              "from": "bindings@^1.2.1",
+              "from": "bindings@>=1.2.1 <2.0.0",
               "resolved": "https://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz"
             },
             "nan": {
               "version": "2.1.0",
-              "from": "nan@^2.0.9",
+              "from": "nan@>=2.0.9 <3.0.0",
               "resolved": "https://registry.npmjs.org/nan/-/nan-2.1.0.tgz"
             }
           }
@@ -1022,13 +1022,49 @@
     },
     "lodash-contrib": {
       "version": "393.0.1",
-      "from": "lodash-contrib@^393.0.1",
+      "from": "lodash-contrib@>=393.0.1 <394.0.0",
       "resolved": "https://registry.npmjs.org/lodash-contrib/-/lodash-contrib-393.0.1.tgz",
       "dependencies": {
         "lodash": {
           "version": "3.9.3",
           "from": "lodash@3.9.3",
           "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.9.3.tgz"
+        }
+      }
+    },
+    "memcached": {
+      "version": "2.2.0",
+      "from": "memcached@>=2.0.0 <3.0.0",
+      "resolved": "https://registry.npmjs.org/memcached/-/memcached-2.2.0.tgz",
+      "dependencies": {
+        "hashring": {
+          "version": "3.2.0",
+          "from": "hashring@>=3.2.0 <3.3.0",
+          "resolved": "https://registry.npmjs.org/hashring/-/hashring-3.2.0.tgz",
+          "dependencies": {
+            "connection-parse": {
+              "version": "0.0.7",
+              "from": "connection-parse@>=0.0.0 <0.1.0",
+              "resolved": "https://registry.npmjs.org/connection-parse/-/connection-parse-0.0.7.tgz"
+            },
+            "simple-lru-cache": {
+              "version": "0.0.2",
+              "from": "simple-lru-cache@>=0.0.0 <0.1.0",
+              "resolved": "https://registry.npmjs.org/simple-lru-cache/-/simple-lru-cache-0.0.2.tgz"
+            }
+          }
+        },
+        "jackpot": {
+          "version": "0.0.6",
+          "from": "jackpot@>=0.0.6",
+          "resolved": "https://registry.npmjs.org/jackpot/-/jackpot-0.0.6.tgz",
+          "dependencies": {
+            "retry": {
+              "version": "0.6.0",
+              "from": "retry@0.6.0",
+              "resolved": "https://registry.npmjs.org/retry/-/retry-0.6.0.tgz"
+            }
+          }
         }
       }
     },
@@ -1107,37 +1143,37 @@
       "dependencies": {
         "async": {
           "version": "0.1.22",
-          "from": "async@0.1.x",
+          "from": "async@>=0.1.0 <0.2.0",
           "resolved": "https://registry.npmjs.org/async/-/async-0.1.22.tgz"
         },
         "colors": {
           "version": "0.6.2",
-          "from": "colors@0.x.x",
+          "from": "colors@>=0.0.0 <1.0.0",
           "resolved": "https://registry.npmjs.org/colors/-/colors-0.6.2.tgz"
         },
         "cycle": {
           "version": "1.0.3",
-          "from": "cycle@1.0.x",
+          "from": "cycle@>=1.0.0 <1.1.0",
           "resolved": "https://registry.npmjs.org/cycle/-/cycle-1.0.3.tgz"
         },
         "eyes": {
           "version": "0.1.8",
-          "from": "eyes@0.1.x",
+          "from": "eyes@>=0.1.0 <0.2.0",
           "resolved": "https://registry.npmjs.org/eyes/-/eyes-0.1.8.tgz"
         },
         "pkginfo": {
           "version": "0.2.3",
-          "from": "pkginfo@0.2.x",
+          "from": "pkginfo@>=0.2.0 <0.3.0",
           "resolved": "https://registry.npmjs.org/pkginfo/-/pkginfo-0.2.3.tgz"
         },
         "request": {
           "version": "2.9.203",
-          "from": "request@2.9.x",
+          "from": "request@>=2.9.0 <2.10.0",
           "resolved": "https://registry.npmjs.org/request/-/request-2.9.203.tgz"
         },
         "stack-trace": {
           "version": "0.0.9",
-          "from": "stack-trace@0.0.x",
+          "from": "stack-trace@>=0.0.0 <0.1.0",
           "resolved": "https://registry.npmjs.org/stack-trace/-/stack-trace-0.0.9.tgz"
         }
       }
