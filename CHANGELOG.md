@@ -1,4 +1,7 @@
 # Component: fh-mbaas-api
+## 5.5.2 - 2015-11-12 - Martin Murphy
+* RHMAP-2841 - Add windows test scripts
+
 ## 5.5.1 - 2015-11-02 - Wei Li
 * RHMAP-2693 - Update fh-mbaas-express to v5.2.1
 
