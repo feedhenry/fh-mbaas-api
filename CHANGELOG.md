@@ -1,4 +1,8 @@
 # Component: fh-mbaas-api
+
+## 5.5.3 - 2015-11-16 - Wojciech Trocki
+* RHMAP-2264 - Increase maxSockets count by default for Cloud Apps
+
 ## 5.5.2 - 2015-11-12 - Martin Murphy
 * RHMAP-2841 - Add windows test scripts
 
