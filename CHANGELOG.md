@@ -1,5 +1,10 @@
 # Component: fh-mbaas-api
 
+
+## 5.6.0 - 2015-11-27 - Niall Donnelly
+
+* RHMAP-2440 - Bumped fh-mbaas-express version
+
 ## 5.5.0 - 2015-11-02 - Wei Li
 * RHMAP-2693 - Update fh-mbaas-express to v5.2.0
 * Added check for list property of fhdb response in doList function
