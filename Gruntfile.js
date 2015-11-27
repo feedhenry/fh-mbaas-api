@@ -5,15 +5,15 @@ module.exports = function(grunt) {
 
   function makeTestArgs(testFile) {
     return ['--setUp ./test/setup.js --tearDown ./test/setup.js', testFile].join(' ');
-  };
+  }
 
   function makeUnits(testArgString) {
     return [test_runner, testArgString].join(' ');
-  };
+  }
 
   function makeUnitCovers(testArgString) {
     return ['istanbul cover --dir cov-unit', test_runner, '--', testArgString].join(' ');
-  };
+  }
 
   var tests = [
     './test/test_fhact.js',
