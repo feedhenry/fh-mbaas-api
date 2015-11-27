@@ -1,4 +1,6 @@
 # Component: fh-mbaas-api
+## 5.5.4 - 2015-11-27 - Martin Murphy
+* RHMAP-2841 - Fix path.join on windows
 
 ## 5.5.3 - 2015-11-16 - Wojciech Trocki
 * RHMAP-2264 - Increase maxSockets count by default for Cloud Apps
