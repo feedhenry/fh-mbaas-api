@@ -2,6 +2,7 @@
 
 var util = require('util'),
 actMock, fhs, fhsConfig, $fh;
+var async = require('async');
 var assert = require('assert');
 var validUrl = require('valid-url');
 var nock = require('nock');
@@ -140,6 +141,37 @@ module.exports = {
       finish();
     });
     
+  },
+  'test $fh.act sets qs params for method of "GET"/"get"': function (finish) {
+    var requestStub = function (opts, callback) {
+      assert(opts.qs);
+      assert.equal(opts.qs.name, 'fh.act');
+
+      callback(null, null);
+    };
+
+    var getAct = require('proxyquire')('../lib/act.js', {
+      'request': requestStub,
+      './cache': cache,
+      './call': call
+    })({
+      fhapi: {}
+    });
+
+    // Assertions should pass for both 'GET' and 'get'
+    async.each(['get', 'GET'], function (mtd, next) {
+      getAct({
+        guid: "123456789erghjtrudkirejr",
+        endpoint: "/fake/endpoint",
+        method: mtd,
+        params: {
+          name: "fh.act"
+        }
+      }, next);
+    }, function (err) {
+      assert.equal(err, null || undefined);
+      finish();
+    });
   },
   tearDown : function(finish){
     actMock.done();
