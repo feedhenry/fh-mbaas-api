@@ -1,6 +1,6 @@
 # Component: fh-mbaas-api
 
-## 5.7.5 - 2015-12-06 - Graham Hillis
+## 5.7.6 - 2015-12-06 - Graham Hillis
 * RHMAP-2618 Reporting Client Updates in fh-mbaas express for environment and batching messaging requests
 
 ## 5.6.0 - 2015-11-04 - David Martin

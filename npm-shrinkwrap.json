@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "5.7.5",
+  "version": "5.7.6",
   "dependencies": {
     "async": {
       "version": "0.2.9",
@@ -383,9 +383,9 @@
       }
     },
     "fh-mbaas-express": {
-      "version": "5.3.4",
-      "from": "fh-mbaas-express@5.3.4",
-      "resolved": "https://registry.npmjs.org/fh-mbaas-express/-/fh-mbaas-express-5.3.4.tgz",
+      "version": "5.3.5",
+      "from": "fh-mbaas-express@5.3.5",
+      "resolved": "https://registry.npmjs.org/fh-mbaas-express/-/fh-mbaas-express-5.3.5.tgz",
       "dependencies": {
         "body-parser": {
           "version": "1.6.7",
@@ -734,9 +734,9 @@
           }
         },
         "fh-reportingclient": {
-          "version": "0.3.3",
-          "from": "https://registry.npmjs.org/fh-reportingclient/-/fh-reportingclient-0.3.3.tgz",
-          "resolved": "https://registry.npmjs.org/fh-reportingclient/-/fh-reportingclient-0.3.3.tgz",
+          "version": "0.3.4",
+          "from": "https://registry.npmjs.org/fh-reportingclient/-/fh-reportingclient-0.3.4.tgz",
+          "resolved": "https://registry.npmjs.org/fh-reportingclient/-/fh-reportingclient-0.3.4.tgz",
           "dependencies": {
             "async": {
               "version": "0.1.16",
