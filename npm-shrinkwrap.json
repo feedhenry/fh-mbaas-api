@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "5.5.0",
+  "version": "5.5.4",
   "dependencies": {
     "async": {
       "version": "0.2.9",
@@ -383,9 +383,9 @@
       }
     },
     "fh-mbaas-express": {
-      "version": "5.2.0",
-      "from": "fh-mbaas-express@5.2.0",
-      "resolved": "https://registry.npmjs.org/fh-mbaas-express/-/fh-mbaas-express-5.2.0.tgz",
+      "version": "5.2.1",
+      "from": "fh-mbaas-express@5.2.1",
+      "resolved": "https://registry.npmjs.org/fh-mbaas-express/-/fh-mbaas-express-5.2.1.tgz",
       "dependencies": {
         "body-parser": {
           "version": "1.6.7",
@@ -699,7 +699,7 @@
             },
             "lodash": {
               "version": "2.4.1",
-              "from": "lodash@2.4.1",
+              "from": "https://registry.npmjs.org/lodash/-/lodash-2.4.1.tgz",
               "resolved": "https://registry.npmjs.org/lodash/-/lodash-2.4.1.tgz"
             },
             "rc": {
