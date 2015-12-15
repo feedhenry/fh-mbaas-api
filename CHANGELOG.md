@@ -1,4 +1,8 @@
 # Component: fh-mbaas-api
+## 5.7.7 - 2015-12-06 - Graham Hillis
+* RHMAP-2618 Reporting Client Updates in fh-mbaas express for environment and batching messaging requests
+* merge latest master jshint fixes
+
 ## 5.5.4 - 2015-11-27 - Martin Murphy
 * RHMAP-2841 - Fix path.join on windows
 
@@ -10,11 +14,8 @@
 
 ## 5.5.1 - 2015-11-02 - Wei Li
 * RHMAP-2693 - Update fh-mbaas-express to v5.2.1
-
-## 5.7.6 - 2015-12-06 - Graham Hillis
-* RHMAP-2618 Reporting Client Updates in fh-mbaas express for environment and batching messaging requests
-
 ## 5.6.0 - 2015-11-04 - David Martin
+
 * RHMAP-2774 - Add backwards compatible support for JDG to fh.cache API
 
 ## 5.5.0 - 2015-11-02 - Wei Li
