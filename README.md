@@ -23,3 +23,15 @@ Legacy Rhino functions have been deprecated. These are listed below - with their
 * $fh.log -> **console.log**
 * $fh.parse -> **JSON.parse**
 * $fh.stringify  **JSON.stringify**
+
+#Tests
+Before running tests do:
+
+```
+npm install
+npm install -g grunt-cli
+```
+
+Then to run the tests use ```grunt fh:test```
+
+On Windows, use ```npm run testwindows```

@@ -1,4 +1,15 @@
 # Component: fh-mbaas-api
+## 5.5.4 - 2015-11-27 - Martin Murphy
+* RHMAP-2841 - Fix path.join on windows
+
+## 5.5.3 - 2015-11-16 - Wojciech Trocki
+* RHMAP-2264 - Increase maxSockets count by default for Cloud Apps
+
+## 5.5.2 - 2015-11-12 - Martin Murphy
+* RHMAP-2841 - Add windows test scripts
+
+## 5.5.1 - 2015-11-02 - Wei Li
+* RHMAP-2693 - Update fh-mbaas-express to v5.2.1
 
 ## 5.7.6 - 2015-12-06 - Graham Hillis
 * RHMAP-2618 Reporting Client Updates in fh-mbaas express for environment and batching messaging requests
