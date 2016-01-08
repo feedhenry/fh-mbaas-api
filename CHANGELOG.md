@@ -1,4 +1,11 @@
 # Component: fh-mbaas-api
+
+## 5.7.9 - 2016-01-06 - Graham Hillis
+* RHMAP-3565 fh-reporting client test update and subsequent bumps for fh-mbaas-express and fh-reportingclient
+
+## 5.7.8 - 2015-12-18 - Graham Hillis
+* RHMAP-3565 fh-reporting client realtime enabled flag fix
+
 ## 5.7.7 - 2015-12-06 - Graham Hillis
 * RHMAP-2618 Reporting Client Updates in fh-mbaas express for environment and batching messaging requests
 * merge latest master jshint fixes
