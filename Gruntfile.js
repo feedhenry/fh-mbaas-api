@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   'use strict';
 
   function makeTestArgs(testFile) {
-    return ['--setUp ./test/setup.js --tearDown ./test/setup.js', testFile].join(' ');
+    return ['--series --setUp ./test/setup.js --tearDown ./test/setup.js', testFile].join(' ');
   }
 
   function makeUnits(testArgString) {
