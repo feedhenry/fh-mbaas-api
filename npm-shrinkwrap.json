@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "5.7.9",
+  "version": "5.7.11",
   "dependencies": {
     "async": {
       "version": "0.2.9",
@@ -383,9 +383,9 @@
       }
     },
     "fh-mbaas-express": {
-      "version": "5.3.7",
-      "from": "fh-mbaas-express@5.3.7",
-      "resolved": "http://registry.npmjs.org/fh-mbaas-express/-/fh-mbaas-express-5.3.7.tgz",
+      "version": "5.3.9",
+      "from": "fh-mbaas-express@5.3.9",
+      "resolved": "https://registry.npmjs.org/fh-mbaas-express/-/fh-mbaas-express-5.3.9.tgz",
       "dependencies": {
         "body-parser": {
           "version": "1.6.7",
@@ -591,9 +591,9 @@
               "resolved": "https://registry.npmjs.org/qs/-/qs-2.3.3.tgz"
             },
             "range-parser": {
-              "version": "1.0.3",
-              "from": "https://registry.npmjs.org/range-parser/-/range-parser-1.0.3.tgz",
-              "resolved": "https://registry.npmjs.org/range-parser/-/range-parser-1.0.3.tgz"
+              "version": "1.0.2",
+              "from": "https://registry.npmjs.org/range-parser/-/range-parser-1.0.2.tgz",
+              "resolved": "https://registry.npmjs.org/range-parser/-/range-parser-1.0.2.tgz"
             },
             "send": {
               "version": "0.10.1",
@@ -734,9 +734,9 @@
           }
         },
         "fh-reportingclient": {
-          "version": "0.3.6",
-          "from": "https://registry.npmjs.org/fh-reportingclient/-/fh-reportingclient-0.3.6.tgz",
-          "resolved": "https://registry.npmjs.org/fh-reportingclient/-/fh-reportingclient-0.3.6.tgz",
+          "version": "0.3.7",
+          "from": "https://registry.npmjs.org/fh-reportingclient/-/fh-reportingclient-0.3.7.tgz",
+          "resolved": "https://registry.npmjs.org/fh-reportingclient/-/fh-reportingclient-0.3.7.tgz",
           "dependencies": {
             "async": {
               "version": "0.1.16",
@@ -756,9 +756,9 @@
           "resolved": "https://registry.npmjs.org/multer/-/multer-0.1.8.tgz",
           "dependencies": {
             "busboy": {
-              "version": "0.2.11",
-              "from": "https://registry.npmjs.org/busboy/-/busboy-0.2.11.tgz",
-              "resolved": "https://registry.npmjs.org/busboy/-/busboy-0.2.11.tgz",
+              "version": "0.2.9",
+              "from": "https://registry.npmjs.org/busboy/-/busboy-0.2.9.tgz",
+              "resolved": "https://registry.npmjs.org/busboy/-/busboy-0.2.9.tgz",
               "dependencies": {
                 "dicer": {
                   "version": "0.2.3",
@@ -868,38 +868,9 @@
               "resolved": "https://registry.npmjs.org/node-uuid/-/node-uuid-1.4.3.tgz"
             },
             "tough-cookie": {
-              "version": "2.2.0",
-              "from": "https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.2.0.tgz",
-              "resolved": "https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.2.0.tgz"
-            },
-            "form-data": {
-              "version": "0.1.4",
-              "from": "https://registry.npmjs.org/form-data/-/form-data-0.1.4.tgz",
-              "resolved": "https://registry.npmjs.org/form-data/-/form-data-0.1.4.tgz",
-              "dependencies": {
-                "combined-stream": {
-                  "version": "0.0.7",
-                  "from": "https://registry.npmjs.org/combined-stream/-/combined-stream-0.0.7.tgz",
-                  "resolved": "https://registry.npmjs.org/combined-stream/-/combined-stream-0.0.7.tgz",
-                  "dependencies": {
-                    "delayed-stream": {
-                      "version": "0.0.5",
-                      "from": "https://registry.npmjs.org/delayed-stream/-/delayed-stream-0.0.5.tgz",
-                      "resolved": "https://registry.npmjs.org/delayed-stream/-/delayed-stream-0.0.5.tgz"
-                    }
-                  }
-                },
-                "mime": {
-                  "version": "1.2.11",
-                  "from": "https://registry.npmjs.org/mime/-/mime-1.2.11.tgz",
-                  "resolved": "https://registry.npmjs.org/mime/-/mime-1.2.11.tgz"
-                },
-                "async": {
-                  "version": "0.9.2",
-                  "from": "https://registry.npmjs.org/async/-/async-0.9.2.tgz",
-                  "resolved": "https://registry.npmjs.org/async/-/async-0.9.2.tgz"
-                }
-              }
+              "version": "2.0.0",
+              "from": "https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.0.0.tgz",
+              "resolved": "https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.0.0.tgz"
             },
             "tunnel-agent": {
               "version": "0.4.1",
@@ -966,9 +937,9 @@
               "resolved": "https://registry.npmjs.org/aws-sign2/-/aws-sign2-0.5.0.tgz"
             },
             "stringstream": {
-              "version": "0.0.5",
-              "from": "https://registry.npmjs.org/stringstream/-/stringstream-0.0.5.tgz",
-              "resolved": "https://registry.npmjs.org/stringstream/-/stringstream-0.0.5.tgz"
+              "version": "0.0.4",
+              "from": "https://registry.npmjs.org/stringstream/-/stringstream-0.0.4.tgz",
+              "resolved": "https://registry.npmjs.org/stringstream/-/stringstream-0.0.4.tgz"
             }
           }
         },
