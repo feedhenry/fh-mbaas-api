@@ -110,5 +110,9 @@ module.exports = {
         }); // end list
       }); // end create
     })(finish);
+  },
+
+  "test os3 mbaas will be called to retrieve mongo connectin string": function(finish){
+    finish()
   }
 };
