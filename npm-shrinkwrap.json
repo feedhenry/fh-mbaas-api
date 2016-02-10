@@ -383,9 +383,9 @@
       }
     },
     "fh-mbaas-express": {
-      "version": "5.3.0-147",
-      "from": "fh-mbaas-express@5.3.0-147",
-      "resolved": "https://registry.npmjs.org/fh-mbaas-express/-/fh-mbaas-express-5.3.0-147.tgz",
+      "version": "5.3.0-167",
+      "from": "http://npm.skunkhenry.com/fh-mbaas-express/-/fh-mbaas-express-5.3.0-167.tgz",
+      "resolved": "http://npm.skunkhenry.com/fh-mbaas-express/-/fh-mbaas-express-5.3.0-167.tgz",
       "dependencies": {
         "body-parser": {
           "version": "1.6.7",
