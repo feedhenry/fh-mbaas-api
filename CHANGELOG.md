@@ -4,6 +4,7 @@
 ## 5.6.0 - 2015-11-27 - Niall Donnelly
 
 * RHMAP-2440 - Bumped fh-mbaas-express version
+* RHMAP-2800 - Added fh-mbaas-api version header.
 
 ## 5.5.0 - 2015-11-02 - Wei Li
 * RHMAP-2693 - Update fh-mbaas-express to v5.2.0
