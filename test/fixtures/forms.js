@@ -1,11 +1,11 @@
 var assert = require('assert');
-var events = require('events');
 var _ = require('underscore');
 
 
 var formEventListeners = [];
 
 module.exports = {
+  '@global': true,
   initEnvironment: function(environment, mbaasConf){
     assert.ok(environment);
     assert.ok(mbaasConf);
