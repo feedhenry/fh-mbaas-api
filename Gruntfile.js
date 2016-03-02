@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   'use strict';
 
   function makeTestArgs(testFile) {
-    return ['--series --setUp ./test/setup.js --tearDown ./test/setup.js', testFile].join(' ');
+    return ['-u exports --recursive -t 10000 ./test/setup.js', testFile].join(' ');
   }
 
   function makeUnits(testArgString) {
@@ -32,7 +32,7 @@ module.exports = function(grunt) {
     './test/test_init.js'
   ];
   var unit_args = _.map(tests, makeTestArgs);
-  var test_runner = 'turbo';
+  var test_runner = '_mocha';
 
   // Just set shell commands for running different types of tests
   grunt.initConfig({

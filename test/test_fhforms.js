@@ -2,6 +2,7 @@ var proxyquire = require('proxyquire').noCallThru();
 var mockMbaasClient = require('./fixtures/forms.js');
 var assert = require('assert');
 var events = require('events');
+var sinon = require('sinon');
 
 var testSubmission = {
   _id: "somesubmissionid",
@@ -83,6 +84,122 @@ module.exports = {
 
           $fh.forms.deregisterListener(submissionEventListener, finish);
         });
+      });
+    });
+  },
+  'test submitFormData Validation Error Event': function(finish){
+    var submissionStartedSpy = sinon.spy();
+    var submissionCompletedSpy = sinon.spy();
+    var submissionErrorSpy = sinon.spy();
+
+    var mockErrorResponse = {
+      error: {
+        valid: false,
+        somefieldid: {
+          fieldId: "somefieldid",
+          valid: false,
+          fieldErrorMessage: ["Entry Not Valid", null]
+        },
+        anotherfieldid: {
+          fieldId: "anotherfieldid",
+          valid: false,
+          fieldErrorMessage: [null, "Entry Not Valid"]
+        }
+      }
+    };
+    var mockSubmitFormData = sinon.stub();
+
+    mockSubmitFormData.withArgs(sinon.match.object, sinon.match.func).callsArgWith(1, undefined, mockErrorResponse);
+
+    var $fh = proxyquire('../lib/api.js', {
+      'fh-mbaas-client' : {
+        '@global': true,
+        initEnvironment: sinon.stub(),
+        app: {
+          forms: {
+            submitFormData: mockSubmitFormData
+          }
+        }
+    }});
+
+    var submissionEventListener = new events.EventEmitter();
+
+    $fh.forms.registerListener(submissionEventListener, function(err){
+      assert.ok(!err, "Expected no error when adding a submission event listener.");
+
+      //Listening to submissionStarted events
+      submissionEventListener.on('submissionStarted', submissionStartedSpy);
+
+      //Listening to submissionComplete events
+      submissionEventListener.on('submissionComplete', submissionCompletedSpy);
+
+      //Listening For The Error Response
+      submissionEventListener.on('submissionError', submissionErrorSpy);
+
+      $fh.forms.submitFormData({appClientId:'1234', submission: testSubmission}, function(err, res){
+        assert.ok(err, "Expected An Error");
+        assert.ok(!res, "Expected No Response");
+
+        sinon.assert.notCalled(submissionStartedSpy);
+        sinon.assert.notCalled(submissionCompletedSpy);
+        sinon.assert.calledOnce(submissionErrorSpy);
+        sinon.assert.calledWith(submissionErrorSpy, sinon.match({
+          type: sinon.match('validationError'),
+          error: sinon.match(mockErrorResponse.error)
+        }));
+
+        $fh.forms.deregisterListener(submissionEventListener, finish);
+      });
+    });
+  },
+  'test submitFormData JSON Submission Error': function(finish){
+    var submissionStartedSpy = sinon.spy();
+    var submissionCompletedSpy = sinon.spy();
+    var submissionErrorSpy = sinon.spy();
+
+    var mockErrorResponse = new Error("Error Submitting Data");
+    var mockSubmitFormData = sinon.stub();
+
+    mockSubmitFormData.withArgs(sinon.match.object, sinon.match.func).callsArgWith(1, mockErrorResponse);
+
+    var $fh = proxyquire('../lib/api.js', {
+      'fh-mbaas-client' : {
+        '@global': true,
+        initEnvironment: sinon.stub(),
+        app: {
+          forms: {
+            submitFormData: mockSubmitFormData
+          }
+        }
+      }});
+
+    var submissionEventListener = new events.EventEmitter();
+
+    $fh.forms.registerListener(submissionEventListener, function(err){
+      assert.ok(!err, "Expected no error when adding a submission event listener.");
+
+      //Listening to submissionStarted events
+      submissionEventListener.on('submissionStarted', submissionStartedSpy);
+
+      //Listening to submissionComplete events
+      submissionEventListener.on('submissionComplete', submissionCompletedSpy);
+
+      //Listening For The Error Response
+      submissionEventListener.on('submissionError', submissionErrorSpy);
+
+      $fh.forms.submitFormData({appClientId:'1234', submission: testSubmission}, function(err, res){
+        assert.ok(err, "Expected An Error");
+        assert.ok(!res, "Expected No Response");
+
+        sinon.assert.notCalled(submissionStartedSpy);
+        sinon.assert.notCalled(submissionCompletedSpy);
+        sinon.assert.calledOnce(submissionErrorSpy);
+        sinon.assert.calledWith(submissionErrorSpy, sinon.match({
+          type: sinon.match('jsonError'),
+          error: sinon.match(mockErrorResponse)
+        }));
+
+        $fh.forms.deregisterListener(submissionEventListener, finish);
       });
     });
   },
