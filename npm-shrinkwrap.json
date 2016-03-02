@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "5.8.0",
+  "version": "5.8.1",
   "dependencies": {
     "async": {
       "version": "0.2.9",
@@ -454,8 +454,8 @@
       }
     },
     "fh-mbaas-express": {
-      "version": "5.4.0",
-      "from": "fh-mbaas-express@5.4.0",
+      "version": "5.4.1",
+      "from": "fh-mbaas-express@5.4.1",
       "dependencies": {
         "body-parser": {
           "version": "1.6.7",
