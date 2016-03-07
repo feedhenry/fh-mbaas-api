@@ -18,7 +18,7 @@ module.exports = function(grunt) {
   var tests = [    /* If updating this list of tests, also update test_win.cmd for Windows */
     './test/test_fhutils.js',
     './test/test_fhact.js',
-    /*'./test/test_fhdb.js',*/
+    './test/test_fhdb.js',
     './test/test_fhfeed.js',
     './test/test_fhforms.js',
     './test/test_fhsec.js',
