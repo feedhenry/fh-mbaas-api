@@ -8,6 +8,10 @@ var proxyquire = require('proxyquire');
 var sinon = require('sinon');
 
 module.exports = {
+  tearDown: function() {
+    process.env.FH_MBAAS_TYPE = 'feedhenry';
+  },
+
   "test os3 mbaas will be called to retrieve mongo connection string": function(finish){
     delete process.env['FH_MONGODB_CONN_URL'];
     delete process.env['OPENSHIFT_MONGODB_DB_HOST'];
