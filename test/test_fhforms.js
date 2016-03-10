@@ -3,6 +3,7 @@ var mockMbaasClient = require('./fixtures/forms.js');
 var assert = require('assert');
 var events = require('events');
 var sinon = require('sinon');
+var stream = require('stream');
 
 var testSubmission = {
   _id: "somesubmissionid",
@@ -338,8 +339,8 @@ module.exports = {
     console.log("submitFormFile");
     var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.submitFormFile({appClientId:'1234', submission: {fileStream: "./test/fixtures/testimg1.jpg", fileId: "SomeFileID", submissionId: "ASubmissionId", fieldId: "fileFieldId"}}, function(err, res){
-      assert.ok(!err);
-      assert.ok(res);
+      assert.ok(!err, "submitFormFile should not return an error");
+      assert.ok(res, "submitFormFile should return a response");
       finish();
     });
   },
@@ -355,16 +356,16 @@ module.exports = {
   'test getSubmissionStatus' : function(finish){
     var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.getSubmissionStatus({appClientId:'1234', submission: {submissionId: "submission1234"}}, function(err, res){
-      assert.ok(!err);
-      assert.ok(res);
+      assert.ok(!err, "getSubmissionStatus should not return an error");
+      assert.ok(res, "getSubmissionStatus should return a response");
       finish();
     });
   },
   'test completeSubmission' : function(finish){
     var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.completeSubmission({appClientId:'1234', submission: {submissionId: "submission1234"}}, function(err, res){
-      assert.ok(!err);
-      assert.ok(res);
+      assert.ok(!err, "completeSubmission should not return an error");
+      assert.ok(res, "completeSubmission should return a response");
       finish();
     });
   },
@@ -379,40 +380,58 @@ module.exports = {
   "test getFullyPopulatedForms ": function (finish){
     var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.getPopulatedFormList({"formids":[]}, function(err, res){
-      assert.ok(!err);
-      assert.ok(res);
+      assert.ok(!err, "getFullyPopulatedForms should not return an error");
+      assert.ok(res, "getFullyPopulatedForms should return a response");
       finish();
     });
   },
   "test getSubmissions ": function (finish){
     var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.getSubmissions({"subid":[]}, function(err, res){
-      assert.ok(!err);
-      assert.ok(res);
+      assert.ok(!err, "getSubmissions should not return an error");
+      assert.ok(res, "getSubmissions should return a response");
       finish();
     });
   },
   "test getSubmission ": function (finish){
     var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.getSubmission({"submissionId": "submission1234"}, function(err, res){
-      assert.ok(!err);
-      assert.ok(res);
+      assert.ok(!err, "getSubmission should not return an error");
+      assert.ok(res, "getSubmission should return a response");
       finish();
     });
   },
   "test getSubmissions with files": function (finish){
     var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.getSubmissions({"subid":["submissionId1", "submissionId2"]}, function(err, res){
-      assert.ok(!err);
-      assert.ok(res);
+      assert.ok(!err, "getSubmissions with files should not return an error");
+      assert.ok(res, "getSubmissions with files should return a response");
       finish();
     });
   },
   "test getSubmissionFile ": function (finish){
     var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
     $fh.forms.getSubmissionFile({"_id": "testSubFileGroupId"}, function(err, res){
-      assert.ok(!err);
-      assert.ok(res);
+      assert.ok(!err, "getSubmissionFile should not return an error");
+      assert.ok(res, "getSubmissionFile should return a response");
+      finish();
+    });
+  },
+  "test exportCSV ": function (finish){
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
+    $fh.forms.exportCSV({projectId: "projectId", submissionId: "submissionId", formId: "formId", fieldHeader: "fieldHeader"}, function(err, streamOutput){
+      assert.ok(!err, "Export CSV should not return an error");
+      assert.ok(streamOutput, "Export CSV should return a response");
+      assert.ok(streamOutput instanceof stream.Readable, "CSV callback parameter streamOutput is a readable stream");
+      finish();
+    });
+  },
+  "test exportSinglePDF ": function (finish){
+    var $fh = proxyquire('../lib/api.js', {'fh-mbaas-client' : mockMbaasClient});
+    $fh.forms.exportSinglePDF({submissionId: "MySubmission"}, function(err, streamOutput){
+      assert.ok(!err, "Export a single PDF should not return an error");
+      assert.ok(streamOutput, "Export a single PDF should return a response stream for the PDF");
+      assert.ok(streamOutput instanceof stream.Readable, "PDF callback parameter streamOutput is a readable stream");
       finish();
     });
   }

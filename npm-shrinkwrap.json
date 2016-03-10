@@ -312,9 +312,9 @@
       }
     },
     "fh-mbaas-client": {
-      "version": "0.7.4",
-      "from": "fh-mbaas-client@0.7.4",
-      "resolved": "https://registry.npmjs.org/fh-mbaas-client/-/fh-mbaas-client-0.7.4.tgz",
+      "version": "0.8.0-alpha1",
+      "from": "fh-mbaas-client@0.8.0-alpha1",
+      "resolved": "http://npm.skunkhenry.com/fh-mbaas-client/-/fh-mbaas-client-0.8.0-alpha1.tgz",
       "dependencies": {
         "request": {
           "version": "2.69.0",
