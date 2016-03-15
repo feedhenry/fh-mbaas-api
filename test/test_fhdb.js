@@ -50,5 +50,70 @@ module.exports = {
       sinon.assert.calledOnce(databaseConnectionStringStub);
       finish();
     });
+  },
+
+  "test get connection string os3 action" : function(finish){
+    delete process.env['FH_MONGODB_CONN_URL'];
+    delete process.env['OPENSHIFT_MONGODB_DB_HOST'];
+    process.env['FH_MBAAS_TYPE'] = 'openshift3';
+    var localdbStub = sinon.stub().callsArgAsync(1);
+    var databaseConnectionStringStub = sinon.stub().callsArgWithAsync(1, null, {
+      url: 'test-url'
+    });
+
+    $fh = proxyquire('../lib/api.js', {
+      './db': proxyquire('../lib/db.js', {
+        'fh-mbaas-client': {
+          'app': {
+            'databaseConnectionString': databaseConnectionStringStub
+          }
+        },
+        'fh-db': {
+          'local_db': localdbStub
+        }
+      })
+    });
+    $fh.db({
+      "act" : "connectionString"
+    }, function(err, res){
+      assert.ok(!err, err);
+      assert.ok(res === "test-url", "expected the mongo url to match");
+      sinon.assert.calledOnce(databaseConnectionStringStub);
+      finish();
+    });
+  },
+
+
+  "test get connection string os2 action" : function(finish){
+    delete process.env['FH_MONGODB_CONN_URL'];
+    delete process.env['OPENSHIFT_MONGODB_DB_HOST'];
+    process.env['FH_MBAAS_TYPE'] = 'openshift';
+    process.env.OPENSHIFT_MONGODB_DB_HOST  = "testhost";
+    process.env.OPENSHIFT_MONGODB_DB_USERNAME = "testuser";
+    process.env.OPENSHIFT_MONGODB_DB_PASSWORD  = "testpass";
+    process.env.OPENSHIFT_MONGODB_DB_PORT = "2072"
+    process.env.OPENSHIFT_APP_NAME = "testapp"
+
+    $fh.db({
+      "act" : "connectionString"
+    }, function(err, res){
+      assert.ok(!err, err);
+      assert.ok(res === "mongodb://testuser:testpass@testhost:2072/testapp", "expected the mongo url to match " + res);
+      finish();
+    });
+  },
+  "test get existing connection string action" : function(finish){
+    delete process.env['FH_MONGODB_CONN_URL']
+    process.env['FH_MONGODB_CONN_URL'] = "mongodb://testuser:testpass@testhost:2072/testapp";
+    delete process.env['OPENSHIFT_MONGODB_DB_HOST'];
+    process.env['FH_MBAAS_TYPE'] = 'feedhenry';
+
+    $fh.db({
+      "act" : "connectionString"
+    }, function(err, res){
+      assert.ok(!err, err);
+      assert.ok(res === "mongodb://testuser:testpass@testhost:2072/testapp", "expected the mongo url to match " + res);
+      finish();
+    });
   }
 };
