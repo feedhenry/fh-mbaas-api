@@ -4,11 +4,35 @@ var util = require('util'),
 ditchMock = require('./fixtures/db'),
 $fh;
 var assert = require('assert');
-
+var proxyquire = require('proxyquire');
+var sinon = require('sinon');
 
 module.exports = {
-  'test ditch fh.db': function(finish) {
-    $fh = require("../lib/api.js");
+  tearDown: function() {
+    process.env.FH_MBAAS_TYPE = 'feedhenry';
+  },
+
+  "test os3 mbaas will be called to retrieve mongo connection string": function(finish){
+    delete process.env['FH_MONGODB_CONN_URL'];
+    delete process.env['OPENSHIFT_MONGODB_DB_HOST'];
+    process.env['FH_MBAAS_TYPE'] = 'openshift3';
+    var localdbStub = sinon.stub().callsArgAsync(1);
+    var databaseConnectionStringStub = sinon.stub().callsArgWithAsync(1, null, {
+      url: 'test-url'
+    });
+
+    $fh = proxyquire('../lib/api.js', {
+      './db': proxyquire('../lib/db.js', {
+        'fh-mbaas-client': {
+          'app': {
+            'databaseConnectionString': databaseConnectionStringStub
+          }
+        },
+        'fh-db': {
+          'local_db': localdbStub
+        }
+      })
+    });
     $fh.db({
       "act" : "create",
       "type" : "myFirstEntity",
@@ -21,94 +45,75 @@ module.exports = {
         "phone" : "555-123456"
       }
     }, function(err, res){
-      assert.equal(err, null, "Err not null: " + util.inspect(err));
-      $fh.db({
-        "act": "list",
-        "type": "myFirstEntity"
-      }, function(err, res){
-        assert.equal(err, null, "Err not null: " + util.inspect(err));
-        assert.ok(res.list[0]);
-        assert.ok(res.list[0].guid);
-        var guid = res.list[0].guid;
-        $fh.db({
-          "act" : "read",
-          "type" : "myFirstEntity",
-          "guid" : guid
-        }, function(err, res){
-          assert.equal(err, null, "Err not null: " + util.inspect(err));
-          $fh.db({
-            "act" : "update",
-            "type" : "myFirstEntity",
-            "guid" : res.guid,
-            "fields": {
-              "fistName": "Jane"
-            }}, function(err, res) {
-            assert.equal(err, null, "Err not null: " + util.inspect(err));
-            $fh.db({
-              "act" : "export"
-            }, function(err, res){
-              assert.equal(err, null);
-              assert.ok(res);
-              assert.ok(res.stream);
-              $fh.db({
-                "act" : "import",
-                "files" : {
-                  "toimport" : {
-                    "path" : __dirname + '/fixtures/dbexport.zip'
-                  }
-                }
-              }, function(err, res){
-                $fh.db({
-                  "act" : "delete",
-                  "type" : "myFirstEntity",
-                  "guid" : res.guid
-                }, function(err, res){
-                  assert.equal(err, null, "Err not null: " + util.inspect(err));
-                  ditchMock.done();
-                  finish();
-                }); // end delete
-              });
-            });// end export
-          }); // end update
-        }); // end read
-      }); // end list
-    }); // end create
+      assert.ok(!err, err);
+      sinon.assert.calledOnce(localdbStub);
+      sinon.assert.calledOnce(databaseConnectionStringStub);
+      finish();
+    });
   },
 
-  'test dbperapp fh.db': function(finish) {
+  "test get connection string os3 action" : function(finish){
+    delete process.env['FH_MONGODB_CONN_URL'];
+    delete process.env['OPENSHIFT_MONGODB_DB_HOST'];
+    process.env['FH_MBAAS_TYPE'] = 'openshift3';
+    var localdbStub = sinon.stub().callsArgAsync(1);
+    var databaseConnectionStringStub = sinon.stub().callsArgWithAsync(1, null, {
+      url: 'test-url'
+    });
 
-    //When the dbperapp environment variable is set, The same tests should now return an error message
-    process.env['FH_DB_PERAPP'] = true;
-
-    (function(finish) {
-      $fh = require("../lib/api.js");
-      $fh.db({
-        "act" : "create",
-        "type" : "myFirstEntity",
-        "fields" : {
-          "firstName" : "Joe",
-          "lastName" : "Bloggs",
-          "address1" : "22 Blogger Lane",
-          "address2" : "Bloggsville",
-          "country" : "Bloggland",
-          "phone" : "555-123456"
+    $fh = proxyquire('../lib/api.js', {
+      './db': proxyquire('../lib/db.js', {
+        'fh-mbaas-client': {
+          'app': {
+            'databaseConnectionString': databaseConnectionStringStub
+          }
+        },
+        'fh-db': {
+          'local_db': localdbStub
         }
-      }, function(err, res){
-        assert.ok(!res);
-        assert.ok(err && err.message === "Data storage not enabled for this app. Please use the Data Browser window to enable data storage.");
+      })
+    });
+    $fh.db({
+      "act" : "connectionString"
+    }, function(err, res){
+      assert.ok(!err, err);
+      assert.ok(res === "test-url", "expected the mongo url to match");
+      sinon.assert.calledOnce(databaseConnectionStringStub);
+      finish();
+    });
+  },
 
-        $fh.db({
-          "act": "list",
-          "type": "myFirstEntity"
-        }, function(err, res){
-          assert.ok(!res);
-          assert.ok(err && err.message === "Data storage not enabled for this app. Please use the Data Browser window to enable data storage.");
 
-          ditchMock.done();
-          finish();
+  "test get connection string os2 action" : function(finish){
+    delete process.env['FH_MONGODB_CONN_URL'];
+    delete process.env['OPENSHIFT_MONGODB_DB_HOST'];
+    process.env['FH_MBAAS_TYPE'] = 'openshift';
+    process.env.OPENSHIFT_MONGODB_DB_HOST  = "testhost";
+    process.env.OPENSHIFT_MONGODB_DB_USERNAME = "testuser";
+    process.env.OPENSHIFT_MONGODB_DB_PASSWORD  = "testpass";
+    process.env.OPENSHIFT_MONGODB_DB_PORT = "2072"
+    process.env.OPENSHIFT_APP_NAME = "testapp"
 
-        }); // end list
-      }); // end create
-    })(finish);
+    $fh.db({
+      "act" : "connectionString"
+    }, function(err, res){
+      assert.ok(!err, err);
+      assert.ok(res === "mongodb://testuser:testpass@testhost:2072/testapp", "expected the mongo url to match " + res);
+      finish();
+    });
+  },
+  "test get existing connection string action" : function(finish){
+    delete process.env['FH_MONGODB_CONN_URL']
+    process.env['FH_MONGODB_CONN_URL'] = "mongodb://testuser:testpass@testhost:2072/testapp";
+    delete process.env['OPENSHIFT_MONGODB_DB_HOST'];
+    process.env['FH_MBAAS_TYPE'] = 'feedhenry';
+
+    $fh.db({
+      "act" : "connectionString"
+    }, function(err, res){
+      assert.ok(!err, err);
+      assert.ok(res === "mongodb://testuser:testpass@testhost:2072/testapp", "expected the mongo url to match " + res);
+      finish();
+    });
   }
 };

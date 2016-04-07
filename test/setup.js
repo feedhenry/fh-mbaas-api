@@ -2,7 +2,7 @@ var proxyquire =  require('proxyquire').noCallThru(),
 exec = require('child_process').exec,
 redis;
 
-exports.setUp = function(finish){
+exports.before = function(finish){
   require('./fixtures/env.js');
 
   // Start redis & mongo , wait 'till finished then run tests!
@@ -10,7 +10,7 @@ exports.setUp = function(finish){
   finish();
 };
 
-exports.tearDown = function(finish){
+exports.after = function(finish){
   redis.kill();
   var fh = require("../lib/api.js");
   fh.sync.stopAll(function(err) {

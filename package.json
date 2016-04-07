@@ -1,24 +1,25 @@
 {
   "name": "fh-mbaas-api",
-  "version": "5.5.5",
+  "version": "5.10.0",
   "description": "FeedHenry MBAAS Cloud APIs",
   "main": "lib/api.js",
   "dependencies": {
     "async": "0.2.9",
-    "fh-db": "0.5.4",
-    "fh-mbaas-client": "0.5.1",
-    "fh-mbaas-express": "5.2.1",
+    "fh-db": "0.7.0",
+    "fh-mbaas-client": "0.7.4",
+    "fh-mbaas-express": "^5.4.3",
     "fh-security": "0.1.3-10",
     "fh-statsc": "0.2.2",
     "lodash-contrib": "^393.0.1",
+    "memcached": "^2.0.0",
     "moment": "2.0.0",
     "mongodb-uri": "0.9.7",
     "optval": "1.0.1",
     "redis": "0.8.2",
     "request": "2.12.0",
     "underscore": "1.7.0",
-    "winston": "0.6.2",
-    "unifiedpush-node-sender": "0.9.0"
+    "unifiedpush-node-sender": "0.9.0",
+    "winston": "0.6.2"
   },
   "publishConfig": {
     "tag": "latest-next"
@@ -31,11 +32,10 @@
     "jshint": "^2.5.2",
     "nock": "0.22.1",
     "plato": "^1.0.1",
-    "proxyquire": "0.4.1",
-    "turbo-test-runner": "0.4.1",
-    "whiskey": "^0.8.4",
-    "valid-url":"1.0.9",
-    "sinon":"1.17.1 "
+    "proxyquire": "1.4.0",
+    "mocha": "2.4.5",
+    "valid-url": "1.0.9",
+    "sinon": "1.17.1 "
   },
   "scripts": {
     "testwindows": "test_win.cmd",
