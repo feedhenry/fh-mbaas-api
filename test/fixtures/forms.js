@@ -105,7 +105,7 @@ module.exports = {
         return cb(undefined, new MockReadStream());
       },
       exportSinglePDF: function(options, cb) {
-        assert.ok(options.submissionId, "Expected submissionId but got nothing");
+        assert.ok(options.id, "Expected id but got nothing");
         assert.ok(options.domain, "Expected domain but got nothing");
         return cb(undefined, new MockReadStream());
       }
