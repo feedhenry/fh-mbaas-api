@@ -6,7 +6,7 @@
   "dependencies": {
     "async": "0.2.9",
     "fh-db": "0.7.3",
-    "fh-mbaas-client": "0.11.0-162",
+    "fh-mbaas-client": "0.11.0",
     "fh-mbaas-express": "5.4.4",
     "fh-security": "0.1.8-36",
     "fh-statsc": "0.2.2",
