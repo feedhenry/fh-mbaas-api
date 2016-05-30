@@ -1,6 +1,6 @@
 var assert = require('assert');
 var _ = require('underscore');
-
+var MockReadStream = require("./mockReadStream");
 
 var formEventListeners = [];
 
@@ -95,6 +95,19 @@ module.exports = {
           type: "contentType",
           length: 122
         });
+      },
+      exportCSV: function(options, cb) {
+        assert.ok(options.queryParams.projectId, "Expected projectId but got nothing");
+        assert.ok(options.queryParams.submissionId, "Expected submissionId but got nothing");
+        assert.ok(options.queryParams.formId, "Expected formId but got nothing");
+        assert.ok(options.queryParams.fieldHeader, "Expected fieldHeader but got nothing");
+
+        return cb(undefined, new MockReadStream());
+      },
+      exportSinglePDF: function(options, cb) {
+        assert.ok(options.id, "Expected id but got nothing");
+        assert.ok(options.domain, "Expected domain but got nothing");
+        return cb(undefined, new MockReadStream());
       }
     },
     formsConfig: {
