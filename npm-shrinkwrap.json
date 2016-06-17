@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "5.12.13",
+  "version": "5.12.14",
   "dependencies": {
     "async": {
       "version": "0.2.9",
@@ -12,11 +12,6 @@
       "from": "colors@0.6.2",
       "resolved": "https://registry.npmjs.org/colors/-/colors-0.6.2.tgz"
     },
-    "combined-stream": {
-      "version": "0.0.7",
-      "from": "combined-stream@>=0.0.4 <0.1.0",
-      "resolved": "https://registry.npmjs.org/combined-stream/-/combined-stream-0.0.7.tgz"
-    },
     "connection-parse": {
       "version": "0.0.7",
       "from": "connection-parse@>=0.0.0 <0.1.0",
@@ -26,11 +21,6 @@
       "version": "1.0.3",
       "from": "cycle@1.0.3",
       "resolved": "https://registry.npmjs.org/cycle/-/cycle-1.0.3.tgz"
-    },
-    "delayed-stream": {
-      "version": "0.0.5",
-      "from": "delayed-stream@0.0.5",
-      "resolved": "https://registry.npmjs.org/delayed-stream/-/delayed-stream-0.0.5.tgz"
     },
     "eyes": {
       "version": "0.1.8",
@@ -1747,18 +1737,6 @@
       "version": "0.2.2",
       "from": "fh-statsc@0.2.2",
       "resolved": "https://registry.npmjs.org/fh-statsc/-/fh-statsc-0.2.2.tgz"
-    },
-    "form-data": {
-      "version": "0.1.4",
-      "from": "form-data@>=0.1.0 <0.2.0",
-      "resolved": "https://registry.npmjs.org/form-data/-/form-data-0.1.4.tgz",
-      "dependencies": {
-        "async": {
-          "version": "0.9.2",
-          "from": "async@>=0.9.0 <0.10.0",
-          "resolved": "https://registry.npmjs.org/async/-/async-0.9.2.tgz"
-        }
-      }
     },
     "hashring": {
       "version": "3.2.0",
