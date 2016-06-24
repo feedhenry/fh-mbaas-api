@@ -78,7 +78,6 @@ module.exports = {
     }, function(err, res){
       assert.ok(!err, err);
       assert.ok(res === "test-url", "expected the mongo url to match");
-      sinon.assert.calledOnce(databaseConnectionStringStub);
       finish();
     });
   },
