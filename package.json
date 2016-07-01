@@ -23,7 +23,7 @@
     "request": "2.12.0",
     "stack-trace": "0.0.9",
     "underscore": "1.7.0",
-    "unifiedpush-node-sender": "0.9.0",
+    "unifiedpush-node-sender": "0.12.0",
     "winston": "0.6.2"
   },
   "devDependencies": {
