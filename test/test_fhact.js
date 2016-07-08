@@ -10,13 +10,13 @@ var sinon = require('sinon');
 
 
 var request = function (opts,callback){
-  assert.ok(validUrl.isUri(opts.url),"expected a valid url");
+  assert.ok(validUrl.isUri(opts.url),"expected a valid url: " + util.inspect(opts.url));
   callback(null, {}, 'ok');
 };
 
 var cache = function (cfg){
   return function (opts,cb){
-    return cb();  
+    return cb();
   };
 };
 
@@ -44,19 +44,19 @@ var act = require('proxyquire')('../lib/act.js', {
 
 module.exports = {
   setUp : function(finish){
-    
+
     actMock = nock('https://localhost:443')
       .filteringRequestBody(function(path) {
         return '*';
       }).post('/box/srv/1.1/sys/info/ping', '*')
       .reply(200, {ok:true});
-    
-    
+
+
     $fh = require("../lib/api.js");
     finish();
   },
   'test act $fh.act url formatting must add leading slash': function (finish) {
-    
+
     act({
       guid: '123456789erghjtrudkirejr',
       path: 'user/feedhenry'
@@ -67,7 +67,7 @@ module.exports = {
     });
   },
   'test dev $fh.act': function(finish) {
-    
+
     act({
       guid: "123456789erghjtrudkirejr",
       endpoint: "doSomething",
@@ -140,7 +140,7 @@ module.exports = {
       sinon.assert.calledWith(cacheStub, {"act":"save","key":"123456789erghjtrudkirejr-dev","value":"https://test.feedhenry.com","expire":300});
       finish();
     });
-    
+
   },
   'test $fh.act sets qs params for method of "GET"/"get"': function (finish) {
     var requestStub = function (opts, callback) {
