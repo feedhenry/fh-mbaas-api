@@ -3,6 +3,9 @@
   "version": "5.13.9",
   "description": "FeedHenry MBAAS Cloud APIs",
   "main": "lib/api.js",
+  "engines": {
+    "node": "4.4"
+  },
   "dependencies": {
     "async": "0.2.9",
     "colors": "0.6.2",
