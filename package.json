@@ -20,6 +20,7 @@
     "mongodb-uri": "0.9.7",
     "optval": "1.0.1",
     "pkginfo": "0.2.3",
+    "process": "~0.11.9",
     "redis": "0.8.2",
     "request": "2.74.0",
     "stack-trace": "0.0.9",
