@@ -24,5 +24,21 @@ module.exports = {
         mod.ensureHandlerIsFunction('listHandler', sinon.spy());
       }).to.not.throw();
     }
+  },
+
+  '#ensureAsyncGenerateHashIsCorrect': {
+    'should generate identical hash to sync version': function (done) {
+      // Simple object to produce hash from
+      var testObject = {
+        testKey: 'testValue'
+      };
+
+      mod.asyncGenerateHash(testObject, function(err, asyncHash) {
+        var syncHash = mod.generateHash(testObject);
+
+        expect(asyncHash).to.equal(syncHash);
+        done();
+      });
+    }
   }
 };

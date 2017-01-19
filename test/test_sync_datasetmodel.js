@@ -33,6 +33,26 @@ var tests = {
       expect(customInterceptor.called).to.be.true;
       done();
     });
+  },
+
+  '#ensureAsyncGetClientHashIsCorrect': {
+    'should have identical async and sync `get client hash` functions': function(done) {
+      
+      var testQueryParams = {
+        testKey: "testQueryParams"
+      };
+
+      var testMetaData = {
+        testKey: "testMetaData"
+      };
+
+      mod.asyncGetClientHash(testQueryParams, testMetaData, function(err, asyncClientHash) {
+        var syncClientHash = mod.getClientHash(testQueryParams, testMetaData);
+        
+        expect(asyncClientHash).to.equal(syncClientHash);
+        done();
+      });
+    }
   }
 };
 
