@@ -18,7 +18,10 @@ module.exports = {
     process.env['FH_MBAAS_TYPE'] = 'openshift3';
     var localdbStub = sinon.stub().callsArgAsync(1);
     var databaseConnectionStringStub = sinon.stub().callsArgWithAsync(1, null, {
-      url: 'test-url'
+      url: 'test-url' });
+
+    var dbStub = sinon.stub().returns(function(option, cb) {
+      cb(null, null);
     });
 
     $fh = proxyquire('../lib/api.js', {
@@ -31,6 +34,9 @@ module.exports = {
         'fh-db': {
           'local_db': localdbStub
         }
+      }),
+      './sync-srv': proxyquire('../lib/sync-srv.js', {
+        './db': dbStub
       })
     });
     $fh.db({
