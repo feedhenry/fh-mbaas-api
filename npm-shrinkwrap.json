@@ -23,7 +23,7 @@
       "resolved": "https://registry.npmjs.org/eyes/-/eyes-0.1.8.tgz"
     },
     "fh-db": {
-      "version": "1.4.0",
+      "version": "1.4.1",
       "dependencies": {
         "adm-zip": {
           "version": "0.4.7",
