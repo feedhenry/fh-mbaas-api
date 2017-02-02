@@ -27,13 +27,10 @@ var mongoStub = {
 
 module.exports = {
   setUp : function(finish){
+    process.env.FH_USE_LOCAL_DB = true;
 
-    var dbStub = sinon.stub().returns(function(option, cb) {
-      cb(null, "dummy:connectionstring");
-    });
     sync = proxyquire("../lib/sync-srv.js", {
-      './sync-UpdatesModel_mongo.js': mongoStub,
-      './db': dbStub
+      './sync-UpdatesModel_mongo.js': mongoStub
     })(config);
 
     sync.init(dataset_id, {}, function() {
