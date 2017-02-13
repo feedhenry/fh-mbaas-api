@@ -26,6 +26,7 @@ describe('$fh.push', function () {
         widget: 'a',
         instance: 'b',
         millicore: 'fake-domain.feedhenry.com',
+        protocol: 'https',
         port: 4567
       }
     };
