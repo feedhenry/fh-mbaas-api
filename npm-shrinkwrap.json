@@ -1240,9 +1240,9 @@
       }
     },
     "mongodb-queue": {
-      "version": "2.1.0",
-      "from": "mongodb-queue@2.1.0",
-      "resolved": "https://registry.npmjs.org/mongodb-queue/-/mongodb-queue-2.1.0.tgz"
+      "version": "2.2.0",
+      "from": "mongodb-queue@2.2.0",
+      "resolved": "https://registry.npmjs.org/mongodb-queue/-/mongodb-queue-2.2.0.tgz"
     },
     "mongodb-uri": {
       "version": "0.9.7",
