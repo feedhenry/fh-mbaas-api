@@ -3,6 +3,8 @@ node_js:
   - "0.10"
   - "4.4.3"
 sudo: required
+services:
+ - docker
 before_install:
   - sudo apt-get update
   - sudo apt-get install --assume-yes apache2-utils
@@ -10,3 +12,5 @@ before_install:
   - npm install -g grunt-cli
   - npm config set strict-ssl false
 install: npm install
+script:
+  - npm run test
