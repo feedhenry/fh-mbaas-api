@@ -22,7 +22,7 @@ node('uart-and-cloud-deploy-slave') {
        stage 'Archive'
       
             sh 'grunt fh:dist'
-            archive includes: 'dist/fh-mbaas-api*.tar.gz, CHANGELOG.*, dist/sha.txt'
+            archive 'dist/fh-mbaas-api*.tar.gz, CHANGELOG.*, dist/sha.txt'
 
        stage 'Cleanup'
 
