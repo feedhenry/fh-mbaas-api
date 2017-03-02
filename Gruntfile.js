@@ -55,9 +55,10 @@ module.exports = function(grunt) {
       integration: {
         options: {
           ui: 'exports',
-          reporter: 'spec'
+          reporter: 'spec',
+          timeout: 30000
         },
-        src: ['integration/**/*.js']
+        src: ['integration/**/test*.js']
       }
     },
 

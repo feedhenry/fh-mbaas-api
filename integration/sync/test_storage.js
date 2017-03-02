@@ -3,14 +3,14 @@ var MongoClient = require('mongodb').MongoClient;
 var async = require('async');
 var assert = require('assert');
 var _ = require('underscore');
+var helper = require('./helper');
 
 var DATASETID = "storageIntegrationTest";
 
 var DATASETCLIENTS_COLLECTION = storageModule.DATASETCLIENTS_COLLECTION;
 var RECORDS_COLLECTION = storageModule.getDatasetRecordsCollectionName(DATASETID);
-var UPDATES_COLLECTION = storageModule.getDatasetUpdatesCollectionName(DATASETID);
 
-var MONGODB_URL = "mongodb://127.0.0.1:27017/test";
+var MONGODB_URL = "mongodb://127.0.0.1:27017/test_storage";
 
 var datasetClient1 = {
   id: 'storageIntegrationTestId1',
@@ -62,31 +62,17 @@ function recordMatch(expect, actual) {
 }
 
 module.exports = {
-  'before': function(done) {
-    MongoClient.connect(MONGODB_URL, function(err, db){
-      if (err) {
-        console.log('mongodb connection error', err);
-        return done(err);
-      }
-      mongodb = db;
-      storage = storageModule(mongodb);
-      async.each([DATASETCLIENTS_COLLECTION, RECORDS_COLLECTION, UPDATES_COLLECTION], function(collection, cb){
-        mongodb.dropCollection(collection, function(err){
-          if (err && err.message === 'ns not found'){
-            return cb();
-          } else {
-            return cb(err);
-          }
-        });
-      }, function(err){
-        if (err) {
-          console.log('failed to drop collection', err);
-        }
-        done(err);
-      });
-    });
-  },
   'test storage functions': {
+    'before': function(done) {
+      helper.resetDb(MONGODB_URL, DATASETID, function(err, db){
+        if (err) {
+          return done(err);
+        }
+        mongodb = db;
+        storage = storageModule(mongodb);
+        done();
+      });
+    },
     'test dataset client create and list': function(done){
       async.series([
         async.apply(storage.upsertDatasetClient, datasetClient1.id, datasetClient1),
@@ -166,6 +152,21 @@ module.exports = {
             callback();
           });
         },
+        async.apply(storage.updateDatasetClientWithRecords, datasetClient1.id, {props: {syncCompleted: true}}, records),
+        function checkRecordsAreCreatedForDatasetClient(callback){
+          storage.readDatasetClientWithRecords(datasetClient1.id, function(err, datasetClient){
+            assert.ok(!err);
+            assert.equal(datasetClient.props.syncCompleted, true);
+            assert.equal(datasetClient.records.length, 2);
+            assert.equal(datasetClient.recordUids.length, 2);
+            var record1 = _.findWhere(datasetClient.records, {uid: '1'});
+            var record2 = _.findWhere(datasetClient.records, {uid: '2'});
+            recordMatch(record1, records[0]);
+            recordMatch(record2, records[1]);
+            callback();
+          });
+        },
+        //run it again, there should be no change to the data
         async.apply(storage.updateDatasetClientWithRecords, datasetClient1.id, {props: {syncCompleted: true}}, records),
         function checkRecordsAreCreatedForDatasetClient(callback){
           storage.readDatasetClientWithRecords(datasetClient1.id, function(err, datasetClient){
