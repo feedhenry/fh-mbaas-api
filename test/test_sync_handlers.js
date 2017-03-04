@@ -44,7 +44,8 @@ module.exports = {
       setGlobalCollisionRemover: sinon.spy(),
       setGlobalRequestInterceptor: sinon.spy(),
       setGlobalResponseInterceptor: sinon.spy(),
-      setGlobalHashHandler: sinon.spy()
+      setGlobalHashHandler: sinon.spy(),
+      setEventEmitter: sinon.spy()
     };
 
     // Creates a new sync instance
