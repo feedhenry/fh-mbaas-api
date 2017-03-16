@@ -7,6 +7,8 @@ module.exports = (function(){
   process.env.FH_APP_API_KEY = "someappapikey";
 
   process.env.FH_MILLICORE = 'localhost';
+  process.env.FH_MILLICORE_PROTOCOL = 'https';
+  process.env.FH_MILLICORE_PORT = 443;
   process.env.FH_DOMAIN = 'NO-DOMAIN-DEFINED';
   process.env.FH_INSTANCE = 'c0TPJzF6ztq0WjezxwPEC5W8';
   process.env.FH_APPNAME = '123';
