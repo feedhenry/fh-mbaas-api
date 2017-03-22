@@ -1,5 +1,6 @@
 var sinon = require('sinon');
 var expect = require('chai').expect;
+var EventEmitter = require('events').EventEmitter;
 
 var mod;
 
@@ -23,6 +24,8 @@ var tests = {
     require('clear-require').all();
 
     mod = require('../lib/sync-DataSetModel');
+
+    mod.setEventEmitter(new EventEmitter());
   },
 
   'should use a custom "globalRequestInterceptor"': function (done) {
