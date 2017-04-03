@@ -9,7 +9,8 @@ var syncStorage = {
 };
 
 var dataHandler = {
-  doList: sinon.stub()
+  doList: sinon.stub(),
+  countCollisions: sinon.stub()
 };
 
 var metricsClient = {
@@ -44,15 +45,17 @@ module.exports = {
 
     syncStorage.updateDatasetClient.yieldsAsync();
     dataHandler.doList.yieldsAsync(null, records);
+    dataHandler.countCollisions.yieldsAsync(null, 1);
     syncStorage.updateDatasetClientWithRecords.yieldsAsync();
 
     processor(job, function(err){
       assert.ok(!err);
       assert.ok(dataHandler.doList.calledOnce);
       assert.ok(dataHandler.doList.calledWith(job.payload.datasetId, {}, {}));
+      assert.ok(dataHandler.countCollisions.calledWith(job.payload.datasetId, {}));
       assert.ok(syncStorage.updateDatasetClient.calledTwice);
       assert.ok(syncStorage.updateDatasetClientWithRecords.calledOnce);
-      assert.ok(syncStorage.updateDatasetClientWithRecords.calledWith(job.payload.id, {globalHash: "abc"}));
+      assert.ok(syncStorage.updateDatasetClientWithRecords.calledWith(job.payload.id, {globalHash: "abc1"}));
       assert.ok(metricsClient.gauge.calledOnce);
       done();
     });
