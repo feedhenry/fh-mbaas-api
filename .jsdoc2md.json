@@ -1,0 +1,7 @@
+{
+  "name-format": true,
+  "param-list-format": "list",
+  "files": [
+    "lib/sync/index.js"
+  ]
+}
