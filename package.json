@@ -41,6 +41,7 @@
     "grunt-fh-build": "^0.5.0",
     "grunt-mocha-test": "^0.13.2",
     "istanbul": "0.2.14",
+    "jsdoc-to-markdown": "^3.0.0",
     "jshint": "^2.5.2",
     "mocha": "2.4.5",
     "mocha-sinon": "^1.1.5",
@@ -54,7 +55,8 @@
     "testwindows": "test_win.cmd",
     "pretest": "./scripts/pretest.sh",
     "test": "grunt fh:unit mochaTest:integration",
-    "posttest": "./scripts/posttest.sh"
+    "posttest": "./scripts/posttest.sh",
+    "jsdoc": "jsdoc2md | pandoc -t asciidoc"
   },
   "license": "Apache-2.0",
   "repository": {
