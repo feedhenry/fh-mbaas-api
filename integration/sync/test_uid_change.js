@@ -82,7 +82,7 @@ module.exports = {
           });
         },
         function wait(callback) {
-          setTimeout(callback, 80);
+          setTimeout(callback, 1000);
         },
         function checkDataUpdated(callback) {
           collection.findOne({'user': '1'}, function(err, found){
