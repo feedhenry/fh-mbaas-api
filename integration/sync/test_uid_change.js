@@ -82,7 +82,7 @@ module.exports = {
           });
         },
         function wait(callback) {
-          setTimeout(callback, 100);
+          setTimeout(callback, 200);
         },
         function checkDataUpdated(callback) {
           collection.findOne({'user': '1'}, function(err, found){
@@ -113,7 +113,7 @@ module.exports = {
           });
         },
         function waitAgain(callback) {
-          setTimeout(callback, 20);
+          setTimeout(callback, 50);
         },
         function checkDataUpdatedAgain(callback) {
           collection.findOne({'user': '1'}, function(err, found){
@@ -139,7 +139,7 @@ module.exports = {
           });
         },
         function waitForDelete(callback) {
-          setTimeout(callback, 20);
+          setTimeout(callback, 50);
         },
         function checkDataDeleted(callback) {
           collection.findOne({'user': '1'}, function(err, found){
