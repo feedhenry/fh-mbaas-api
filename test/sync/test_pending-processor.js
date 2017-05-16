@@ -4,7 +4,9 @@ var pendingProcessor = require('../../lib/sync/pending-processor');
 
 var syncStorage = {
   saveUpdate: sinon.stub(),
-  updateDatasetClient: sinon.stub()
+  updateDatasetClient: sinon.stub(),
+  saveRecordUidMapping: sinon.stub(),
+  lookupRecordUidByClientUid: sinon.stub()
 };
 
 var dataHandler = {
@@ -30,6 +32,8 @@ var metricsClient = {
 
 function resetStubs() {
   syncStorage.saveUpdate.reset();
+  syncStorage.saveRecordUidMapping.reset();
+  syncStorage.lookupRecordUidByClientUid.reset();
   dataHandler.handleCollision.reset();
   dataHandler.doCreate.reset();
   dataHandler.doRead.reset();
@@ -43,6 +47,7 @@ var pendingProcessorImpl = pendingProcessor(syncStorage, dataHandler, hashProvid
 
 module.exports = {
   'beforeEach': function(){
+    syncStorage.lookupRecordUidByClientUid.yieldsAsync();
     resetStubs();
   },
 
@@ -60,11 +65,13 @@ module.exports = {
       }
     };
     dataHandler.doCreate.yieldsAsync(null, {uid: 'serveruid'});
+    syncStorage.saveRecordUidMapping.yieldsAsync();
     syncStorage.saveUpdate.yieldsAsync();
     pendingProcessorImpl(pending, function(err){
       assert.ok(!err);
       assert.ok(dataHandler.doCreate.calledOnce);
       assert.ok(dataHandler.doCreate.calledWith(DATASETID, pending.payload.post, pending.payload.meta_data));
+      assert.ok(syncStorage.saveRecordUidMapping.calledOnce);
       assert.ok(syncStorage.saveUpdate.calledOnce);
       var expectedFields = {type: pendingProcessor.SYNC_UPDATE_TYPES.APPLIED, uid: 'serveruid', hash: pending.payload.hash};
       assert.ok(syncStorage.saveUpdate.calledWith(DATASETID, sinon.match(expectedFields)));
@@ -88,10 +95,12 @@ module.exports = {
     };
     dataHandler.doCreate.yieldsAsync(new Error('creation failed'));
     syncStorage.saveUpdate.yieldsAsync();
+    syncStorage.saveRecordUidMapping.yieldsAsync();
     pendingProcessorImpl(pending, function(err){
       assert.ok(!err);
       assert.ok(dataHandler.doCreate.calledOnce);
       assert.ok(syncStorage.saveUpdate.calledOnce);
+      assert.ok(syncStorage.saveRecordUidMapping.notCalled);
       var expectedFields = {type: pendingProcessor.SYNC_UPDATE_TYPES.FAILED, uid: 'clientuid', hash: pending.payload.hash};
       assert.ok(syncStorage.saveUpdate.calledWith(DATASETID, sinon.match(expectedFields)));
       assert.ok(metricsClient.gauge.calledOnce);

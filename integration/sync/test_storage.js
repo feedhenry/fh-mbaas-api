@@ -265,6 +265,25 @@ module.exports = {
         assert.ok(!err);
         done();
       });
+    },
+    'test operations on record mapping': function(done) {
+      var clientUid = "testClientUid";
+      var serverUid = "testServerUid";
+      async.series([
+        function saveMapping(callback) {
+          storage.saveRecordUidMapping(DATASETID, clientUid, serverUid, function(err){
+            assert.ok(!err);
+            return callback();
+          });
+        },
+        function lookupUid(callback) {
+          storage.lookupRecordUidByClientUid(DATASETID, clientUid, function(err, foundUid){
+            assert.ok(!err);
+            assert.equal(foundUid, serverUid);
+            callback();
+          });
+        }
+      ], done);
     }
   }
 };
