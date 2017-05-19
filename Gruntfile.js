@@ -29,23 +29,7 @@ module.exports = function(grunt) {
     './test/test_redis.js',
     './test/test_fhauth.js',
     './test/test_init.js',
-    './test/test_fhpush.js',
-    './test/sync/test_mongodbQueue.js',
-    './test/sync/test_index.js',
-    './test/sync/test_worker.js',
-    './test/sync/test_sync-processor.js',
-    './test/sync/test_sync-scheduler.js',
-    './test/sync/test_ack-processor.js',
-    './test/sync/test_pending-processor.js',
-    './test/sync/test_hashProvider.js',
-    './test/sync/test_api-sync.js',
-    './test/sync/test_dataHandlers.js',
-    './test/sync/test_api-syncRecords.js',
-    './test/sync/test_default-dataHandlers.js',
-    './test/sync/test_interceptors.js',
-    './test/sync/test_lock.js',
-    './test/sync/test_datasetClientsCleaner.js',
-    './test/sync/test_sync-metrics.js'
+    './test/test_fhpush.js'
   ];
   var unit_args = _.map(tests, makeTestArgs);
   var test_runner = '_mocha';
