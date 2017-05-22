@@ -1590,8 +1590,8 @@
       }
     },
     "fh-sync": {
-      "version": "1.0.0-RC1",
-      "from": "fh-sync@latest"
+      "version": "1.0.0",
+      "from": "fh-sync@>=1.0.0 <1.1.0"
     },
     "lodash-contrib": {
       "version": "393.0.1",
@@ -2207,15 +2207,15 @@
           "from": "https://registry.npmjs.org/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.1.tgz",
           "resolved": "https://registry.npmjs.org/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.1.tgz"
         },
-        "caseless": {
-          "version": "0.12.0",
-          "from": "https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz",
-          "resolved": "https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz"
-        },
         "boom": {
           "version": "2.10.1",
           "from": "https://registry.npmjs.org/boom/-/boom-2.10.1.tgz",
           "resolved": "https://registry.npmjs.org/boom/-/boom-2.10.1.tgz"
+        },
+        "caseless": {
+          "version": "0.12.0",
+          "from": "https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz",
+          "resolved": "https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz"
         },
         "co": {
           "version": "4.6.0",
@@ -2237,40 +2237,40 @@
           "from": "https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz",
           "resolved": "https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz"
         },
-        "ecc-jsbn": {
-          "version": "0.1.1",
-          "from": "https://registry.npmjs.org/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz",
-          "resolved": "https://registry.npmjs.org/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz"
-        },
         "extend": {
           "version": "3.0.0",
           "from": "https://registry.npmjs.org/extend/-/extend-3.0.0.tgz",
           "resolved": "https://registry.npmjs.org/extend/-/extend-3.0.0.tgz"
+        },
+        "ecc-jsbn": {
+          "version": "0.1.1",
+          "from": "https://registry.npmjs.org/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz",
+          "resolved": "https://registry.npmjs.org/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz"
         },
         "extsprintf": {
           "version": "1.0.2",
           "from": "https://registry.npmjs.org/extsprintf/-/extsprintf-1.0.2.tgz",
           "resolved": "https://registry.npmjs.org/extsprintf/-/extsprintf-1.0.2.tgz"
         },
-        "forever-agent": {
-          "version": "0.6.1",
-          "from": "https://registry.npmjs.org/forever-agent/-/forever-agent-0.6.1.tgz",
-          "resolved": "https://registry.npmjs.org/forever-agent/-/forever-agent-0.6.1.tgz"
-        },
         "form-data": {
           "version": "2.1.2",
           "from": "https://registry.npmjs.org/form-data/-/form-data-2.1.2.tgz",
           "resolved": "https://registry.npmjs.org/form-data/-/form-data-2.1.2.tgz"
         },
-        "har-validator": {
-          "version": "4.2.1",
-          "from": "https://registry.npmjs.org/har-validator/-/har-validator-4.2.1.tgz",
-          "resolved": "https://registry.npmjs.org/har-validator/-/har-validator-4.2.1.tgz"
+        "forever-agent": {
+          "version": "0.6.1",
+          "from": "https://registry.npmjs.org/forever-agent/-/forever-agent-0.6.1.tgz",
+          "resolved": "https://registry.npmjs.org/forever-agent/-/forever-agent-0.6.1.tgz"
         },
         "har-schema": {
           "version": "1.0.5",
           "from": "https://registry.npmjs.org/har-schema/-/har-schema-1.0.5.tgz",
           "resolved": "https://registry.npmjs.org/har-schema/-/har-schema-1.0.5.tgz"
+        },
+        "har-validator": {
+          "version": "4.2.1",
+          "from": "https://registry.npmjs.org/har-validator/-/har-validator-4.2.1.tgz",
+          "resolved": "https://registry.npmjs.org/har-validator/-/har-validator-4.2.1.tgz"
         },
         "hawk": {
           "version": "3.1.3",
