@@ -17,16 +17,3 @@ env:
   - MONGODB_VERSION=3.2
 script:
   - npm test
-matrix:
-  include:
-  # Include sync acceptance tests for node 4
-  - node_js: "4.4.3"
-    services:
-    - docker
-    script:
-      - npm link
-      - git clone https://github.com/feedhenry/sync-acceptance-testing.git
-      - cd sync-acceptance-testing
-      - npm install
-      - npm link fh-mbaas-api
-      - npm test

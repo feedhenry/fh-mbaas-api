@@ -38,7 +38,7 @@ module.exports = {
           'local_db': localdbStub
         }
       }),
-      './sync': syncMock
+      'fh-sync': syncMock
     });
     $fh.db({
       "act" : "create",
@@ -91,7 +91,7 @@ module.exports = {
           'local_db': localdbStub
         }
       }),
-      './sync': syncMock
+      'fh-sync': syncMock
     });
     $fh.db({
       "act" : "connectionString"
