@@ -11,7 +11,7 @@
     "debug": "2.6.3",
     "eyes": "0.1.8",
     "fh-component-metrics": "2.7.0",
-    "fh-db": "2.0.0",
+    "fh-db": "2.1.0",
     "fh-mbaas-client": "0.15.0",
     "fh-mbaas-express": "5.7.0",
     "fh-security": "0.2.0",
