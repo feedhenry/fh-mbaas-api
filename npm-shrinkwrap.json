@@ -1590,7 +1590,7 @@
       }
     },
     "fh-sync": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "from": "fh-sync@>=1.0.0 <1.1.0"
     },
     "lodash-contrib": {
