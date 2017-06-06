@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "7.0.9",
+  "version": "7.0.11",
   "dependencies": {
     "async": {
       "version": "2.1.5",
@@ -1591,7 +1591,8 @@
     },
     "fh-sync": {
       "version": "1.0.1",
-      "from": "fh-sync@>=1.0.0 <1.1.0"
+      "from": "fh-sync@>=1.0.1 <1.1.0",
+      "resolved": "https://registry.npmjs.org/fh-sync/-/fh-sync-1.0.1.tgz"
     },
     "lodash-contrib": {
       "version": "393.0.1",
