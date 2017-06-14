@@ -1590,9 +1590,9 @@
       }
     },
     "fh-sync": {
-      "version": "1.0.1",
-      "from": "fh-sync@>=1.0.1 <1.1.0",
-      "resolved": "https://registry.npmjs.org/fh-sync/-/fh-sync-1.0.1.tgz"
+      "version": "1.0.3",
+      "from": "fh-sync@>=1.0.3 <1.1.0",
+      "resolved": "https://registry.npmjs.org/fh-sync/-/fh-sync-1.0.3.tgz"
     },
     "lodash-contrib": {
       "version": "393.0.1",

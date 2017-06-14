@@ -20,13 +20,10 @@ module.exports = {
       url: 'test-url'
     });
     var syncMock = {
-      api: {
-        connect: sinon.stub().yieldsAsync(),
-        stopAll: sinon.stub().yieldsAsync(),
-        setEventEmitter: sinon.stub()
-      }
+      connect: sinon.stub().yieldsAsync(),
+      stopAll: sinon.stub().yieldsAsync(),
+      setEventEmitter: sinon.stub()
     };
-
     $fh = proxyquire('../lib/api.js', {
       './db': proxyquire('../lib/db.js', {
         'fh-mbaas-client': {
@@ -40,18 +37,18 @@ module.exports = {
       }),
       'fh-sync': syncMock
     });
-    $fh.db({
-      "act" : "create",
-      "type" : "myFirstEntity",
-      "fields" : {
-        "firstName" : "Joe",
-        "lastName" : "Bloggs",
-        "address1" : "22 Blogger Lane",
-        "address2" : "Bloggsville",
-        "country" : "Bloggland",
-        "phone" : "555-123456"
+     $fh.db({
+      "act": "create",
+      "type": "myFirstEntity",
+      "fields": {
+        "firstName": "Joe",
+        "lastName": "Bloggs",
+        "address1": "22 Blogger Lane",
+        "address2": "Bloggsville",
+        "country": "Bloggland",
+        "phone": "555-123456"
       }
-    }, function(err, res){
+    }, function (err, res) {
       assert.ok(!err, err);
       sinon.assert.calledOnce(localdbStub);
 
@@ -73,11 +70,9 @@ module.exports = {
       url: 'test-url'
     });
     var syncMock = {
-      api: {
-        connect: sinon.stub().yieldsAsync(),
-        stopAll: sinon.stub().yieldsAsync(),
-        setEventEmitter: sinon.stub()
-      }
+      connect: sinon.stub().yieldsAsync(),
+      stopAll: sinon.stub().yieldsAsync(),
+      setEventEmitter: sinon.stub()
     };
 
     $fh = proxyquire('../lib/api.js', {
