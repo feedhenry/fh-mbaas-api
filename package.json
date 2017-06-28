@@ -31,7 +31,7 @@
     "request": "2.74.0",
     "stack-trace": "0.0.9",
     "underscore": "1.7.0",
-    "unifiedpush-node-sender": "0.12.1",
+    "unifiedpush-node-sender": "0.16.0",
     "xtend": "4.0.1"
   },
   "devDependencies": {
