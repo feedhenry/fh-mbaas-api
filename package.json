@@ -9,7 +9,7 @@
     "fh-db": "2.1.0",
     "fh-mbaas-client": "0.15.0",
     "fh-mbaas-express": "5.7.0",
-    "fh-security": "0.2.0",
+    "fh-security": "0.2.1",
     "fh-statsc": "0.3.0",
     "fh-sync": "^1.0.4",
     "lodash-contrib": "^393.0.1",
