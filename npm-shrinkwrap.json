@@ -1619,9 +1619,9 @@
       }
     },
     "fh-sync": {
-      "version": "1.0.5",
-      "from": "fh-sync@1.0.5",
-      "resolved": "https://registry.npmjs.org/fh-sync/-/fh-sync-1.0.5.tgz",
+      "version": "1.0.7",
+      "from": "fh-sync@1.0.7",
+      "resolved": "https://registry.npmjs.org/fh-sync/-/fh-sync-1.0.7.tgz",
       "dependencies": {
         "backoff": {
           "version": "2.5.0",
