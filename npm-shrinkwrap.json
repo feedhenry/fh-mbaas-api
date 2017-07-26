@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "7.0.14-fhdowngrade.3",
+  "version": "7.0.14-fhdowngrade.4",
   "dependencies": {
     "async": {
       "version": "2.1.5",
@@ -1619,7 +1619,7 @@
       }
     },
     "fh-sync": {
-      "version": "1.0.8",
+      "version": "1.0.9",
       "from": "fh-sync@>=1.0.4 <2.0.0",
       "dependencies": {
         "backoff": {
@@ -1672,9 +1672,9 @@
                   "resolved": "https://registry.npmjs.org/require_optional/-/require_optional-1.0.1.tgz",
                   "dependencies": {
                     "semver": {
-                      "version": "5.4.0",
+                      "version": "5.4.1",
                       "from": "semver@>=5.1.0 <6.0.0",
-                      "resolved": "https://registry.npmjs.org/semver/-/semver-5.4.0.tgz"
+                      "resolved": "https://registry.npmjs.org/semver/-/semver-5.4.1.tgz"
                     },
                     "resolve-from": {
                       "version": "2.0.0",
@@ -2138,7 +2138,7 @@
         },
         "is-typedarray": {
           "version": "1.0.0",
-          "from": "is-typedarray@>=1.0.0 <1.1.0",
+          "from": "https://registry.npmjs.org/is-typedarray/-/is-typedarray-1.0.0.tgz",
           "resolved": "https://registry.npmjs.org/is-typedarray/-/is-typedarray-1.0.0.tgz"
         },
         "isstream": {
@@ -2152,14 +2152,14 @@
           "resolved": "https://registry.npmjs.org/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz"
         },
         "mime-types": {
-          "version": "2.1.15",
+          "version": "2.1.16",
           "from": "mime-types@>=2.1.7 <2.2.0",
-          "resolved": "https://registry.npmjs.org/mime-types/-/mime-types-2.1.15.tgz",
+          "resolved": "https://registry.npmjs.org/mime-types/-/mime-types-2.1.16.tgz",
           "dependencies": {
             "mime-db": {
-              "version": "1.27.0",
-              "from": "mime-db@>=1.27.0 <1.28.0",
-              "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.27.0.tgz"
+              "version": "1.29.0",
+              "from": "mime-db@>=1.29.0 <1.30.0",
+              "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.29.0.tgz"
             }
           }
         },
@@ -2382,11 +2382,6 @@
           "from": "https://registry.npmjs.org/mime-db/-/mime-db-1.26.0.tgz",
           "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.26.0.tgz"
         },
-        "oauth-sign": {
-          "version": "0.8.2",
-          "from": "https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.8.2.tgz",
-          "resolved": "https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.8.2.tgz"
-        },
         "mime-types": {
           "version": "2.1.14",
           "from": "https://registry.npmjs.org/mime-types/-/mime-types-2.1.14.tgz",
@@ -2396,6 +2391,11 @@
           "version": "0.2.0",
           "from": "https://registry.npmjs.org/performance-now/-/performance-now-0.2.0.tgz",
           "resolved": "https://registry.npmjs.org/performance-now/-/performance-now-0.2.0.tgz"
+        },
+        "oauth-sign": {
+          "version": "0.8.2",
+          "from": "https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.8.2.tgz",
+          "resolved": "https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.8.2.tgz"
         },
         "punycode": {
           "version": "1.4.1",
