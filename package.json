@@ -1,12 +1,12 @@
 {
   "name": "fh-mbaas-api",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "description": "FeedHenry MBAAS Cloud APIs",
   "main": "lib/api.js",
   "dependencies": {
     "async": "2.1.5",
     "debug": "2.6.3",
-    "fh-db": "3.0.0",
+    "fh-db": "3.1.0",
     "fh-mbaas-client": "0.15.0",
     "fh-mbaas-express": "5.7.0",
     "fh-security": "0.2.1",
@@ -45,6 +45,9 @@
     "pretest": "./scripts/pretest.sh",
     "test": "grunt fh:unit mochaTest:integration",
     "posttest": "./scripts/posttest.sh"
+  },
+  "engines": {
+    "node": "4.4"
   },
   "license": "Apache-2.0",
   "repository": {
