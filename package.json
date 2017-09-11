@@ -47,7 +47,7 @@
     "posttest": "./scripts/posttest.sh"
   },
   "engines": {
-    "node": "4.3"
+    "node": "4.4"
   },
   "license": "Apache-2.0",
   "repository": {
