@@ -5,7 +5,7 @@
   "main": "lib/api.js",
   "dependencies": {
     "async": "2.1.5",
-    "debug": "2.6.3",
+    "debug": "2.6.9",
     "fh-db": "3.1.0",
     "fh-mbaas-client": "0.15.0",
     "fh-mbaas-express": "5.7.1",
@@ -17,10 +17,11 @@
     "mongodb-uri": "0.9.7",
     "optval": "1.0.1",
     "redis": "^2.6.5",
-    "request": "2.74.0",
+    "request": "2.81.0",
     "underscore": "1.7.0",
     "unifiedpush-node-sender": "0.12.1",
-    "xtend": "4.0.1"
+    "xtend": "4.0.1",
+    "snyk": "^1.42.4"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -44,7 +45,9 @@
     "testwindows": "test_win.cmd",
     "pretest": "./scripts/pretest.sh",
     "test": "grunt fh:unit mochaTest:integration",
-    "posttest": "./scripts/posttest.sh"
+    "posttest": "./scripts/posttest.sh",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "engines": {
     "node": "4.4"
@@ -53,5 +56,6 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:feedhenry/fh-mbaas-api.git"
-  }
+  },
+  "snyk": true
 }
