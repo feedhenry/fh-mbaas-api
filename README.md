@@ -1,6 +1,6 @@
 # fh-mbaas-api
 
-fh-mbaas-api provides FeedHenry MBaaS APIs for Node.js cloud apps.
+fh-mbaas-api provides FeedHenry MBaaS APIs for Node.js cloud apps
 
 [![npm package](https://nodei.co/npm/fh-mbaas-api.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/fh-mbaas-api/)
 
