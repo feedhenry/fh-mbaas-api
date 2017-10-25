@@ -27,9 +27,9 @@
       }
     },
     "fh-db": {
-      "version": "3.1.0",
-      "from": "fh-db@3.1.0",
-      "resolved": "https://registry.npmjs.org/fh-db/-/fh-db-3.1.0.tgz",
+      "version": "3.3.0",
+      "from": "fh-db@3.3.0",
+      "resolved": "https://registry.npmjs.org/fh-db/-/fh-db-3.3.0.tgz",
       "dependencies": {
         "adm-zip": {
           "version": "0.4.7",
