@@ -30,7 +30,7 @@ npm install --save fh-mbaas-api
 This will install the latest version of fh-mbaas-api and save the installed version in your package.json
 
 ## Documentation
-Documentation for the $fh cloud API is maintained at the [FeedHenry API Docs.](http://docs.feedhenry.com/v3/api/cloud_api.html)
+Documentation for the $fh cloud API is maintained at the [Red Hat Customer Portal.](https://access.redhat.com/documentation/en-us/red_hat_mobile_application_platform_hosted/3/html/cloud_api/)
 
 ## Deprecated
 Legacy Rhino functions have been deprecated. These are listed below - with their replacements **in bold**. All replacements listed but '$fh.web' have drop-in replacements available.
@@ -58,8 +58,8 @@ On Windows, use ```npm run testwindows```
 
 Users of the fh-mbaas-api can then enable logging if they would like to see more output. This is useful for debugging purposes.
 It's possible to pass environment variables to enable the logging according the rules specified for [debug](https://www.npmjs.com/package/debug) module:
-  
+
 ```
-DEBUG="fh-mbaas-api:*" ./yourscript 
+DEBUG="fh-mbaas-api:*" ./yourscript
 ```
 If `DEBUG_COLORS=0` is passed also it will print log messages with proper timestamps. This is automatically enabled outside properly supported terminal.
