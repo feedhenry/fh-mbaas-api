@@ -8,7 +8,7 @@
     "debug": "2.6.3",
     "fh-db": "3.3.0",
     "fh-mbaas-client": "0.15.0",
-    "fh-mbaas-express": "5.7.1",
+    "fh-mbaas-express": "~5.9.0",
     "fh-security": "0.2.1",
     "fh-statsc": "0.3.0",
     "fh-sync": "^1.0.5",
