@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "6.2.0",
+  "version": "6.2.1",
   "dependencies": {
     "asn1": {
       "version": "0.2.3",
@@ -551,8 +551,8 @@
       }
     },
     "fh-mbaas-express": {
-      "version": "5.9.0",
-      "from": "fh-mbaas-express@>=5.9.0 <5.10.0",
+      "version": "5.9.1",
+      "from": "fh-mbaas-express@>=5.9.1 <5.10.0",
       "dependencies": {
         "body-parser": {
           "version": "1.18.2",
