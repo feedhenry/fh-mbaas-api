@@ -63,3 +63,32 @@ It's possible to pass environment variables to enable the logging according the 
 DEBUG="fh-mbaas-api:*" ./yourscript
 ```
 If `DEBUG_COLORS=0` is passed also it will print log messages with proper timestamps. This is automatically enabled outside properly supported terminal.
+
+## Contributing to fh-mbaas-api
+
+### Pull Requests
+
+All PRs that involve a version bump to fh-mbaas-api to should also update the CHANGELOG.md file in the root of the repo. All notable changes to the codebase since the last version bump should be included.
+
+### Commit Messages
+
+All commit messages should adhere to the following standard:
+
+```
+<type>[optional scope]: <description>
+ 
+[optional body]
+ 
+[optional footer]
+```
+
+Examples of commits following this convention:
+
+- bug-fixes: `git commit -a -m "fix(parsing): fixed a bug in our parser"`
+- features: `git commit -a -m "feat(parser): we now have a parser \o/"`
+- breaking changes: 
+```
+git commit -a -m "feat(new-parser): introduces a new parsing library
+BREAKING CHANGE: new library does not support foo-construct"
+```
+- other changes: `git commit -a -m "docs: fixed up the docs a bit"`
