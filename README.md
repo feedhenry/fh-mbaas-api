@@ -75,20 +75,22 @@ All PRs that involve a version bump to fh-mbaas-api to should also update the CH
 All commit messages should adhere to the following standard:
 
 ```
-<type>[optional scope]: <description>
+<type>[optional scope]: <description> [issue reference**]
  
 [optional body]
  
 [optional footer]
 ```
 
+** if commit relates to a specific JIRA/ issue ticket include the reference here.
+
 Examples of commits following this convention:
 
-- bug-fixes: `git commit -a -m "fix(parsing): fixed a bug in our parser"`
-- features: `git commit -a -m "feat(parser): we now have a parser \o/"`
+- bug-fixes: `git commit -a -m "fix(parsing): fixed a bug in our parser (RHMAP-1234)"`
+- features: `git commit -a -m "feat(parser): we now have a parser \o/ (FH-3456)"`
 - breaking changes: 
 ```
-git commit -a -m "feat(new-parser): introduces a new parsing library
+git commit -a -m "feat(new-parser): introduces a new parsing library (FH-6789)
 BREAKING CHANGE: new library does not support foo-construct"
 ```
 - other changes: `git commit -a -m "docs: fixed up the docs a bit"`
