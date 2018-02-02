@@ -5,7 +5,7 @@
   "main": "lib/api.js",
   "dependencies": {
     "async": "2.1.5",
-    "debug": "2.6.3",
+    "debug": "2.6.9",
     "fh-db": "3.3.0",
     "fh-mbaas-client": "0.15.0",
     "fh-mbaas-express": "~5.9.2",
@@ -17,7 +17,7 @@
     "mongodb-uri": "0.9.7",
     "optval": "1.0.1",
     "redis": "^2.6.5",
-    "request": "2.74.0",
+    "request": "2.81.0",
     "underscore": "1.7.0",
     "unifiedpush-node-sender": "0.12.1",
     "xtend": "4.0.1"
