@@ -1,8 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "8.1.4",
-  "lockfileVersion": 1,
-  "requires": true,
+  "version": "8.2.0",
   "dependencies": {
     "ajv": {
       "version": "4.11.8",
