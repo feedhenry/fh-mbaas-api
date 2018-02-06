@@ -7,7 +7,7 @@
     "async": "2.1.5",
     "debug": "2.6.9",
     "fh-db": "3.3.0",
-    "fh-mbaas-client": "0.15.0",
+    "fh-mbaas-client": "1.1.1",
     "fh-mbaas-express": "^5.10.0",
     "fh-security": "0.2.1",
     "fh-statsc": "0.3.0",
