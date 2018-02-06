@@ -5,6 +5,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [8.2.0] - Tue Feb 6
+### Added
+- fix: update fh-mbaas-client to 1.1.1, to include bug fixes (FH-4374, RHMAP-18299)
+- fix: remove sonar-project.properties, as its no longer used (FH-4374)
+- fix: update npm-shrinkwrap file (FH-4374)
+- fix: bump minor version based on dependency updates (FH-4374)
+- fix: update request version to 2.83.0 (FH-4374)
+- fix: update fh-mbaas-express (FH-4374)
+- fix: package.json to reduce vulnerabilities (FH-4374)
+
+
 ## [8.1.4] - Fri Jan 19
 ### Added
 - adds note to README to include JIRA/ issue reference in to commit messages
