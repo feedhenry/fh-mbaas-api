@@ -5,7 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
-## [8.2.0] - Tue Feb 6
+## [8.2.1] - Tue Feb 27, 2018
+### Changed
+- updated fh-sync dependency to remove a direct link to github in its dependencies prior to v1.0.14 (RHMAP-19582)
+```git
+-    "fh-sync": "^1.0.5",
++    "fh-sync": "^1.0.14",
+```
+
+## [8.2.0] - Tue Feb 6, 2018
 ### Added
 - fix: update fh-mbaas-client to 1.1.1, to include bug fixes (FH-4374, RHMAP-18299)
 - fix: remove sonar-project.properties, as its no longer used (FH-4374)
@@ -16,12 +24,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix: package.json to reduce vulnerabilities (FH-4374)
 
 
-## [8.1.4] - Fri Jan 19
+## [8.1.4] - Fri Jan 19, 2018
 ### Added
 - adds note to README to include JIRA/ issue reference in to commit messages
 
 
-## [8.1.3] - Wed Jan 17
+## [8.1.3] - Wed Jan 17, 2018
 ### Added
 - adds changelog to repo
 
