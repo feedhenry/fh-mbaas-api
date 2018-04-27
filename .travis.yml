@@ -1,14 +1,13 @@
 language: node_js
 sudo: required
 node_js:
-  - "4.4.3"
-  - "6.9.1"
+  - 4
+  - 6
 services:
   - docker
 before_install:
   - sudo apt-get update
   - sudo apt-get install --assume-yes apache2-utils
-  - npm install -g npm@2.13.5
   - npm install -g grunt-cli
   - npm config set strict-ssl false
 install: npm install
@@ -16,4 +15,4 @@ env:
   - MONGODB_VERSION=2.4
   - MONGODB_VERSION=3.2
 script:
-  - npm test
+  - grunt
