@@ -4,7 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [8.2.3] - Tue Jun 14, 2018
+### Changed
+- Upgrade fh-db version from `3.3.0` to `3.3.1`
 - Update CI process to use supported versions
 
 ## [8.2.2] - Tue May 1, 2018
