@@ -3576,8 +3576,8 @@
       }
     },
     "fh-sync": {
-      "version": "1.0.14",
-      "resolved": "https://registry.npmjs.org/fh-sync/-/fh-sync-1.0.14.tgz",
+      "version": "1.0.15",
+      "resolved": "https://registry.npmjs.org/fh-sync/-/fh-sync-1.0.15.tgz",
       "integrity": "sha1-UVsXAWSRd01Gt4yusIyTePsALao=",
       "requires": {
         "async": "2.1.5",
