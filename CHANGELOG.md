@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [8.2.4] - Thu Jul 26, 2018
+### Changed
+- Upgrade fh-sync version from `1.0.14` to `1.0.15` to resolve an issue where the message was not being returned to the client from the collision handler
+
 ## [8.2.3] - Tue Jun 14, 2018
 ### Changed
 - Upgrade fh-db version from `3.3.0` to `3.3.1`
