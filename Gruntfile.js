@@ -55,5 +55,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-fh-build');
-  grunt.registerTask('default', ['fh:default']);
+  //do not run fh:integrate as there are no integration tests to run, and the task will cause the build to fail due to warning on node8+
+  grunt.registerTask('default', ['eslint', 'fh:unit', 'fh:dist']);
 };

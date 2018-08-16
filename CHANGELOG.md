@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [9.0.0] - Thu Aug 16, 2018
+### Changed
+- Drop support for Node4
+
 ## [8.2.4] - Thu Jul 26, 2018
 ### Changed
 - Upgrade fh-sync version from `1.0.14` to `1.0.15` to resolve an issue where the message was not being returned to the client from the collision handler
