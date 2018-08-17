@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-api",
-  "version": "8.2.4",
+  "version": "9.0.0",
   "description": "FeedHenry MBAAS Cloud APIs",
   "main": "lib/api.js",
   "dependencies": {
@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "clear-require": "1.0.1",
+    "clear-require": "2.0.0",
     "express": "3.3.4",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
@@ -47,7 +47,7 @@
     "posttest": "./scripts/posttest.sh"
   },
   "engines": {
-    "node": "4.4"
+    "node": ">=6"
   },
   "license": "Apache-2.0",
   "repository": {
