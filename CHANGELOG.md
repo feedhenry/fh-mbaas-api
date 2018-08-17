@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [9.0.0] - Thu Aug 16, 2018
 ### Changed
-- Drop support for Node4
+- Removed support for Node4
+- Added support for Node8 and Node10
 
 ## [8.2.4] - Thu Jul 26, 2018
 ### Changed
