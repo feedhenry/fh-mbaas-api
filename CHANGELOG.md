@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+# [9.1.0] - Wed Sep 19, 2018
+### Changed
+- Upgraded `fh-mbaas-express` to `6.1.0` for updated caching of service calls.
+
 ## [9.0.0] - Thu Aug 16, 2018
 ### Changed
 - Removed support for Node4
