@@ -17,7 +17,7 @@
     "mongodb-uri": "0.9.7",
     "optval": "1.0.1",
     "redis": "^2.6.5",
-    "request": "2.83.0",
+    "request": "2.88.0",
     "underscore": "1.7.0",
     "unifiedpush-node-sender": "0.16.0",
     "xtend": "4.0.1"
