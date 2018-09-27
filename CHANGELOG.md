@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Change
 - Upgrade unifiedpush-node-sender dependency to 0.16.0
 - Upgrade request dependency to 2.88.0
+- Upgrade fh-mbaas-express to 6.1.1
 
 ## [9.1.0] - Wed Sep 19, 2018
 ### Changed
