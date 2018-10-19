@@ -4,12 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-
-## [9.1.2] - Thu Set 26, 2018
+## [9.1.3] - Fri Oct 19, 2018
 ### Change
-- Upgrade the redis lib to 2.8.0 ( Menor version )
+- Upgrade fh-db to 3.3.2 ( Patch version ). Adds funtionality to fix JavaScript Dates getting overwritten as Strings when saved in the databrowser. Dates need to be saved as 
+`
+{
+   $fhdate: "2018-10-10T11:54:12.366Z"
+}
+`
+. The SERIALISE_FH_DATES env var can be set on the studio to return JavaScript Dates from fh-db in this format now.
 
-## [9.1.1] - Thu Set 26, 2018
+## [9.1.2] - Thu Sept 26, 2018
+### Change
+- Upgrade the redis lib to 2.8.0 ( Minor version )
+
+## [9.1.1] - Thu Sept 26, 2018
 ### Change
 - Upgrade unifiedpush-node-sender dependency to 0.16.0
 - Upgrade request dependency to 2.88.0
