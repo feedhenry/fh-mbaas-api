@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [9.1.4] - Thurs Nov 1, 2018
+### Change
+- Upgrade fh-mbaas-express to 6.1.2 ( Patch version ). console.debug is not available in nodejs 6.x
+
 ## [9.1.3] - Fri Oct 19, 2018
 ### Change
 - Upgrade fh-db to 3.3.2 ( Patch version ). Adds funtionality to fix JavaScript Dates getting overwritten as Strings when saved in the databrowser. Dates need to be saved as 
