@@ -19,7 +19,7 @@
     "redis": "2.8.0",
     "request": "2.88.0",
     "underscore": "1.7.0",
-    "unifiedpush-node-sender": "0.16.0",
+    "unifiedpush-node-sender": "0.12.1",
     "xtend": "4.0.1"
   },
   "devDependencies": {
