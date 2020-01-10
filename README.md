@@ -27,6 +27,9 @@ For custom apps, add the module via npm by running the following for the root of
 npm install --save fh-mbaas-api
 ```
 
+> NOTE: Original package is in mantenance mode. For latest updates please use
+`fh-mbaas-api-community`
+
 This will install the latest version of fh-mbaas-api and save the installed version in your package.json
 
 ## Documentation

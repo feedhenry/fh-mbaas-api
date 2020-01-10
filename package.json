@@ -1,5 +1,5 @@
 {
-  "name": "fh-mbaas-api",
+  "name": "fh-mbaas-api-community",
   "version": "9.1.5",
   "description": "FeedHenry MBAAS Cloud APIs",
   "main": "lib/api.js",
@@ -11,7 +11,7 @@
     "fh-mbaas-express": "6.1.2",
     "fh-security": "0.4.0",
     "fh-statsc": "1.0.0",
-    "fh-sync": "2.0.1",
+    "fh-sync": "2.1.0",
     "lodash-contrib": "^393.0.1",
     "memcached": "^2.0.0",
     "mongodb-uri": "0.9.7",
